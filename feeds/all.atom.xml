@@ -1,62 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>solaire-off.github.io</title><link href="https://solaire-off.github.io/" rel="alternate"></link><link href="https://solaire-off.github.io/feeds/all.atom.xml" rel="self"></link><id>https://solaire-off.github.io/</id><updated>2017-11-15T10:26:00+03:00</updated><entry><title>Новое начало</title><link href="https://solaire-off.github.io/articles/2017/11/sun-post/" rel="alternate"></link><published>2017-11-15T10:26:00+03:00</published><updated>2017-11-15T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-11-15:/articles/2017/11/sun-post/</id><summary type="html">&lt;p&gt;Повседневная практика показывает, что сложившаяся структура организации позволяет оценить значение дальнейших направлений развитая системы массового участия. С другой стороны социально-экономическое развитие обеспечивает широкому кругу специалистов участие в формировании форм воздействия. Значимость этих проблем настолько очевидна, что реализация намеченного плана развития обеспечивает актуальность модели развития.&lt;/p&gt;
-&lt;h2&gt;Заголовок&lt;/h2&gt;
-&lt;p&gt;С другой стороны выбранный нами …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Повседневная практика показывает, что сложившаяся структура организации позволяет оценить значение дальнейших направлений развитая системы массового участия. С другой стороны социально-экономическое развитие обеспечивает широкому кругу специалистов участие в формировании форм воздействия. Значимость этих проблем настолько очевидна, что реализация намеченного плана развития обеспечивает актуальность модели развития.&lt;/p&gt;
-&lt;h2&gt;Заголовок&lt;/h2&gt;
-&lt;p&gt;С другой стороны выбранный нами инновационный путь обеспечивает актуальность дальнейших направлений развития проекта. Не следует, однако, забывать о том, что рамки и место обучения кадров играет важную роль в формировании ключевых компонентов планируемого обновления. Практический опыт показывает, что повышение уровня гражданского сознания представляет собой интересный эксперимент проверки всесторонне сбалансированных нововведений?&lt;/p&gt;
-&lt;h3&gt;Список&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>solaire-off.github.io</title><link href="https://solaire-off.github.io/" rel="alternate"></link><link href="https://solaire-off.github.io/feeds/all.atom.xml" rel="self"></link><id>https://solaire-off.github.io/</id><updated>2017-12-02T10:26:00+03:00</updated><entry><title>Забытое искусство посещенных ссылок</title><link href="https://solaire-off.github.io/articles/2017/12/the-lost-art-of-visited-links/" rel="alternate"></link><published>2017-12-02T10:26:00+03:00</published><updated>2017-12-02T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-12-02:/articles/2017/12/the-lost-art-of-visited-links/</id><summary type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br&gt;
+Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;С высокой вероятностью вы посещали &lt;a href="https://www.google.com"&gt;эту страницу&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту страницу&lt;/a&gt;,
+может были &lt;a href="https://news.ycombinator.com/"&gt;на этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
+уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были на &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Справедливости ради, я могу лишь &lt;em&gt;догадываться …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br&gt;
+Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;С высокой вероятностью вы посещали &lt;a href="https://www.google.com"&gt;эту страницу&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту страницу&lt;/a&gt;,
+может были &lt;a href="https://news.ycombinator.com/"&gt;на этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
+уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были на &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Справедливости ради, я могу лишь &lt;em&gt;догадываться&lt;/em&gt;. Хотя вы точно можете сказать, на каких страницах уже были,
+даже не переходя и не наводя курсор ни на одну из этих ссылок, ведь мой сайт изменяет цвет 
+&lt;strong&gt;посещенных&lt;/strong&gt; ссылок.&lt;/p&gt;
+&lt;h2 id="timelord"&gt;Путешествие во времени&lt;/h2&gt;
+&lt;p&gt;Навигация в интернете в основном &lt;strong&gt;двумерна&lt;/strong&gt;: вы либо &lt;em&gt;прокручиваете&lt;/em&gt;  (y-index),&lt;br&gt;
+либо &lt;em&gt;щелкаете&lt;/em&gt; (z-index).&lt;/p&gt;
+&lt;p&gt;Цвет ссылок обеспечивает третье измерение: &lt;strong&gt;время&lt;/strong&gt;.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Соображения высшего порядка&lt;/li&gt;
-&lt;li&gt;Сложившаяся структура организации &lt;/li&gt;
-&lt;li&gt;Системный анализ форм воздействия&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Фиолетовые ссылки из &lt;strong&gt;прошлого&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Синие ссылки кандидаты в &lt;strong&gt;настоящее&lt;/strong&gt; или &lt;strong&gt;будущее&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Код&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def fizzbuzz(n):
-
-    if n % 3 == 0 and n % 5 == 0:
-        return &amp;#39;FizzBuzz&amp;#39;
-    elif n % 3 == 0:
-        return &amp;#39;Fizz&amp;#39;
-    elif n % 5 == 0:
-        return &amp;#39;Buzz&amp;#39;
-    else:
-        return str(n)
-
-print &amp;quot;\n&amp;quot;.join(fizzbuzz(n) for n in xrange(1, 21))
+&lt;p&gt;В зависимости от того, что вы ищете, посещенные ссылки могут вызывать
+две разные реакции:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;«О, да, это тот сайт, который я искал! Я уже был там.»&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;«Я уже был на этой странице, попробую следующею.»&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="checklist"&gt;Ссылки как чеклист&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Агрегаторы ссылок&lt;/strong&gt;, такие как &lt;a href="https://www.reddit.com/"&gt;Reddit&lt;/a&gt; или
+&lt;a href="https://news.ycombinator.com/"&gt;Hacker News&lt;/a&gt;, остаются одними из немногих
+ресурсов, которые по-прежнему разграничивают посещенные ссылки от «новых».&lt;/p&gt;
+&lt;p&gt;Как правило, поисковая выдача Google поступает также. &lt;/p&gt;
+&lt;p&gt;Фиолетовые ссылки имеют роль &lt;strong&gt;выполненных зачач&lt;/strong&gt; потому что:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Вы не хотите переходить на одну и туже страницу &lt;strong&gt;дважды&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Вы хотите &lt;strong&gt;найти&lt;/strong&gt; список ссылок, которые вы посетили.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Различие в цвете дает информацию о состоянии ссылок.&lt;/p&gt;
+&lt;h2 id="yuck"&gt;Фиолетовые ссылки? Фу!&lt;/h2&gt;
+&lt;p&gt;Но почему посещенные ссылки так редко встречаются? Потому что дизайнеры
+(как я) &lt;strong&gt;ленятся&lt;/strong&gt; и &lt;strong&gt;придираются&lt;/strong&gt; к каждой мелочи.&lt;/p&gt;
+&lt;p&gt;Вы хотите, чтобы по завершению макета (утвержденного вами или вашим
+заказчиком) сверстанная страница на самом деле совпадала с макетом. Вам
+не хочется, чтобы действия пользователя &lt;strong&gt;повлияли&lt;/strong&gt; на ваш идеально
+сбалансированный дизайн, не так ли?&lt;/p&gt;
+&lt;p&gt;Если бы вы профессионально делали дизайн кнопки X, то вы бы
+проработали множество состояний (default, hover, clicked, focused,
+disabled), но вряд ли бы вы вспомнили про visited.&lt;/p&gt;
+&lt;p&gt;Одно из первый CSS правил, которое пишет любой дизайнер:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;anythingButBlue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h5&gt;Цитата&lt;/h5&gt;
+&lt;p&gt;Такое правило повлияет на &lt;strong&gt;все&lt;/strong&gt; ссылки в любом состоянии: hover, active,
+focus и visited, подобно сбросу цвета. Вы устанавливаете его и
+забываете. Вы можете использовать псевдокласс &lt;code&gt;:link&lt;/code&gt;, но никто об
+этом не узнает. Кроме того вы в любом случае забыли установить &lt;code&gt;:visited&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Веб-страница - это живой документ: вы прорабатывайте различные состояния
+интерфейса в зависимости от  размера экрана, пользовательского окружения и
+действий пользователя.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Игнорирование цвета посещенных ссылок походит на заботу о кросс-браузерности: полагают, что практика использования каждого пользователя должна быть строго идентичной.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="privacy"&gt;Вопрос конфиденциальности&lt;/h2&gt;
+&lt;p&gt;Несколько лет назад кто-то провел эксперимент: создав веб-сайт, показывающий 1000 наиболее посещаемых ссылок. В теории веб-сайт может "украсть" вашу историю браузера, вычислив цвет каждой ссылки.&lt;/p&gt;
+&lt;p&gt;Но в настоящее время Firefox предотвратил такое поведение:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Соображения высшего порядка, а также сложившаяся структура организации требует от нас системного анализа форм воздействия.&lt;/p&gt;
-&lt;/blockquote&gt;</content><category term="css"></category></entry><entry><title>Тестовая заметка</title><link href="https://solaire-off.github.io/articles/2017/11/example-post/" rel="alternate"></link><published>2017-11-12T10:26:00+03:00</published><updated>2017-11-12T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-11-12:/articles/2017/11/example-post/</id><summary type="html">&lt;p&gt;Повседневная практика показывает, что сложившаяся структура организации позволяет оценить значение дальнейших направлений развитая системы массового участия. С другой стороны социально-экономическое развитие обеспечивает широкому кругу специалистов участие в формировании форм воздействия. Значимость этих проблем настолько очевидна, что реализация намеченного плана развития обеспечивает актуальность модели развития.&lt;/p&gt;
-&lt;h2&gt;Заголовок&lt;/h2&gt;
-&lt;p&gt;С другой стороны выбранный нами …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Повседневная практика показывает, что сложившаяся структура организации позволяет оценить значение дальнейших направлений развитая системы массового участия. С другой стороны социально-экономическое развитие обеспечивает широкому кругу специалистов участие в формировании форм воздействия. Значимость этих проблем настолько очевидна, что реализация намеченного плана развития обеспечивает актуальность модели развития.&lt;/p&gt;
-&lt;h2&gt;Заголовок&lt;/h2&gt;
-&lt;p&gt;С другой стороны выбранный нами инновационный путь обеспечивает актуальность дальнейших направлений развития проекта. Не следует, однако, забывать о том, что рамки и место обучения кадров играет важную роль в формировании ключевых компонентов планируемого обновления. Практический опыт показывает, что повышение уровня гражданского сознания представляет собой интересный эксперимент проверки всесторонне сбалансированных нововведений?&lt;/p&gt;
-&lt;h3&gt;Список&lt;/h3&gt;
+&lt;p&gt;Даже если цвет посещенной ссылки был изменен, метод getComputedStyle всегда будет отдавать значение непосещенной ссылки.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Как результат, стилизация посещенных ссылок весьма ограничена:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Соображения высшего порядка&lt;/li&gt;
-&lt;li&gt;Сложившаяся структура организации &lt;/li&gt;
-&lt;li&gt;Системный анализ форм воздействия&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Посещенные ссылки конфиденциальны. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Вы можете изменить лишь цвет посещенных ссылок.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Код&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def fizzbuzz(n):
-
-    if n % 3 == 0 and n % 5 == 0:
-        return &amp;#39;FizzBuzz&amp;#39;
-    elif n % 3 == 0:
-        return &amp;#39;Fizz&amp;#39;
-    elif n % 5 == 0:
-        return &amp;#39;Buzz&amp;#39;
-    else:
-        return str(n)
-
-print &amp;quot;\n&amp;quot;.join(fizzbuzz(n) for n in xrange(1, 21))
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h5&gt;Цитата&lt;/h5&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Соображения высшего порядка, а также сложившаяся структура организации требует от нас системного анализа форм воздействия.&lt;/p&gt;
-&lt;/blockquote&gt;</content><category term="java script"></category></entry></feed>
+&lt;h2 id="exception"&gt;Не все ссылки одинаковы&lt;/h2&gt;
+&lt;p&gt;Большинство ссылок не требуют изменения цвета:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ссылки &lt;strong&gt;навигации&lt;/strong&gt; (домашняя страница, учетная запись, настройки).&lt;/li&gt;
+&lt;li&gt;Интерактивные элементы &lt;strong&gt;интерфейса&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Как решить, какие ссылки должны изменять цвет при посещении?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Внешние ссылки&lt;/strong&gt;, поскольку они выполняют роль упоминаний (поэтому
+    агрегаторы меняют цвет посещенных ссылок)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ссылки на статьи&lt;/strong&gt; или любые страницы, содержание которых не
+    изменяется с течением времени.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Чтобы стало понятно, скажем читаете вы &lt;a href="https://www.theguardian.com"&gt;The
+Guardian&lt;/a&gt;. Главная страница &lt;strong&gt;обновляется&lt;/strong&gt; каждые несколько минут. Вам как пользователю не нужно знать, бывали ли вы здесь, потому то:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Возможно вы уже находитесь на этой странице &lt;strong&gt;сейчас&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Возможно вы вернетесь сюда &lt;strong&gt;снова&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Однако, вам бы хотелось знать, какие статьи вы уже читали, потому что их
+содержание &lt;strong&gt;скорее всего&lt;/strong&gt; не изменится в следующий раз, когда вы будете здесь.&lt;/p&gt;
+&lt;p&gt;Так, прежде чем перейти к статье, вы узнаете, видели ли её, что в зависимости от &lt;strong&gt;намеренья&lt;/strong&gt; определит ваше &lt;strong&gt;действие&lt;/strong&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Намерение&lt;/th&gt;
+&lt;th&gt;Непосещенная ссылка&lt;/th&gt;
+&lt;th&gt;Посещенная ссылка&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Я хочу это увидеть&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;"Новая статья!"&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;"Я искал эту статью"&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Я не хочу это видеть&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;"Это не выглядит интересно"&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;"Я видел это раньше, не интересно"&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;В следующий раз, когда вы создаете сайт, подумайте о &lt;code&gt;:visited&lt;/code&gt;!&lt;br&gt;
+Пользователи скажут вам спасибо.&lt;/p&gt;</content><category term="css"></category></entry></feed>
