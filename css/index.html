@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/theme/css/style.css">
 
   <link type="text/plain" rel="author" href="/humans.txt" />
-  <title>Виктор Ананьев / Заметки { css }</title>
+  <title>Виктор Ананьев / Заметки ~ css</title>
 
 
   <link href="https://solaire-off.github.io/feeds/feed.rss" type="application/atom+xml" rel="alternate" title="solaire-off.github.io RSS Feed" />
@@ -28,16 +28,167 @@
         <div class="columns is-desktop">
           <div class="column is-9-desktop">
             <article>
+              <h2 class="title is-2">В CSS используйте px, а не em</h2>
+              <div class="subtitle">
+                <span class="subtitle__date"> 13-12-2017</span> //
+                <a class="is-visited" href="/articles/2017/12/in-css-use-px-not-em/">Ссылка</a>
+              </div>
+
+              <div class="content is-medium">
+                <p>Автор: <a href="https://twitter.com/jgthms">Jeremy Thomas</a><br />
+Оригинал статьи: <a href="http://jgthms.com/in-css-use-pixels-not-em.html">In CSS: use pixels, not em</a></p>
+<hr />
+<p>В CSS используются различные <a href="http://marksheet.io/css-size-units.html">единицы измерения</a>:</p>
+<ul>
+<li><code>px</code> пиксели</li>
+<li><code>%</code> проценты</li>
+<li><code>em</code>  размер шрифта родительского элемента</li>
+<li><code>rem</code> размер шрифта корневого элемента</li>
+<li>безымянное значение (например для <code>line-height</code>)</li>
+</ul>
+<p>Наиболее естественной единицей измерения является пиксель, особенно для объявления высоты и ширины, так как это <strong>абсолютная</strong> единица измерения.</p>
+<p>Но <strong>относительные</strong> единицы измерения, например <code>em</code>, имеют свои преимущества.</p>
+<h2 id="em">Как работает em</h2>
+<p><code>em</code> эквивалент  <em>текущего</em>  значения <code>font-size</code>. Так, если ваш элемент имеет <code>font-size: 12px</code>, <code>1em</code> равен <code>12px</code>.</p>
+<p>С помощью объявления <code>font-size</code>, вы можете использовать <code>em</code> для определения <em>относительных</em> значений <em>различных</em> свойств:</p>
+<ul>
+<li><code>margin</code></li>
+<li><code>padding</code></li>
+<li><code>height</code></li>
+<li><code>width</code></li>
+<li>и т.д.</li>
+</ul>
+<p><code>rem</code> работает точно так же как <code>em</code>. Единственное отличие состоит в том, что <code>em</code> считает значение относительно <code>font-size</code>  <em>родительского</em> элемента, а <code>rem</code> считает <code>font-size</code> относительно  <em>корневого</em> элемента, то есть <code>&lt;html&gt;</code>.</p>
+<p>C помощью изменения <em>единственного</em> значения <code>font-size</code>, вы можете изменять другие свойства:</p>
+<pre><code>.button {
+  font-size: 16px;
+  padding: 0.75em 1em;
+}
+</code></pre>
+
+<figure>
+  <img alt="CSS em size button" src="/images/em-size-button.gif">
+  <br>
+  <figcaption>Пропорциональное изменение размера кнопки с помощью изменения размера шрифта</figcaption>
+</figure>
+
+<p>Таким образом, вы легко можете переопределять размеры кнопки, изменив только <code>font-size</code>:</p>
+<pre><code>.button--small {
+  font-size: 12px;
+}
+
+.button--large {
+  font-size: 20px;
+}
+</code></pre>
+
+<h2 id="px-em">Почему вы должны использовать px, а не em</h2>
+<p>Использование <code>em</code> - весьма <strong>изящный</strong> способ для задания размеров тексту и блокам. Это позволяет сохранять каждый элемент простым и  сбалансированным.</p>
+<p>Я пользовался этим способом раньше. Это было больно. </p>
+<h3 id="_1">Для отчетливости шрифтам необходима точность</h3>
+<p>Предположим, что по умолчанию размер вашего шрифта <code>16px</code>. У вас есть <strong>заголовок</strong> размером <code>2rem</code> и <strong>подзаголовок</strong> размером <code>1.5rem</code>.</p>
+<p>Потрясающе! Ваша визуальная пропорция совпадает со смысловой. Если бы вы изменили размер текста по умолчанию на <code>15px</code>, то сохранили бы эти пропорции.</p>
+<p>Но <strong>не всякий размер текста подойдет каждому шрифту</strong>... Рассмотрим на следующем примере:</p>
+<figure>
+  <img alt="CSS fuzzy text" src="/images/em-fuzzy-text.png">
+  <br>
+  <figcaption>Довольно просто выставить значение в 1.25rem, но оно не будет идеальным</figcaption>
+</figure>
+
+<p>Проблема присутсвтвует даже с большим текстом:</p>
+<figure>
+  <img alt="CSS fuzzy title" src="/images/em-fuzzy-title.png">
+  <br>
+  <figcaption>Различие в 1px имеет значение</figcaption>
+</figure>
+
+<h3 id="_2">Каждому шрифту необходим свой собственный размер</h3>
+<p>Другая прооблема с использованием <code>em</code> возникает, когда вы хотите сменить <strong>семейство шрифтов</strong>, потому что каждый шрифт отрисовывает размеры по-разному:</p>
+<figure>
+  <img alt="CSS Cabin font" src="/images/em-cabin-font.png">
+  <br>
+  <figcaption>12px легче вычислить, но 13px выглядят лучше</figcaption>
+</figure>
+
+<h3 id="_3">Изображением нужны пиксели</h3>
+<p>Если <strong>размеры</strong> изображения установлены в пикселях, и вы хотите точно выровнять окружающий его текст по <em>вертикале</em> , то вы должны использовать <code>padding-top</code> и <code>line-height</code> в пикселях.</p>
+<figure>
+  <img alt="CSS image alignment" src="/images/em-image-alignment.png">
+  <br>
+  <figcaption>C em или rem это потребовало бы хитрых вычислений </figcaption>
+</figure>
+
+<p>(Мое лого не изображение, хоть раньше и было, но в любом случае это не важно)</p>
+<h3 id="_4">Для задания рамки нужны пиксели</h3>
+<p>Представим, что вы хотите, чтобы ваши кнопка и поле ввода были высотой <code>38px</code>. Одинаковая высота позволит расположить элементы друг рядом с другом, например как в <a href="http://v4-alpha.getbootstrap.com/components/input-group/">Bootstrap 4</a>:</p>
+<figure>
+  <img alt="em input button" src="/images/em-input-button.png">
+  <br>
+  <figcaption>Хорошо сгруппированы и выровнены</figcaption>
+</figure>
+
+<p>Как сделать это с помощью <code>rem</code>?</p>
+<pre><code>.form-control {
+    border: .0625rem solid #ccc;
+    border-radius: .25rem;
+    font-size: 1rem;
+    padding: .375rem .75rem;
+  }
+</code></pre>
+
+<p>Все эти вычисления основаны на размере шрифта в <code>16px</code>. Что случиться, если мы изменим значение на <code>15px</code>?</p>
+<figure>
+  <img alt="em input button border gone" src="/images/em-input-button-border-gone.png">
+  <br>
+  <figcaption>Где мои рамки??</figcaption>
+</figure>
+
+<p>Да. Теперь размер рамки установлен в <code>0.9375px</code>, и она просто исчезла, как ей и положено.</p>
+<p>Вы должно быть подумали: <em>"Почему бы не использовтаь тень?"</em> ? Ну, <code>box-shadow</code> не является решением:</p>
+<ul>
+<li>каждый раз, когда вы захотите добавить тень, вам нужно переопределить <em>все</em> остальные значения</li>
+<li>тень не является частью размеров блока</li>
+<li>тень может быть только одного цвета</li>
+<li>необходимо 4 тени, если вы хотите получить рамки 4 разных цветов</li>
+</ul>
+<h3 id="_5">Векторным элементам необходимы пиксели</h3>
+<p>Векторные элементы, например <strong>иконочные шрифты</strong>, для правильной отрисовки требуют точных значений в пикселях.</p>
+<p>Стандартный размер иконок в <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>  <code>28px</code>. Если вам нужны значки поменьше, остановитесь на <code>14px</code>. Любые другие значение выглядят ужасно:</p>
+<figure>
+  <img alt="em Font Awesome" src="/images/em-font-awesome.png">
+  <br>
+  <figcaption>Только кратные 7</figcaption>
+</figure>
+
+<h3 id="_6">Теперь браузеры маштабируют правильно</h3>
+<p>Для увелчения размера страницы, браузеры просто <strong>увеличивают размер шрифта</strong>, делая текст больше, но сохраняя первоначальный размер блоков в пикселях. </p>
+<p>Чтобы пользователи не могли сломать страницу при увеличении, необходима было задать <strong>динамичный</strong> размер блоков в <code>em</code> или <code>rem</code>.</p>
+<p>Но в настоящее время браузеры могут пропорционально увеличивать  <em>любые</em> блоки. В <code>em</code> больше нет необходимости.</p>
+<h2 id="_7">Просо используйте пиксели</h2>
+<p>Если вы хотите правильно отрисованный интерфейс, остановитесь на пикселях:</p>
+<ul>
+<li>вы сможете избежать сложных <strong>вычеслений</strong> до десятитысячных  </li>
+<li>вы сможете точно определять значения свойства, просто взглянув на него, ведь элемент не будет иметь <strong>зависимостей</strong></li>
+<li>в любом случай <strong>препроцессоры</strong>, например Sass, позволяют использовать перменные для задания размеров и миксины для создания различный вариантов элементов</li>
+<li>вы сможете <strong>выравнивать</strong> разные типы элементов, каждый из которых требует <em>свой</em> размер шрифта</li>
+</ul>
+<p>Вы все еще можете использовать <code>em</code> для таких вещей как межсимвольный интервал, отступы, или другие свойства так или иначе связанные с размером шрифта. Но не осталось ни одной причины, которая не устарела или не стала бесполезной, чтобы использовать их <em>везде</em>.</p>
+              </div>
+              <div class="tags">
+                <a href="https://solaire-off.github.io/css/" class="button is-link">css</a>
+              </div>
+            </article>
+            <article>
               <h2 class="title is-2">Забытое искусство посещенных ссылок</h2>
               <div class="subtitle">
-                <span class="subtitle__date"> 02-12-2017</span> //
+                <span class="subtitle__date"> 03-12-2017</span> //
                 <a class="is-visited" href="/articles/2017/12/the-lost-art-of-visited-links/">Ссылка</a>
               </div>
 
               <div class="content is-medium">
-                <p>Автор: <a href="https://twitter.com/jgthms">Jeremy Thomas</a><br>
+                <p>Автор: <a href="https://twitter.com/jgthms">Jeremy Thomas</a><br />
 Оригинал статьи: <a href="http://jgthms.com/the-lost-art-of-visited-links.html">The lost art of visited links</a></p>
-<hr>
+<hr />
 <p>С высокой вероятностью вы посещали <a href="https://www.google.com">эту страницу</a> или вот <a href="https://youtube.com/">эту страницу</a>,
 может были <a href="https://news.ycombinator.com/">на этой</a>, но наверняка не <a href="https://en.wikipedia.org/wiki/Driebruggen">тут</a> и 
 уж точно не <a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited">там</a>, но я точно уверен, что вы были на <a href="/articles/2017/12/the-lost-art-of-visited-links/">здесь</a>.</p>
@@ -45,7 +196,7 @@
 даже не переходя и не наводя курсор ни на одну из этих ссылок, ведь мой сайт изменяет цвет 
 <strong>посещенных</strong> ссылок.</p>
 <h2 id="timelord">Путешествие во времени</h2>
-<p>Навигация в интернете в основном <strong>двумерна</strong>: вы либо <em>прокручиваете</em>  (y-index),<br>
+<p>Навигация в интернете в основном <strong>двумерна</strong>: вы либо <em>прокручиваете</em>  (y-index),<br />
 либо <em>щелкаете</em> (z-index).</p>
 <p>Цвет ссылок обеспечивает третье измерение: <strong>время</strong>.</p>
 <ul>
@@ -88,12 +239,10 @@
 проработали множество состояний (default, hover, clicked, focused,
 disabled), но вряд ли бы вы вспомнили про visited.</p>
 <p>Одно из первый CSS правил, которое пишет любой дизайнер:</p>
-<div class="highlight"><pre><span></span><span class="nt">a</span><span class="p">{</span>
-    <span class="k">color</span><span class="p">:</span> <span class="err">$</span><span class="n">anythingButBlue</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-
+<pre><code>a{
+    color: $anythingButBlue;
+}
+</code></pre>
 <p>Такое правило повлияет на <strong>все</strong> ссылки в любом состоянии: hover, active,
 focus и visited, подобно сбросу цвета. Вы устанавливаете его и
 забываете. Вы можете использовать псевдокласс <code>:link</code>, но никто об
@@ -160,7 +309,7 @@ Guardian</a>. Главная страница <strong>обновляется</st
 </tr>
 </tbody>
 </table>
-<p>В следующий раз, когда вы создаете сайт, подумайте о <code>:visited</code>!<br>
+<p>В следующий раз, когда вы создаете сайт, подумайте о <code>:visited</code>!<br />
 Пользователи скажут вам спасибо.</p>
               </div>
               <div class="tags">
@@ -185,7 +334,7 @@ Guardian</a>. Главная страница <strong>обновляется</st
           	<div class="content is-medium">
             <h4 class="arrow">Метки</h4>
             <ul>
-              <li><a href="/feeds/tags/css-feed.rss"><i class="fa fa-rss-square" aria-hidden="true"></i></a> <a href="/css/">css</a></li>
+              <li><a href="/feeds/tags/css_feed.rss"><i class="fa fa-rss-square" aria-hidden="true"></i></a> <a href="/css/">css</a></li>
             </ul>
         	</div>
           </div>        </div>

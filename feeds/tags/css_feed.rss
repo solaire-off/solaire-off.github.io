@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>solaire-off.github.io</title><link href="https://solaire-off.github.io/" rel="alternate"></link><link href="https://solaire-off.github.io/feeds/all.atom.xml" rel="self"></link><id>https://solaire-off.github.io/</id><updated>2017-12-13T12:00:00+03:00</updated><entry><title>В CSS используйте px, а не em</title><link href="https://solaire-off.github.io/articles/2017/12/in-css-use-px-not-em/" rel="alternate"></link><published>2017-12-13T12:00:00+03:00</published><updated>2017-12-13T12:00:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-12-13:/articles/2017/12/in-css-use-px-not-em/</id><summary type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
-Оригинал статьи: &lt;a href="http://jgthms.com/in-css-use-pixels-not-em.html"&gt;In CSS: use pixels, not em&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;В CSS используются различные &lt;a href="http://marksheet.io/css-size-units.html"&gt;единицы измерения&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;px&lt;/code&gt; пиксели&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;%&lt;/code&gt; проценты&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;em&lt;/code&gt;  размер шрифта родительского элемента&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rem&lt;/code&gt; размер шрифта корневого элемента&lt;/li&gt;
-&lt;li&gt;безымянное значение (например для &lt;code&gt;line-height&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Наиболее естественной единицей измерения является пиксель, особенно для объявления высоты и ширины, так как это …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
+<rss version="2.0"><channel><title>solaire-off.github.io - css</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Wed, 13 Dec 2017 12:00:00 +0300</lastBuildDate><item><title>В CSS используйте px, а не em</title><link>https://solaire-off.github.io/articles/2017/12/in-css-use-px-not-em/</link><description>&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
 Оригинал статьи: &lt;a href="http://jgthms.com/in-css-use-pixels-not-em.html"&gt;In CSS: use pixels, not em&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;В CSS используются различные &lt;a href="http://marksheet.io/css-size-units.html"&gt;единицы измерения&lt;/a&gt;:&lt;/p&gt;
@@ -147,13 +136,7 @@
 &lt;li&gt;в любом случай &lt;strong&gt;препроцессоры&lt;/strong&gt;, например Sass, позволяют использовать перменные для задания размеров и миксины для создания различный вариантов элементов&lt;/li&gt;
 &lt;li&gt;вы сможете &lt;strong&gt;выравнивать&lt;/strong&gt; разные типы элементов, каждый из которых требует &lt;em&gt;свой&lt;/em&gt; размер шрифта&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Вы все еще можете использовать &lt;code&gt;em&lt;/code&gt; для таких вещей как межсимвольный интервал, отступы, или другие свойства так или иначе связанные с размером шрифта. Но не осталось ни одной причины, которая не устарела или не стала бесполезной, чтобы использовать их &lt;em&gt;везде&lt;/em&gt;.&lt;/p&gt;</content><category term="css"></category></entry><entry><title>Забытое искусство посещенных ссылок</title><link href="https://solaire-off.github.io/articles/2017/12/the-lost-art-of-visited-links/" rel="alternate"></link><published>2017-12-03T10:26:00+03:00</published><updated>2017-12-03T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-12-03:/articles/2017/12/the-lost-art-of-visited-links/</id><summary type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
-Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;С высокой вероятностью вы посещали &lt;a href="https://www.google.com"&gt;эту страницу&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту страницу&lt;/a&gt;,
-может были &lt;a href="https://news.ycombinator.com/"&gt;на этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
-уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были на &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Справедливости ради, я могу лишь &lt;em&gt;догадываться …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;Вы все еще можете использовать &lt;code&gt;em&lt;/code&gt; для таких вещей как межсимвольный интервал, отступы, или другие свойства так или иначе связанные с размером шрифта. Но не осталось ни одной причины, которая не устарела или не стала бесполезной, чтобы использовать их &lt;em&gt;везде&lt;/em&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Wed, 13 Dec 2017 12:00:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2017-12-13:/articles/2017/12/in-css-use-px-not-em/</guid><category>css</category></item><item><title>Забытое искусство посещенных ссылок</title><link>https://solaire-off.github.io/articles/2017/12/the-lost-art-of-visited-links/</link><description>&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
 Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;С высокой вероятностью вы посещали &lt;a href="https://www.google.com"&gt;эту страницу&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту страницу&lt;/a&gt;,
@@ -277,4 +260,4 @@ Guardian&lt;/a&gt;. Главная страница &lt;strong&gt;обновля
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;В следующий раз, когда вы создаете сайт, подумайте о &lt;code&gt;:visited&lt;/code&gt;!&lt;br /&gt;
-Пользователи скажут вам спасибо.&lt;/p&gt;</content><category term="css"></category></entry></feed>
+Пользователи скажут вам спасибо.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Sun, 03 Dec 2017 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2017-12-03:/articles/2017/12/the-lost-art-of-visited-links/</guid><category>css</category></item></channel></rss>

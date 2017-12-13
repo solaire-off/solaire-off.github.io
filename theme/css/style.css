@@ -173,3 +173,21 @@ a.link-disable{
 #posts .column.is-9-desktop .content a:visited, .is-visited:visited{
   color: #663366;
 }
+#posts .column.is-9-desktop .content a:visited:hover, .is-visited:visited:hover,
+#posts .column.is-9-desktop .content a:visited:focus, .is-visited:visited:focus{
+  color: #91170a;
+}
+code{
+  color: brown;
+  padding: 0.05em 0.3em;
+}
+.content figure{
+  padding: 10px 0;
+}
+.content figure figcaption{
+  margin-top: 10px
+}
+.content .hljs {
+    padding: 0 ;
+    background: transparent;
+}
