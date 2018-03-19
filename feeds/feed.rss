@@ -1,11 +1,540 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>solaire-off.github.io</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Wed, 13 Dec 2017 12:00:00 +0300</lastBuildDate><item><title>В CSS используйте px, а не em</title><link>https://solaire-off.github.io/articles/2017/12/in-css-use-px-not-em/</link><description>&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
+<rss version="2.0"><channel><title>solaire-off.github.io</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Thu, 15 Mar 2018 10:26:00 +0300</lastBuildDate><item><title>Базовая настройка Tmux</title><link>https://solaire-off.github.io/articles/2018/03/base-tmux-settings/</link><description>&lt;p&gt;Для запуска Tmux необходимо набрать в терминале &lt;code&gt;tmux&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Команды в Tmux всегда начинаются с префикса.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;== Терминалы ==
+вертикальный сплит                 prefix + %
+горизонтальный сплит               prefix + "
+удаление терминала                 prefix + d
+
+== Навигация == 
+вверх                              prefix + &amp;#8593;
+вниз                               prefix + &amp;#8595;
+влево                              prefix + &amp;#8592;
+вправо                             prefix + &amp;#8594;
+
+== Изменнеие размеров == 
+вверх                              prefix + Shift + &amp;#8593;
+вниз                               prefix + Shift + &amp;#8595;
+влево                              prefix + Shift + &amp;#8592; 
+вправо                             prefix + Shift + &amp;#8594;
+
+
+== Окна ==
+создать окно                       prefix + c
+переименовать окно                 prefix + ,
+перейти к следующему окнку         prefix + n
+перекрлючение к окну по номеру     prefix + номер
+удаление окна                      prefix + &amp;
+
+
+== Сессии == 
+список сессей                      prefix + s
+выход из сессии                    prefix + x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Для возврата к предыдущей сессии используется команда &lt;code&gt;tmux attach&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;По умолчанию &lt;code&gt;prefix&lt;/code&gt; &amp;mdash; это сочетание клавиш &lt;code&gt;Control + B&lt;/code&gt;. Не самый удобный сочетание для частого использования, к тому уже является хоткеем для пользователей Emacs.&lt;/p&gt;
+&lt;p&gt;Для пользователей Vim советую использовать &lt;code&gt;Control + Space&lt;/code&gt;, всем остальным в качестве префикса подойдет &lt;code&gt;Control + A&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Для настройки Tmux в корневом каталоге создается и редактируется файл  &lt;code&gt;.tmux.conf&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Установка префикса. &lt;/p&gt;
+&lt;pre&gt;&lt;code class="bash"&gt;set -g prefix C-Space
+bind C-Space send-prefix
+unbind C-b
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Установка навигации по  hjkl.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="bash"&gt;bind h select-pane -L 
+bind j select-pane -D 
+bind k select-pane -U 
+bind l select-pane -R
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Настройка этих же клавиши для регулирования размера терминала.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bind -r H resize-pane -L 2
+bind -r J resize-pane -D 2
+bind -r K resize-pane -U 2
+bind -r L resize-pane -R 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Настройка количество строк истории, который Tmux будет хранить для истории.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g history-limit 20000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Разрешение на использование мыши.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;setw -g mouse on
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Нумерации окон с 1 вместо 0.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g base-index 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Отключение автоматического переименования окна при переходе по терминалам.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set-option -g allow-rename off
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Макрос на создание имени при открытие нового окна. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bind-key c command-prompt -p &amp;quot;window name:&amp;quot; &amp;quot;new-window; rename-window '%%'&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Настройка размеров и цвета статус бара.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g status-bg black
+set -g status-fg white
+set -g window-status-current-fg black
+set -g window-status-current-attr bold
+set -g status-interval 60
+set -g status-left-length 30
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Отображение имени пользователя и текущего времени в статус баре.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g status-left ' #[fg=white]#(whoami) '
+set -g status-right '#[fg=white]%H:%M#[default]'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Итоговый конфиг.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g prefix C-space
+bind C-space send-prefix
+unbind C-b
+
+bind h select-pane -L 
+bind j select-pane -D 
+bind k select-pane -U 
+bind l select-pane -R
+
+bind -r H resize-pane -L 2
+bind -r J resize-pane -D 2
+bind -r K resize-pane -U 2
+bind -r L resize-pane -R 2
+
+
+set -g history-limit 20000
+
+setw -g mouse on
+
+
+set -g base-index 1
+set-option -g allow-rename off
+
+bind-key c command-prompt -p &amp;quot;window name:&amp;quot; &amp;quot;new-window; rename-window '%%'&amp;quot;
+
+set -g status-bg black
+set -g status-fg white
+set -g window-status-current-fg black
+set -g window-status-current-attr bold
+set -g status-interval 60
+set -g status-left-length 30
+set -g status-left ' #[fg=white]#(whoami) '
+set -g status-right '#[fg=white]%H:%M#[default]'
+&lt;/code&gt;&lt;/pre&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Thu, 15 Mar 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-03-15:/articles/2018/03/base-tmux-settings/</guid><category>tmux</category></item><item><title>Лучший способ смены раскладки VIM</title><link>https://solaire-off.github.io/articles/2018/02/vim-keyboard-layout-switch/</link><description>&lt;p&gt;Первой преградой при переходе на Vim стал вопрос &amp;mdash; как переключить раскладку, чтобы командный режим, воспринимающий хоткеи только на латинице, продолжил свою работу.&lt;/p&gt;
+&lt;p&gt;Эта проблема преследует всех пользователей, чей язык не использует латинский алфавит.&lt;/p&gt;
+&lt;p&gt;Способы решения разнятся от использования плагинов до вмешивания в системные утилиты переключения раскладки. Многие из решений страдают привязкой к определённой ОС и сложностью настройки. &lt;/p&gt;
+&lt;p&gt;Все они они усложняют реализацию функции, которая уже заложена в сам Vim и настраивается двумя строками в &lt;code&gt;vim.rc&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Во-первых переопределяем раскладку клавиатуры:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set keymap=russian-jcukenwin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Теперь переключение раскладки в режиме ввода доступно по стандартной комбинации &lt;code&gt;&amp;lt;C-^&amp;gt;&lt;/code&gt;, что само по себе неудобно, но уже позволяет не терять время на переключении раскладки на латинский вариант после перехода в командный режим.&lt;/p&gt;
+&lt;p&gt;Во-вторых меняем неудобное сочетание &lt;code&gt;&amp;lt;C-^&amp;gt;&lt;/code&gt; на более комфортное &lt;code&gt;&amp;lt;C-L&amp;gt;&lt;/code&gt;. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;imap &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В результате получается простой и кроссплатформенный способ переключения раскладки в режиме ввода, без потери функциональности в командном режиме.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Wed, 14 Feb 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-02-14:/articles/2018/02/vim-keyboard-layout-switch/</guid><category>vim</category></item><item><title>Как развернуть Django приложения при помощи uWSGI и Nginx на Ubuntu 14.04</title><link>https://solaire-off.github.io/articles/2017/12/deploy-django-applications-on-ubuntu-14-04/</link><description>&lt;p&gt;Оригинал статьи: &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04"&gt;How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id="_1"&gt;Введение&lt;/h2&gt;
+&lt;p&gt;Django - мощный веб-фреймворк который может помочь вашему Python приложению или веб-сайту сдвинуться с мертвой точки. Django включает в себя упрощенный сервер для тестирования ваше кода в пределах локальной сети, но для всего остального, например для ввода в эксплуатацию, потребуется куда более безопасный и мощный веб-сервер.&lt;/p&gt;
+&lt;p&gt;В этом руководстве мы продемонстрируем, как установить и настроить некоторые вещи в Ubuntu 14.04 для работы Django приложений. Мы настроим uWSGI в качестве  сервера-контейнера для совместной работы с нашими приложениями. Затем мы настроим Nginx в замен стандартному прокси-серверу в uWSGI, предоставив себе доступ к функциям по улучшению производительности и безопасности для наших приложений.&lt;/p&gt;
+&lt;h2 id="_2"&gt;Предпосылки и цели&lt;/h2&gt;
+&lt;p&gt;Для прохождения этого руководство, у вас должен быть один удаленный сервер на Ubuntu 14.04 с root пользователем и настроенным &lt;code&gt;sudo&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Мы будет устанавливать Django в двух разных виртуальных окружениях. Это позволит вашим проектам и их зависимостям работать раздельно друг от друга. Мы создадим два простых проекта, чтобы мы могли пройти через этапы создания многопроектой среды.&lt;/p&gt;
+&lt;p&gt;Как только у нас появится наше приложение, мы установим и настроим веб-сервер uWSGI. Он будет служить интерфейсом для нашего приложения, который будет транслировать клиентские запросы из HTTP-вызовов в команды Python, с которыми наше приложение сможет работать.&lt;/p&gt;
+&lt;p&gt;Затем мы подключим Nginx к uWSGI, чтобы воспользоваться его  высокопроизводительными механизмами обработки соединений и легко реализуемыми функциями безопасности. &lt;/p&gt;
+&lt;p&gt;Давайте начинать.&lt;/p&gt;
+&lt;h2 id="virtualenv-virtualenvwrapper"&gt;Установка и настройка VirtualEnv и VirtualEnvWrapper&lt;/h2&gt;
+&lt;p&gt;Мы будет устанавливать наши Django проекты в их собственные виртуальные среды, чтобы изолировать их зависимости друг от друга. Для это мы установим virtualenv, который может создавать виртуальное окружение в Python, и virtualenvwrapper для более удобного работы с созданными окружениями. &lt;/p&gt;
+&lt;p&gt;Оба этих компонента мы будем устанавливать с помощью pip - пакетного менеджера в Python. Установить его можно из репозиториев Ubuntu:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install python-pip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В этом руководстве мы будем использовать Python 2 версии. Если вы используете Python 3 версии, вы можете установить python3-pip. Затем, когда операции будут выполняться вне виртуального окружения, вам придется подставлять pip3 вместо pip в каждую команду этого руководства. &lt;/p&gt;
+&lt;p&gt;Теперь когда pip был установлен, мы можем установить virtualenv и virtualenvwrapper глобально, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pip install virtualenv virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Когда все компоненты будут установлены, мы можем настроить нашу оболочку для работы с virtualenvwrapper. Для легкой доступности все наши виртуальные окружения будут размещены в домашней директории в папке Env. Это можно настроить изменив переменную среды - WORKON_HOME.&lt;/p&gt;
+&lt;p&gt;Чтобы не приходилось каждый раз задавать эти переменные при создании виртуального окружения, мы может просто добавить это в наш скрипт инициализации оболочки.&lt;/p&gt;
+&lt;p&gt;Если вы используете Python 3 и pip3, вам также необходимо добавить еще одну строчку в скрипт инициализации среды:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3&amp;quot; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Независимо от того, какую версию Python вы используете, вам нужно запустить следующие команды:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;export WORKON_HOME=~/Env&amp;quot; &amp;gt;&amp;gt; ~/.bashrc
+echo &amp;quot;source /usr/local/bin/virtualenvwrapper.sh&amp;quot; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Теперь примените свой сценарий инициализации оболочки, чтобы вы могли использовать его в текущем сеансе:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;source ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Сейчас у вас в домашней директории должна была появится папка &lt;code&gt;Env&lt;/code&gt;, где будут хранится настройки виртуальной среды.&lt;/p&gt;
+&lt;h2 id="django"&gt;Создание проектов на Django&lt;/h2&gt;
+&lt;p&gt;Теперь, когда у нас есть инструменты управления виртуальной средой, мы создадим два виртуальных окружения, установим в каждом Django и запустим два проекта.&lt;/p&gt;
+&lt;h2 id="_3"&gt;Создание первого проекта&lt;/h2&gt;
+&lt;p&gt;Мы с легкостью можем создать виртуальное окружение при помощи пары команды, которые стали доступны благодаря &lt;code&gt;virtualenvwrapper&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Создайте свое первое виртуальное окружение с названием вашего первого сайта или проекта:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkvirtualenv firstsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Это создаст и активирует виртуальную среду с установленным Python и pip внутри. Чтобы показать, что вы теперь работает в своей новой виртуальной среде, ваша командная строка изменится. Это будет выглядеть примерно так: &lt;code&gt;(firstsite)user@hostname:~$&lt;/code&gt;. Значение в круглых скобках - это имя вашего виртуального окружения. Любые пакеты, установленные через pip, теперь будут установлены не глобально в систему, а внутри виртуального окружения. Это позволяет изолировать зависимости каждого проекта.&lt;/p&gt;
+&lt;p&gt;Нашим первым шагом будет установка Django. Для этого мы можем использовать &lt;code&gt;pip&lt;/code&gt; без &lt;code&gt;sudo&lt;/code&gt;, так как мы устанавливаем его локально в наше виртуальное окружение.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install django
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Когда Django установлен, мы можем создать наш первый пробный проект: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~
+django-admin.py startproject firstsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Это создаст каталог &lt;code&gt;firstsite&lt;/code&gt; в домашней директории. Внутри будет сценарий  по управлению проектом и второй каталог с тем же именем, в котором будет размещаться код проекта.&lt;/p&gt;
+&lt;p&gt;Перейдите в первый каталог, что мы могли начать устанавливать минимальный набор зависимостей для работы тестового проекта: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~/firstsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;С помощью миграции создадим базу данных SQlite, которая будет использоваться в нашем проекте. Если хотите, вы можете настроить другую базу данных для своего приложения, но это выйдет за рамки данного руководства:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py migrate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Сейчас у вас в каталоге проекта должен быть файл базы данных &lt;code&gt;db.sqlite3&lt;/code&gt;. Теперь мы можем создать учетную запись администратора, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py createsuperuser
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Вам необходимо ввести имя пользователя, электронную почту, а затем ввести и подтвердить пароль.&lt;/p&gt;
+&lt;p&gt;После этого откройте файл с настройками проекта при помощи текстового редактора:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nano firstsite/settings.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Так как мы будет использовать Nginx для работы нашего сайта, нам нужно указать каталог, в котором будут храниться статические файлы нашего сайта. Это позволит Nginx работать с ними напрямую, что окажет положительное влияние на производительность. Для их размещения мы укажем Django папку &lt;code&gt;static&lt;/code&gt;  в корневом каталоге нашего проекта.&lt;/p&gt;
+&lt;p&gt;Для этого добавим следующею строку в конец файла: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;STATIC_ROOT = os.path.join(BASE_DIR, &amp;quot;static/&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Когда закончите, сохраните и закройте файл. Сейчас соберем и поместим весь статический контент нашего сайта в этот каталог, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py collectstatic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Чтобы подтвердить действие и собрать статический контент, введите &lt;code&gt;yes&lt;/code&gt;. В каталоге проекта будет создан новый каталог  &lt;code&gt;static&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;После всего этого мы можем проверить наш проект, временно запустив тестовый сервер, набрав: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py runserver 0.0.0.0:8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Это запустит тестовый сервер на 8080 порту. Зайдите на ваш домен или IP-адрес вашего сервера, указав 8080 порт в браузере:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://server_domain_or_IP:8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Вы должны увидеть страницу, которая выглядит примерно так: &lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="page 'IT WORK!'" src="/images/django_uwsgi_nginx_ubuntu-14-04/sample_site.png"&gt;
+  &lt;br&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Добавив &lt;code&gt;/admin&lt;/code&gt; в конец  вашего URL-адреса, вы попадете на страницу входа:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="django login page" src="/images/django_uwsgi_nginx_ubuntu-14-04/admin_login.png"&gt;
+  &lt;br&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Зайдите на сервер, используя данные администратора, которые вы ввели командой &lt;code&gt;createuperuser&lt;/code&gt;. После этого вы получите доступу к интерфейсу администратора:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="django login page" src="/images/django_uwsgi_nginx_ubuntu-14-04/admin_interface.png"&gt;
+  &lt;br&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;После проверки функция остановите тестовый сервер, нажав CTRL-C в своем терминале. Теперь мы можем перейти к нашему второму проекту.&lt;/p&gt;
+&lt;h2 id="_4"&gt;Создание второго проекта&lt;/h2&gt;
+&lt;p&gt;Второй проект будет создан точно так же как и первый. В этом разделе будут краткие объяснениях, так как вы это уже проделывали.&lt;/p&gt;
+&lt;p&gt;Вернитесь в свой домашний каталог и создайте второе виртуальное окружения для вашего нового проекта. После активации нового окружения установите него Django:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~
+mkvirtualenv secondsite
+pip install django
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Новое окружение будет создано и настроено, независимо от предыдущей виртуальной среды. Этот экземпляр Django полностью независим от предыдущего, который вы настроили ранее. Это позволит вам по мере необходимости  самим управлять и настраивать их независимо друг от друга.&lt;/p&gt;
+&lt;p&gt;Создайте второй проект и перейдите в его каталог:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;django-admin.py startproject secondsite
+cd ~/secondsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Подготовим к работе базу данных и создадим администратора: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py migrate
+./manage.py createsuperuser
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Откроем файл с настройками:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nano secondsite/settings.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Как и в предыдущем проекте укажем папку для статических файлов:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;STATIC_ROOT = os.path.join(BASE_DIR, &amp;quot;static/&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Сохраните и закройте файл. Сейчас соберите все статические файлы в заданный каталог, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py collectstatic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В конце запусти тестовый сервер, чтобы проверить сайт:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py runserver 0.0.0.0:8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Вы должны поверить сайт по адресу:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://server_domain_or_IP:8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Также зайдите в панель администратора:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://server_domain_or_IP:8080/admin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Как только проверите, что все работает должным образом, нажмите CTRL-C в своем терминале, чтобы остановить тестовый сервер.&lt;/p&gt;
+&lt;h2 id="_5"&gt;Откат виртуальной среды&lt;/h2&gt;
+&lt;p&gt;Так как мы закончили часть руководства, связанную с Django, мы можем выйти из второй виртуальной среды:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;deactivate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Если вам снова понадобиться работать с любим из ваших сайтов на Django, вы должны повторно активировать соответствующее окружение. Это можно сделать с помощью команды &lt;code&gt;workon&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;workon firstsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Или:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;workon secondsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Как только вы закончите работать над вашим сайтом, снова деактивируйте окружение:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;deactivate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="uwsgi"&gt;Настройка сервера приложений uWSGI&lt;/h2&gt;
+&lt;p&gt;Теперь, когда у нас есть два, установленных и готовых к работе, Django проекта, мы можем настраивать uWSGI. uWSGI - сервер приложений, который может общаться с приложениями по средствам стандартного интерфейса под названием WSGI. Чтобы узнать об этом больше, прочтите &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-uwsgi-and-nginx-to-serve-python-apps-on-ubuntu-14-04#definitions-and-concepts"&gt;этот раздел&lt;/a&gt;  нашего руководства по установке uWSGI и Nginx на Ubuntu 14.04.&lt;/p&gt;
+&lt;h3 id="uwsgi_1"&gt;Установка uWSGI&lt;/h3&gt;
+&lt;p&gt;В отличие от руководства, приведенного выше, в этом уроке мы будет устанавливать uWSGI глобально. Это создаст меньше разногласий в обслуживании нескольких проектов на Django. Прежде чем мы сможем установить uWSGI, нам нужны файлы разработки, которые будут использованы нашим программным обеспечением. Мы можем установить их прямо из репозиториев Ubuntu:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install python-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Сейчас файлы разработки доступны, и мы можем установить uWSGI глобально с помощью &lt;code&gt;pip&lt;/code&gt;, набрав&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pip install uwsgi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Мы может быстро протестировать этот сервер приложений, передав ему информацию об одном из наших сайтов. Например, мы можем указать, чтобы он работал с первым проектом, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;uwsgi --http :8080 --home /home/user/Env/firstsite --chdir /home/user/firstsite -w firstsite.wsgi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Здесь для работы uWSGI мы указали наше виртуальное окружение окружение, находящееся  в каталоге &lt;code&gt;~/Env&lt;/code&gt;,  папку с нашим проектом и файл &lt;code&gt;wsgi.py&lt;/code&gt;, хранящийся внутри каталога 'firstsite'. Для теста мы настроили работу HTTP на 8080 порту. Если вы перейдете по доменному имени или IP-адресу в вашем браузере, указав 8080 порт, вы снова увидеть свой сайт. Как только вы закончите проверять функционал, введите CTRL-C в терминале. &lt;/p&gt;
+&lt;h2 id="_6"&gt;Создание файла конфигурации&lt;/h2&gt;
+&lt;p&gt;Запуск uWSGI из командной строки полезен для тестирования, но никак не для реальной работы. Для этого мы запусти uWSGI в 'Emperor mode', который позволит управлять отдельными приложениями через файлы конфигурации. &lt;/p&gt;
+&lt;p&gt;Создайте каталог, в которому будут ваши файлы конфигурации. Так как это глобальный процесс, создадим каталог &lt;code&gt;/etc/uwsgi/sites&lt;/code&gt; для хранения наших файлов конфигурации. &lt;/p&gt;
+&lt;p&gt;После его создания, перейдите в каталог:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo mkdir -p /etc/uwsgi/sites
+cd /etc/uwsgi/sites
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В этой папке мы разместим наши файлы конфигурации. Для каждого из проектов, с которым мы работаем, нам нужен файл конфигурации. uWSGI умеет работать с файлами конфигурации в разных форматах, но мы будем использовать &lt;code&gt;.ini&lt;/code&gt; из-за их простоты.&lt;/p&gt;
+&lt;p&gt;Создайте файл для своего первого проект и откройте его в текстовом редакторе: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo nano firstsite.ini 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Внутри мы должны начать с заголовка секции &lt;code&gt;[uWSGI]&lt;/code&gt;. Вся наша информация будет располагаться под этим заголовком. Также мы будем использовать переменные, чтобы сделать наш файл конфигурации более удобным для повторного использования. После заголовка задайте переменную с названием &lt;code&gt;project&lt;/code&gt; с именем вашего первого проекта. Затем добавьте переменную под названием &lt;code&gt;base&lt;/code&gt; с указанием пути к домашнему каталогу. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[uwsgi]
+project = firstsite
+base = /home/user
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Затем мы должны настроить так настроить uWSGI, чтобы он правильно обслуживал наш проект. Для этого нам нужно добавить корневой каталог проекта, указав его в &lt;code&gt;chdir&lt;/code&gt;. Мы можем комбинировать исходный каталог и имя проекта, используя синтаксис &lt;code&gt;%(имя_переменной)&lt;/code&gt;, в который при чтении конфига будет подставляться значение переменной.&lt;/p&gt;
+&lt;p&gt;Аналогичным образом мы укажем виртуальное окружение для нашего проекта. С помощью указания модуля, мы можем точно настроить, как взаимодействовать с нашим проектом (с помощью импорта  «приложения», вызываемого из wsgi.py в каталоге нашего проекта). Эта конфигурация будет выглядеть так: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[uwsgi]
+project = firstsite
+base = /home/user
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Мы хотим создать &lt;code&gt;master&lt;/code&gt; процесс с 5 потоками: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[uwsgi]
+project = firstsite
+base = /home/user
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+
+master = true
+processes = 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого нам нужно указать, как uWSGI будет прослушивать подключения. В нашем тесте мы использовали сетевой порт и HTTP. Однако, раз мы собираемся использовать uWSGI в качестве обратного прокси, у нас есть варианты лучше. &lt;/p&gt;
+&lt;p&gt;Поскольку все компоненты работают на одном сервере, вместо сетевого порта мы может использовать UNIX-сокет. Это обеспечит лучшую производительность и более безопасно. Наш сокет не будет использовать HTTP, вместо этого он будет использовать &lt;code&gt;wsgi&lt;/code&gt; - протокол uWSGI, который представляет из себя быстрый двоичный протокол, предназначенный для взаимодействия с другими серверами. Nginx нативно работает с &lt;code&gt;wsgi&lt;/code&gt;, поэтому это наш лучший выбор.&lt;/p&gt;
+&lt;p&gt;Мы также будет изменять права сокета, чтобы предоставить веб-серверу доступ на запись. Чтобы сокет автоматически отчищался, когда служба остановлена, установим опцию &lt;code&gt;vacuum&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[uwsgi]
+project = firstsite
+base = /home/user
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+
+master = true
+processes = 5
+
+socket = %(base)/%(project)/%(project).sock
+chmod-socket = 664
+vacuum = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;На этом конфиг uWSGI для первого проекта завершен. Сохраните и закройте файл.&lt;/p&gt;
+&lt;p&gt;Преимуществом настройки файла с использованием переменных заключается в том, что это делает его невероятно удобным для повторного использования. Скопируйте файл конфигурации вашего первого проекта, чтобы использовать его в качестве основы для второго файла конфигурации.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo cp /etc/uwsgi/sites/firstsite.ini /etc/uwsgi/sites/secondsite.ini
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Откройте второй файл с помощью текстового редактора: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;udo nano /etc/uwsgi/sites/secondsite.ini
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Чтобы наш файл заработал для второго проекта, нам необходимо изменить только одно значение. Измените переменную &lt;code&gt;project&lt;/code&gt;, указав название второго проекта:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wsgi]
+project = secondsite
+base = /home/user
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+
+master = true
+processes = 5
+
+socket = %(base)/%(project)/%(project).sock
+chmod-socket = 664
+vacuum = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Когда закончите, сохраните и закройте файл. Ваш второй проект должен быть готов к работе.&lt;/p&gt;
+&lt;h3 id="upstart-uwsgi"&gt;Создайте скрипт &lt;code&gt;Upstart&lt;/code&gt; для uWSGI&lt;/h3&gt;
+&lt;p&gt;Теперь у нас есть файлы конфигурации, необходимые для обслуживания наших Django проектов, но мы все еще не автоматизировали процесс. Сейчас мы напишем сценарий для автоматического запуска uWSGI при загрузке.&lt;/p&gt;
+&lt;p&gt;Создадим сценарий в каталоге &lt;code&gt;/etc/init/uwsgi.conf&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo nano /etc/init/uwsgi.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Начните с добавления описания вашего uWSGI и указания уровней выполнения, на которых он должен запускаться. Мы установим уровни 2,3,4 и 5, так как они являются стандартными для многопользовательского режима.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;description &amp;quot;uWSGI application server in Emperor mode&amp;quot;
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Далее мы должны указать группу и имя пользователя, из под которого будет происходить запуск. Так как у нас есть все необходимые файлы, запускать процесс мы будем под собственным именем пользователя. В качестве группы указываем &lt;code&gt;www-data&lt;/code&gt;, под который будет работать Nginx. Наши настройки сокета из файла конфигурации uWSGI должны разрешить веб-серверу писать в сокет. Измените имя пользователя ниже, чтобы оно соответствовало вашему имени пользователя на сервере:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;description &amp;quot;uWSGI application server in Emperor mode&amp;quot;
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+setuid user
+setgid www-data
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В конце мы должны отдать команду на запуск. Нам нужно запустить uWSGI в многопользовательском режиме и указать директорию с нашими файлами конфигурации, чтобы uWSGI прочитал и обслуживал каждый из проектов.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;description &amp;quot;uWSGI application server in Emperor mode&amp;quot;
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+setuid user
+setgid www-data
+
+exec /usr/local/bin/uwsgi --emperor /etc/uwsgi/sites
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Когда закончите, сохраните и закройте файл. Мы не будем запускать uWSGI, так как до тех пор пока мы не установим Nginx, у нас отсутствует группа &lt;code&gt;www-data&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="nginx"&gt;Установка и настройка Nginx в качестве обратного прокси&lt;/h2&gt;
+&lt;p&gt;Когда uWSGI настроен и готов к работе, мы можем перейти к установке и настройки Nginx в качестве обратного прокси. Его можно скачать из стандартных репозиториев Ubuntu:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install nginx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После установки Nginx мы можем продолжить и создать файл конфигурации сервера  для каждого из наших проектов.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo nano /etc/nginx/sites-available/firstsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Внутри мы начнем описывать серверную конфигурацию с указания порта и доменного имени, на котором будет размещен наш первый проект. Предположим, у нас есть доменное имя для каждого:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;server {
+    listen 80;
+    server_name firstsite.com www.firstsite.com;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Далее, мы можем указать Nginx, чтобы его не волновало отсутствие favicon. Также мы укажем расположение нашего каталога статических файлов, где мы собрали статические элементы нашего сайта: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;server {
+    listen 80;
+    server_name firstsite.com www.firstsite.com;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/user/firstsite;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого мы можем использовать директиву &lt;code&gt;uwsgi_pass&lt;/code&gt;, чтобы передать трафик нашему сокет файлу. Сокет файл, который мы настроили и назвали &lt;code&gt;firstproject.sock&lt;/code&gt;, был расположен в корне нашего проекта. Мы будет использовать директиву &lt;code&gt;include&lt;/code&gt; для включения необходимых параметров uwsgi для обработки соединения:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;server {
+    listen 80;
+    server_name firstsite.com www.firstsite.com;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/sammy/firstsite;
+    }
+
+    location / {
+        include         uwsgi_params;
+        uwsgi_pass      unix:/run/uwsgi/firstsite.sock;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;На самом деле это вся конфигурация, когда закончите, сохраните и закройте файл.&lt;/p&gt;
+&lt;p&gt;Мы будем использовать это в качестве основы для файла конфигурации Nginx второго . Сейчас скопируйте его:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo cp /etc/nginx/sites-available/firstsite /etc/nginx/sites-available/secondsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Откройте новый файл в вашем текстовом редакторе:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo nano /etc/nginx/sites-available/secondsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Здесь вам нужно будет изменить любую ссылку на &lt;code&gt;firstsie&lt;/code&gt; ссылкой на &lt;code&gt;secondsite.&lt;/code&gt; Вам потребуется изменить &lt;code&gt;server_name&lt;/code&gt;, чтобы ваш второй проект отвечал на запросы с другого доменного имени. Когда вы закончите, он будет выглядеть примерно так:&lt;/p&gt;
+&lt;p&gt;Когда вы закончите, закройте и сохраните файл.&lt;/p&gt;
+&lt;p&gt;Затем свяжите оба файла конфигурации с директорией &lt;code&gt;sites-enabled&lt;/code&gt; в Nginx, чтобы включить их.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo ln -s /etc/nginx/sites-available/firstsite /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/secondsite /etc/nginx/sites-enabled
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Проверьте конфигурации на синтаксические ошибки, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo service nginx configtest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Если синтаксических ошибок не обнаружено, вы можете перезапустить Nginx для загрузки новой конфигурации:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo service nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Если вы помните заметили, мы никогда не запускали uWSGI сервер. Сделайте это, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo service uwsgi start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Теперь вы можете перейти к двум своим проектов, использую соответствующие доменные имена. Как интерфейс пользователя, так и интерфейс администратора должны работать должным образом.&lt;/p&gt;
+&lt;h2 id="_7"&gt;Вывод&lt;/h2&gt;
+&lt;p&gt;В этом руководстве мы создали два Django проекта, каждый в своей собственной виртуальной среде,  настроили uWSGI для работы с каждым проектом в независимости от другого, использую настроенную для каждого виртуальную среду. Затем мы настроили Nginx в качестве обратного прокси для обработки клиентских подключений и правильного обслуживания каждого проекта в зависимости от клиентского запроса.&lt;/p&gt;
+&lt;p&gt;Django упрощает создание проектов и приложений, представляя множество общих частей, что позволяет сосредоточиться на уникальных элементах. Использую цепочку инструментов  из этой стать, вы сможете легко настроить обслуживание нескольких  приложений на одном сервере.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Sat, 23 Dec 2017 15:15:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2017-12-23:/articles/2017/12/deploy-django-applications-on-ubuntu-14-04/</guid><category>django</category><category>linux</category></item><item><title>В CSS используйте px, а не em</title><link>https://solaire-off.github.io/articles/2017/12/in-css-use-px-not-em/</link><description>&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
 Оригинал статьи: &lt;a href="http://jgthms.com/in-css-use-pixels-not-em.html"&gt;In CSS: use pixels, not em&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;В CSS используются различные &lt;a href="http://marksheet.io/css-size-units.html"&gt;единицы измерения&lt;/a&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;px&lt;/code&gt; пиксели&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;%&lt;/code&gt; проценты&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;px&lt;/code&gt; пиксель&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%&lt;/code&gt; процент&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;em&lt;/code&gt;  размер шрифта родительского элемента&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;rem&lt;/code&gt; размер шрифта корневого элемента&lt;/li&gt;
 &lt;li&gt;безымянное значение (например для &lt;code&gt;line-height&lt;/code&gt;)&lt;/li&gt;
@@ -47,7 +576,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id="px-em"&gt;Почему вы должны использовать px, а не em&lt;/h2&gt;
-&lt;p&gt;Использование &lt;code&gt;em&lt;/code&gt; - весьма &lt;strong&gt;изящный&lt;/strong&gt; способ для задания размеров тексту и блокам. Это позволяет сохранять каждый элемент простым и  сбалансированным.&lt;/p&gt;
+&lt;p&gt;Использование &lt;code&gt;em&lt;/code&gt; - весьма &lt;strong&gt;изящный&lt;/strong&gt; способ для задания размеров тексту и блокам. Это позволяет сохранять каждый элемент простым и сбалансированным.&lt;/p&gt;
 &lt;p&gt;Я пользовался этим способом раньше. Это было больно. &lt;/p&gt;
 &lt;h3 id="_1"&gt;Для отчетливости шрифтам необходима точность&lt;/h3&gt;
 &lt;p&gt;Предположим, что по умолчанию размер вашего шрифта &lt;code&gt;16px&lt;/code&gt;. У вас есть &lt;strong&gt;заголовок&lt;/strong&gt; размером &lt;code&gt;2rem&lt;/code&gt; и &lt;strong&gt;подзаголовок&lt;/strong&gt; размером &lt;code&gt;1.5rem&lt;/code&gt;.&lt;/p&gt;
@@ -59,7 +588,7 @@
   &lt;figcaption&gt;Довольно просто выставить значение в 1.25rem, но оно не будет идеальным&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Проблема присутсвтвует даже с большим текстом:&lt;/p&gt;
+&lt;p&gt;Проблема присутствует даже с большим текстом:&lt;/p&gt;
 &lt;figure&gt;
   &lt;img alt="CSS fuzzy title" src="/images/em-fuzzy-title.png"&gt;
   &lt;br&gt;
@@ -67,7 +596,7 @@
 &lt;/figure&gt;
 
 &lt;h3 id="_2"&gt;Каждому шрифту необходим свой собственный размер&lt;/h3&gt;
-&lt;p&gt;Другая прооблема с использованием &lt;code&gt;em&lt;/code&gt; возникает, когда вы хотите сменить &lt;strong&gt;семейство шрифтов&lt;/strong&gt;, потому что каждый шрифт отрисовывает размеры по-разному:&lt;/p&gt;
+&lt;p&gt;Другая проблема с использованием &lt;code&gt;em&lt;/code&gt; возникает, когда вы хотите сменить &lt;strong&gt;семейство шрифтов&lt;/strong&gt;, потому что каждый шрифт отрисовывает размеры по-своему:&lt;/p&gt;
 &lt;figure&gt;
   &lt;img alt="CSS Cabin font" src="/images/em-cabin-font.png"&gt;
   &lt;br&gt;
@@ -83,12 +612,12 @@
 &lt;/figure&gt;
 
 &lt;p&gt;(Мое лого не изображение, хоть раньше и было, но в любом случае это не важно)&lt;/p&gt;
-&lt;h3 id="_4"&gt;Для задания рамки нужны пиксели&lt;/h3&gt;
+&lt;h3 id="_4"&gt;Для задания границ нужны пиксели&lt;/h3&gt;
 &lt;p&gt;Представим, что вы хотите, чтобы ваши кнопка и поле ввода были высотой &lt;code&gt;38px&lt;/code&gt;. Одинаковая высота позволит расположить элементы друг рядом с другом, например как в &lt;a href="http://v4-alpha.getbootstrap.com/components/input-group/"&gt;Bootstrap 4&lt;/a&gt;:&lt;/p&gt;
 &lt;figure&gt;
   &lt;img alt="em input button" src="/images/em-input-button.png"&gt;
   &lt;br&gt;
-  &lt;figcaption&gt;Хорошо сгруппированы и выровнены&lt;/figcaption&gt;
+  &lt;figcaption&gt;Сгруппированные и выровненные элементы&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Как сделать это с помощью &lt;code&gt;rem&lt;/code&gt;?&lt;/p&gt;
@@ -107,13 +636,13 @@
   &lt;figcaption&gt;Где мои рамки??&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Да. Теперь размер рамки установлен в &lt;code&gt;0.9375px&lt;/code&gt;, и она просто исчезла, как ей и положено.&lt;/p&gt;
-&lt;p&gt;Вы должно быть подумали: &lt;em&gt;"Почему бы не использовтаь тень?"&lt;/em&gt; ? Ну, &lt;code&gt;box-shadow&lt;/code&gt; не является решением:&lt;/p&gt;
+&lt;p&gt;Да. Теперь размер рамки установлен в &lt;code&gt;0.9375px&lt;/code&gt;, и она просто исчезла, как ей и предусмотрено.&lt;/p&gt;
+&lt;p&gt;Вы должно быть подумали: &lt;em&gt;"Почему бы не использовать тени?"&lt;/em&gt; ? Ну, &lt;code&gt;box-shadow&lt;/code&gt; не является решением, так как:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;каждый раз, когда вы захотите добавить тень, вам нужно переопределить &lt;em&gt;все&lt;/em&gt; остальные значения&lt;/li&gt;
-&lt;li&gt;тень не является частью размеров блока&lt;/li&gt;
-&lt;li&gt;тень может быть только одного цвета&lt;/li&gt;
-&lt;li&gt;необходимо 4 тени, если вы хотите получить рамки 4 разных цветов&lt;/li&gt;
+&lt;li&gt;каждый раз, когда вы захотите добавить тень, вам нужно переопределить &lt;em&gt;все&lt;/em&gt; остальные значения;&lt;/li&gt;
+&lt;li&gt;тень не является частью размеров блока;&lt;/li&gt;
+&lt;li&gt;тень может быть только одного цвета;&lt;/li&gt;
+&lt;li&gt;необходимо 4 тени, если вы хотите получить рамки 4 разных цветов.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="_5"&gt;Векторным элементам необходимы пиксели&lt;/h3&gt;
 &lt;p&gt;Векторные элементы, например &lt;strong&gt;иконочные шрифты&lt;/strong&gt;, для правильной отрисовки требуют точных значений в пикселях.&lt;/p&gt;
@@ -124,37 +653,36 @@
   &lt;figcaption&gt;Только кратные 7&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;h3 id="_6"&gt;Теперь браузеры маштабируют правильно&lt;/h3&gt;
-&lt;p&gt;Для увелчения размера страницы, браузеры просто &lt;strong&gt;увеличивают размер шрифта&lt;/strong&gt;, делая текст больше, но сохраняя первоначальный размер блоков в пикселях. &lt;/p&gt;
+&lt;h3 id="_6"&gt;Теперь браузеры масштабируют правильно&lt;/h3&gt;
+&lt;p&gt;Для увеличения размера страницы, браузеры просто &lt;strong&gt;увеличивают размер шрифта&lt;/strong&gt;, делая текст больше, но сохраняя первоначальный размер блоков в пикселях. &lt;/p&gt;
 &lt;p&gt;Чтобы пользователи не могли сломать страницу при увеличении, необходима было задать &lt;strong&gt;динамичный&lt;/strong&gt; размер блоков в &lt;code&gt;em&lt;/code&gt; или &lt;code&gt;rem&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Но в настоящее время браузеры могут пропорционально увеличивать  &lt;em&gt;любые&lt;/em&gt; блоки. В &lt;code&gt;em&lt;/code&gt; больше нет необходимости.&lt;/p&gt;
 &lt;h2 id="_7"&gt;Просо используйте пиксели&lt;/h2&gt;
 &lt;p&gt;Если вы хотите правильно отрисованный интерфейс, остановитесь на пикселях:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;вы сможете избежать сложных &lt;strong&gt;вычеслений&lt;/strong&gt; до десятитысячных  &lt;/li&gt;
+&lt;li&gt;вы сможете избежать сложных &lt;strong&gt;вычеслений&lt;/strong&gt; вплоть до десятитысячных  &lt;/li&gt;
 &lt;li&gt;вы сможете точно определять значения свойства, просто взглянув на него, ведь элемент не будет иметь &lt;strong&gt;зависимостей&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;в любом случай &lt;strong&gt;препроцессоры&lt;/strong&gt;, например Sass, позволяют использовать перменные для задания размеров и миксины для создания различный вариантов элементов&lt;/li&gt;
+&lt;li&gt;в любом случай &lt;strong&gt;препроцессоры&lt;/strong&gt;, например Sass, позволяют использовать переменные для задания размеров и миксины для создания различный вариантов элементов&lt;/li&gt;
 &lt;li&gt;вы сможете &lt;strong&gt;выравнивать&lt;/strong&gt; разные типы элементов, каждый из которых требует &lt;em&gt;свой&lt;/em&gt; размер шрифта&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Вы все еще можете использовать &lt;code&gt;em&lt;/code&gt; для таких вещей как межсимвольный интервал, отступы, или другие свойства так или иначе связанные с размером шрифта. Но не осталось ни одной причины, которая не устарела или не стала бесполезной, чтобы использовать их &lt;em&gt;везде&lt;/em&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Wed, 13 Dec 2017 12:00:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2017-12-13:/articles/2017/12/in-css-use-px-not-em/</guid><category>css</category></item><item><title>Забытое искусство посещенных ссылок</title><link>https://solaire-off.github.io/articles/2017/12/the-lost-art-of-visited-links/</link><description>&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
 Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;С высокой вероятностью вы посещали &lt;a href="https://www.google.com"&gt;эту страницу&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту страницу&lt;/a&gt;,
-может были &lt;a href="https://news.ycombinator.com/"&gt;на этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
-уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были на &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;С высокой вероятностью вы посещали &lt;a href="https://www.google.com"&gt;эту&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту&lt;/a&gt; страницу,
+может были на &lt;a href="https://news.ycombinator.com/"&gt;этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
+уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Справедливости ради, я могу лишь &lt;em&gt;догадываться&lt;/em&gt;. Хотя вы точно можете сказать, на каких страницах уже были,
 даже не переходя и не наводя курсор ни на одну из этих ссылок, ведь мой сайт изменяет цвет 
 &lt;strong&gt;посещенных&lt;/strong&gt; ссылок.&lt;/p&gt;
 &lt;h2 id="timelord"&gt;Путешествие во времени&lt;/h2&gt;
-&lt;p&gt;Навигация в интернете в основном &lt;strong&gt;двумерна&lt;/strong&gt;: вы либо &lt;em&gt;прокручиваете&lt;/em&gt;  (y-index),&lt;br /&gt;
-либо &lt;em&gt;щелкаете&lt;/em&gt; (z-index).&lt;/p&gt;
+&lt;p&gt;Навигация в интернете в основном &lt;strong&gt;двумерна&lt;/strong&gt;: вы либо &lt;em&gt;прокручиваете&lt;/em&gt;  (y-index), либо &lt;em&gt;щелкаете&lt;/em&gt; (z-index).&lt;/p&gt;
 &lt;p&gt;Цвет ссылок обеспечивает третье измерение: &lt;strong&gt;время&lt;/strong&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Фиолетовые ссылки из &lt;strong&gt;прошлого&lt;/strong&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Синие ссылки кандидаты в &lt;strong&gt;настоящее&lt;/strong&gt; или &lt;strong&gt;будущее&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Синие ссылки &amp;mdash; кандидаты в &lt;strong&gt;настоящее&lt;/strong&gt; или &lt;strong&gt;будущее&lt;/strong&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;В зависимости от того, что вы ищете, посещенные ссылки могут вызывать
@@ -172,7 +700,7 @@
 &lt;a href="https://news.ycombinator.com/"&gt;Hacker News&lt;/a&gt;, остаются одними из немногих
 ресурсов, которые по-прежнему разграничивают посещенные ссылки от «новых».&lt;/p&gt;
 &lt;p&gt;Как правило, поисковая выдача Google поступает также. &lt;/p&gt;
-&lt;p&gt;Фиолетовые ссылки имеют роль &lt;strong&gt;выполненных зачач&lt;/strong&gt; потому что:&lt;/p&gt;
+&lt;p&gt;Фиолетовые ссылки имеют роль &lt;strong&gt;выполненных задач&lt;/strong&gt; потому что:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Вы не хотите переходить на одну и туже страницу &lt;strong&gt;дважды&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Вы хотите &lt;strong&gt;найти&lt;/strong&gt; список ссылок, которые вы посетили.&lt;/li&gt;
@@ -186,23 +714,23 @@
 не хочется, чтобы действия пользователя &lt;strong&gt;повлияли&lt;/strong&gt; на ваш идеально
 сбалансированный дизайн, не так ли?&lt;/p&gt;
 &lt;p&gt;Если бы вы профессионально делали дизайн кнопки X, то вы бы
-проработали множество состояний (default, hover, clicked, focused,
-disabled), но вряд ли бы вы вспомнили про visited.&lt;/p&gt;
+проработали множество состояний (обычное, наведение, клик, фокус,
+отключение), но вряд ли бы вы вспомнили про посещенную ссылку..&lt;/p&gt;
 &lt;p&gt;Одно из первый CSS правил, которое пишет любой дизайнер:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;a{
     color: $anythingButBlue;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Такое правило повлияет на &lt;strong&gt;все&lt;/strong&gt; ссылки в любом состоянии: hover, active,
-focus и visited, подобно сбросу цвета. Вы устанавливаете его и
+&lt;p&gt;Такое правило подобно сбросу цвета, повлияет на &lt;strong&gt;все&lt;/strong&gt; ссылки в любом состоянии: наведения, клика,
+фокуса и посещения. Вы устанавливаете его и
 забываете. Вы можете использовать псевдокласс &lt;code&gt;:link&lt;/code&gt;, но никто об
 этом не узнает. Кроме того вы в любом случае забыли установить &lt;code&gt;:visited&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Веб-страница - это живой документ: вы прорабатывайте различные состояния
-интерфейса в зависимости от  размера экрана, пользовательского окружения и
+&lt;p&gt;Веб-страница - это живой документ: вы прорабатываете различные состояния
+интерфейса в зависимости от размера экрана, пользовательского окружения и
 действий пользователя.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Игнорирование цвета посещенных ссылок походит на заботу о кросс-браузерности: полагают, что практика использования каждого пользователя должна быть строго идентичной.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Игнорирование цвета посещенных ссылок походит на заботу о кросс-браузерности: полагают, что опыт использования каждого пользователя должна быть строго идентичен.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id="privacy"&gt;Вопрос конфиденциальности&lt;/h2&gt;
-&lt;p&gt;Несколько лет назад кто-то провел эксперимент: создав веб-сайт, показывающий 1000 наиболее посещаемых ссылок. В теории веб-сайт может "украсть" вашу историю браузера, вычислив цвет каждой ссылки.&lt;/p&gt;
+&lt;p&gt;Несколько лет назад кто-то провел эксперимент: создав веб-сайт, показывающий 1000 наиболее посещаемых ссылок. В теории веб-сайт может «украсть» вашу историю браузера, вычислив цвет каждой ссылки.&lt;/p&gt;
 &lt;p&gt;Но в настоящее время Firefox предотвратил такое поведение:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Даже если цвет посещенной ссылки был изменен, метод getComputedStyle всегда будет отдавать значение непосещенной ссылки.&lt;/p&gt;
@@ -230,14 +758,14 @@ focus и visited, подобно сбросу цвета. Вы устанавл�
     изменяется с течением времени.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Чтобы стало понятно, скажем читаете вы &lt;a href="https://www.theguardian.com"&gt;The
-Guardian&lt;/a&gt;. Главная страница &lt;strong&gt;обновляется&lt;/strong&gt; каждые несколько минут. Вам как пользователю не нужно знать, бывали ли вы здесь, потому то:&lt;/p&gt;
+Guardian&lt;/a&gt;. Главная страница &lt;strong&gt;обновляется&lt;/strong&gt; каждые несколько минут. Вам как пользователю не нужно знать, бывали ли вы здесь, потому что:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Возможно вы уже находитесь на этой странице &lt;strong&gt;сейчас&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Возможно вы вернетесь сюда &lt;strong&gt;снова&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Однако, вам бы хотелось знать, какие статьи вы уже читали, потому что их
 содержание &lt;strong&gt;скорее всего&lt;/strong&gt; не изменится в следующий раз, когда вы будете здесь.&lt;/p&gt;
-&lt;p&gt;Так, прежде чем перейти к статье, вы узнаете, видели ли её, что в зависимости от &lt;strong&gt;намеренья&lt;/strong&gt; определит ваше &lt;strong&gt;действие&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Так, прежде чем перейти к статье, вы узнаете, видели ли её, что в зависимости от &lt;strong&gt;намерения&lt;/strong&gt; определит ваше &lt;strong&gt;действие&lt;/strong&gt;:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>solaire-off.github.io - django</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Sat, 23 Dec 2017 15:15:00 +0300</lastBuildDate><item><title>Как развернуть Django приложения при помощи uWSGI и Nginx на Ubuntu 14.04</title><link>https://solaire-off.github.io/articles/2017/12/deploy-django-applications-on-ubuntu-14-04/</link><description>&lt;p&gt;Оригинал статьи: &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04"&gt;How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id="_1"&gt;Введение&lt;/h2&gt;
+&lt;p&gt;Django - мощный веб-фреймворк который может помочь вашему Python приложению или веб-сайту сдвинуться с мертвой точки. Django включает в себя упрощенный сервер для тестирования ваше кода в пределах локальной сети, но для всего остального, например для ввода в эксплуатацию, потребуется куда более безопасный и мощный веб-сервер.&lt;/p&gt;
+&lt;p&gt;В этом руководстве мы продемонстрируем, как установить и настроить некоторые вещи в Ubuntu 14.04 для работы Django приложений. Мы настроим uWSGI в качестве  сервера-контейнера для совместной работы с нашими приложениями. Затем мы настроим Nginx в замен стандартному прокси-серверу в uWSGI, предоставив себе доступ к функциям по улучшению производительности и безопасности для наших приложений.&lt;/p&gt;
+&lt;h2 id="_2"&gt;Предпосылки и цели&lt;/h2&gt;
+&lt;p&gt;Для прохождения этого руководство, у вас должен быть один удаленный сервер на Ubuntu 14.04 с root пользователем и настроенным &lt;code&gt;sudo&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Мы будет устанавливать Django в двух разных виртуальных окружениях. Это позволит вашим проектам и их зависимостям работать раздельно друг от друга. Мы создадим два простых проекта, чтобы мы могли пройти через этапы создания многопроектой среды.&lt;/p&gt;
+&lt;p&gt;Как только у нас появится наше приложение, мы установим и настроим веб-сервер uWSGI. Он будет служить интерфейсом для нашего приложения, который будет транслировать клиентские запросы из HTTP-вызовов в команды Python, с которыми наше приложение сможет работать.&lt;/p&gt;
+&lt;p&gt;Затем мы подключим Nginx к uWSGI, чтобы воспользоваться его  высокопроизводительными механизмами обработки соединений и легко реализуемыми функциями безопасности. &lt;/p&gt;
+&lt;p&gt;Давайте начинать.&lt;/p&gt;
+&lt;h2 id="virtualenv-virtualenvwrapper"&gt;Установка и настройка VirtualEnv и VirtualEnvWrapper&lt;/h2&gt;
+&lt;p&gt;Мы будет устанавливать наши Django проекты в их собственные виртуальные среды, чтобы изолировать их зависимости друг от друга. Для это мы установим virtualenv, который может создавать виртуальное окружение в Python, и virtualenvwrapper для более удобного работы с созданными окружениями. &lt;/p&gt;
+&lt;p&gt;Оба этих компонента мы будем устанавливать с помощью pip - пакетного менеджера в Python. Установить его можно из репозиториев Ubuntu:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install python-pip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В этом руководстве мы будем использовать Python 2 версии. Если вы используете Python 3 версии, вы можете установить python3-pip. Затем, когда операции будут выполняться вне виртуального окружения, вам придется подставлять pip3 вместо pip в каждую команду этого руководства. &lt;/p&gt;
+&lt;p&gt;Теперь когда pip был установлен, мы можем установить virtualenv и virtualenvwrapper глобально, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pip install virtualenv virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Когда все компоненты будут установлены, мы можем настроить нашу оболочку для работы с virtualenvwrapper. Для легкой доступности все наши виртуальные окружения будут размещены в домашней директории в папке Env. Это можно настроить изменив переменную среды - WORKON_HOME.&lt;/p&gt;
+&lt;p&gt;Чтобы не приходилось каждый раз задавать эти переменные при создании виртуального окружения, мы может просто добавить это в наш скрипт инициализации оболочки.&lt;/p&gt;
+&lt;p&gt;Если вы используете Python 3 и pip3, вам также необходимо добавить еще одну строчку в скрипт инициализации среды:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3&amp;quot; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Независимо от того, какую версию Python вы используете, вам нужно запустить следующие команды:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;export WORKON_HOME=~/Env&amp;quot; &amp;gt;&amp;gt; ~/.bashrc
+echo &amp;quot;source /usr/local/bin/virtualenvwrapper.sh&amp;quot; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Теперь примените свой сценарий инициализации оболочки, чтобы вы могли использовать его в текущем сеансе:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;source ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Сейчас у вас в домашней директории должна была появится папка &lt;code&gt;Env&lt;/code&gt;, где будут хранится настройки виртуальной среды.&lt;/p&gt;
+&lt;h2 id="django"&gt;Создание проектов на Django&lt;/h2&gt;
+&lt;p&gt;Теперь, когда у нас есть инструменты управления виртуальной средой, мы создадим два виртуальных окружения, установим в каждом Django и запустим два проекта.&lt;/p&gt;
+&lt;h2 id="_3"&gt;Создание первого проекта&lt;/h2&gt;
+&lt;p&gt;Мы с легкостью можем создать виртуальное окружение при помощи пары команды, которые стали доступны благодаря &lt;code&gt;virtualenvwrapper&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Создайте свое первое виртуальное окружение с названием вашего первого сайта или проекта:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkvirtualenv firstsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Это создаст и активирует виртуальную среду с установленным Python и pip внутри. Чтобы показать, что вы теперь работает в своей новой виртуальной среде, ваша командная строка изменится. Это будет выглядеть примерно так: &lt;code&gt;(firstsite)user@hostname:~$&lt;/code&gt;. Значение в круглых скобках - это имя вашего виртуального окружения. Любые пакеты, установленные через pip, теперь будут установлены не глобально в систему, а внутри виртуального окружения. Это позволяет изолировать зависимости каждого проекта.&lt;/p&gt;
+&lt;p&gt;Нашим первым шагом будет установка Django. Для этого мы можем использовать &lt;code&gt;pip&lt;/code&gt; без &lt;code&gt;sudo&lt;/code&gt;, так как мы устанавливаем его локально в наше виртуальное окружение.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install django
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Когда Django установлен, мы можем создать наш первый пробный проект: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~
+django-admin.py startproject firstsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Это создаст каталог &lt;code&gt;firstsite&lt;/code&gt; в домашней директории. Внутри будет сценарий  по управлению проектом и второй каталог с тем же именем, в котором будет размещаться код проекта.&lt;/p&gt;
+&lt;p&gt;Перейдите в первый каталог, что мы могли начать устанавливать минимальный набор зависимостей для работы тестового проекта: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~/firstsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;С помощью миграции создадим базу данных SQlite, которая будет использоваться в нашем проекте. Если хотите, вы можете настроить другую базу данных для своего приложения, но это выйдет за рамки данного руководства:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py migrate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Сейчас у вас в каталоге проекта должен быть файл базы данных &lt;code&gt;db.sqlite3&lt;/code&gt;. Теперь мы можем создать учетную запись администратора, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py createsuperuser
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Вам необходимо ввести имя пользователя, электронную почту, а затем ввести и подтвердить пароль.&lt;/p&gt;
+&lt;p&gt;После этого откройте файл с настройками проекта при помощи текстового редактора:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nano firstsite/settings.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Так как мы будет использовать Nginx для работы нашего сайта, нам нужно указать каталог, в котором будут храниться статические файлы нашего сайта. Это позволит Nginx работать с ними напрямую, что окажет положительное влияние на производительность. Для их размещения мы укажем Django папку &lt;code&gt;static&lt;/code&gt;  в корневом каталоге нашего проекта.&lt;/p&gt;
+&lt;p&gt;Для этого добавим следующею строку в конец файла: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;STATIC_ROOT = os.path.join(BASE_DIR, &amp;quot;static/&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Когда закончите, сохраните и закройте файл. Сейчас соберем и поместим весь статический контент нашего сайта в этот каталог, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py collectstatic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Чтобы подтвердить действие и собрать статический контент, введите &lt;code&gt;yes&lt;/code&gt;. В каталоге проекта будет создан новый каталог  &lt;code&gt;static&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;После всего этого мы можем проверить наш проект, временно запустив тестовый сервер, набрав: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py runserver 0.0.0.0:8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Это запустит тестовый сервер на 8080 порту. Зайдите на ваш домен или IP-адрес вашего сервера, указав 8080 порт в браузере:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://server_domain_or_IP:8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Вы должны увидеть страницу, которая выглядит примерно так: &lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="page 'IT WORK!'" src="/images/django_uwsgi_nginx_ubuntu-14-04/sample_site.png"&gt;
+  &lt;br&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Добавив &lt;code&gt;/admin&lt;/code&gt; в конец  вашего URL-адреса, вы попадете на страницу входа:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="django login page" src="/images/django_uwsgi_nginx_ubuntu-14-04/admin_login.png"&gt;
+  &lt;br&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Зайдите на сервер, используя данные администратора, которые вы ввели командой &lt;code&gt;createuperuser&lt;/code&gt;. После этого вы получите доступу к интерфейсу администратора:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="django login page" src="/images/django_uwsgi_nginx_ubuntu-14-04/admin_interface.png"&gt;
+  &lt;br&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;После проверки функция остановите тестовый сервер, нажав CTRL-C в своем терминале. Теперь мы можем перейти к нашему второму проекту.&lt;/p&gt;
+&lt;h2 id="_4"&gt;Создание второго проекта&lt;/h2&gt;
+&lt;p&gt;Второй проект будет создан точно так же как и первый. В этом разделе будут краткие объяснениях, так как вы это уже проделывали.&lt;/p&gt;
+&lt;p&gt;Вернитесь в свой домашний каталог и создайте второе виртуальное окружения для вашего нового проекта. После активации нового окружения установите него Django:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~
+mkvirtualenv secondsite
+pip install django
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Новое окружение будет создано и настроено, независимо от предыдущей виртуальной среды. Этот экземпляр Django полностью независим от предыдущего, который вы настроили ранее. Это позволит вам по мере необходимости  самим управлять и настраивать их независимо друг от друга.&lt;/p&gt;
+&lt;p&gt;Создайте второй проект и перейдите в его каталог:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;django-admin.py startproject secondsite
+cd ~/secondsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Подготовим к работе базу данных и создадим администратора: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py migrate
+./manage.py createsuperuser
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Откроем файл с настройками:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nano secondsite/settings.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Как и в предыдущем проекте укажем папку для статических файлов:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;STATIC_ROOT = os.path.join(BASE_DIR, &amp;quot;static/&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Сохраните и закройте файл. Сейчас соберите все статические файлы в заданный каталог, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py collectstatic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В конце запусти тестовый сервер, чтобы проверить сайт:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./manage.py runserver 0.0.0.0:8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Вы должны поверить сайт по адресу:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://server_domain_or_IP:8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Также зайдите в панель администратора:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://server_domain_or_IP:8080/admin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Как только проверите, что все работает должным образом, нажмите CTRL-C в своем терминале, чтобы остановить тестовый сервер.&lt;/p&gt;
+&lt;h2 id="_5"&gt;Откат виртуальной среды&lt;/h2&gt;
+&lt;p&gt;Так как мы закончили часть руководства, связанную с Django, мы можем выйти из второй виртуальной среды:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;deactivate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Если вам снова понадобиться работать с любим из ваших сайтов на Django, вы должны повторно активировать соответствующее окружение. Это можно сделать с помощью команды &lt;code&gt;workon&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;workon firstsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Или:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;workon secondsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Как только вы закончите работать над вашим сайтом, снова деактивируйте окружение:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;deactivate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="uwsgi"&gt;Настройка сервера приложений uWSGI&lt;/h2&gt;
+&lt;p&gt;Теперь, когда у нас есть два, установленных и готовых к работе, Django проекта, мы можем настраивать uWSGI. uWSGI - сервер приложений, который может общаться с приложениями по средствам стандартного интерфейса под названием WSGI. Чтобы узнать об этом больше, прочтите &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-uwsgi-and-nginx-to-serve-python-apps-on-ubuntu-14-04#definitions-and-concepts"&gt;этот раздел&lt;/a&gt;  нашего руководства по установке uWSGI и Nginx на Ubuntu 14.04.&lt;/p&gt;
+&lt;h3 id="uwsgi_1"&gt;Установка uWSGI&lt;/h3&gt;
+&lt;p&gt;В отличие от руководства, приведенного выше, в этом уроке мы будет устанавливать uWSGI глобально. Это создаст меньше разногласий в обслуживании нескольких проектов на Django. Прежде чем мы сможем установить uWSGI, нам нужны файлы разработки, которые будут использованы нашим программным обеспечением. Мы можем установить их прямо из репозиториев Ubuntu:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install python-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Сейчас файлы разработки доступны, и мы можем установить uWSGI глобально с помощью &lt;code&gt;pip&lt;/code&gt;, набрав&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pip install uwsgi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Мы может быстро протестировать этот сервер приложений, передав ему информацию об одном из наших сайтов. Например, мы можем указать, чтобы он работал с первым проектом, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;uwsgi --http :8080 --home /home/user/Env/firstsite --chdir /home/user/firstsite -w firstsite.wsgi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Здесь для работы uWSGI мы указали наше виртуальное окружение окружение, находящееся  в каталоге &lt;code&gt;~/Env&lt;/code&gt;,  папку с нашим проектом и файл &lt;code&gt;wsgi.py&lt;/code&gt;, хранящийся внутри каталога 'firstsite'. Для теста мы настроили работу HTTP на 8080 порту. Если вы перейдете по доменному имени или IP-адресу в вашем браузере, указав 8080 порт, вы снова увидеть свой сайт. Как только вы закончите проверять функционал, введите CTRL-C в терминале. &lt;/p&gt;
+&lt;h2 id="_6"&gt;Создание файла конфигурации&lt;/h2&gt;
+&lt;p&gt;Запуск uWSGI из командной строки полезен для тестирования, но никак не для реальной работы. Для этого мы запусти uWSGI в 'Emperor mode', который позволит управлять отдельными приложениями через файлы конфигурации. &lt;/p&gt;
+&lt;p&gt;Создайте каталог, в которому будут ваши файлы конфигурации. Так как это глобальный процесс, создадим каталог &lt;code&gt;/etc/uwsgi/sites&lt;/code&gt; для хранения наших файлов конфигурации. &lt;/p&gt;
+&lt;p&gt;После его создания, перейдите в каталог:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo mkdir -p /etc/uwsgi/sites
+cd /etc/uwsgi/sites
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В этой папке мы разместим наши файлы конфигурации. Для каждого из проектов, с которым мы работаем, нам нужен файл конфигурации. uWSGI умеет работать с файлами конфигурации в разных форматах, но мы будем использовать &lt;code&gt;.ini&lt;/code&gt; из-за их простоты.&lt;/p&gt;
+&lt;p&gt;Создайте файл для своего первого проект и откройте его в текстовом редакторе: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo nano firstsite.ini 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Внутри мы должны начать с заголовка секции &lt;code&gt;[uWSGI]&lt;/code&gt;. Вся наша информация будет располагаться под этим заголовком. Также мы будем использовать переменные, чтобы сделать наш файл конфигурации более удобным для повторного использования. После заголовка задайте переменную с названием &lt;code&gt;project&lt;/code&gt; с именем вашего первого проекта. Затем добавьте переменную под названием &lt;code&gt;base&lt;/code&gt; с указанием пути к домашнему каталогу. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[uwsgi]
+project = firstsite
+base = /home/user
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Затем мы должны настроить так настроить uWSGI, чтобы он правильно обслуживал наш проект. Для этого нам нужно добавить корневой каталог проекта, указав его в &lt;code&gt;chdir&lt;/code&gt;. Мы можем комбинировать исходный каталог и имя проекта, используя синтаксис &lt;code&gt;%(имя_переменной)&lt;/code&gt;, в который при чтении конфига будет подставляться значение переменной.&lt;/p&gt;
+&lt;p&gt;Аналогичным образом мы укажем виртуальное окружение для нашего проекта. С помощью указания модуля, мы можем точно настроить, как взаимодействовать с нашим проектом (с помощью импорта  «приложения», вызываемого из wsgi.py в каталоге нашего проекта). Эта конфигурация будет выглядеть так: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[uwsgi]
+project = firstsite
+base = /home/user
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Мы хотим создать &lt;code&gt;master&lt;/code&gt; процесс с 5 потоками: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[uwsgi]
+project = firstsite
+base = /home/user
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+
+master = true
+processes = 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого нам нужно указать, как uWSGI будет прослушивать подключения. В нашем тесте мы использовали сетевой порт и HTTP. Однако, раз мы собираемся использовать uWSGI в качестве обратного прокси, у нас есть варианты лучше. &lt;/p&gt;
+&lt;p&gt;Поскольку все компоненты работают на одном сервере, вместо сетевого порта мы может использовать UNIX-сокет. Это обеспечит лучшую производительность и более безопасно. Наш сокет не будет использовать HTTP, вместо этого он будет использовать &lt;code&gt;wsgi&lt;/code&gt; - протокол uWSGI, который представляет из себя быстрый двоичный протокол, предназначенный для взаимодействия с другими серверами. Nginx нативно работает с &lt;code&gt;wsgi&lt;/code&gt;, поэтому это наш лучший выбор.&lt;/p&gt;
+&lt;p&gt;Мы также будет изменять права сокета, чтобы предоставить веб-серверу доступ на запись. Чтобы сокет автоматически отчищался, когда служба остановлена, установим опцию &lt;code&gt;vacuum&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[uwsgi]
+project = firstsite
+base = /home/user
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+
+master = true
+processes = 5
+
+socket = %(base)/%(project)/%(project).sock
+chmod-socket = 664
+vacuum = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;На этом конфиг uWSGI для первого проекта завершен. Сохраните и закройте файл.&lt;/p&gt;
+&lt;p&gt;Преимуществом настройки файла с использованием переменных заключается в том, что это делает его невероятно удобным для повторного использования. Скопируйте файл конфигурации вашего первого проекта, чтобы использовать его в качестве основы для второго файла конфигурации.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo cp /etc/uwsgi/sites/firstsite.ini /etc/uwsgi/sites/secondsite.ini
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Откройте второй файл с помощью текстового редактора: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;udo nano /etc/uwsgi/sites/secondsite.ini
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Чтобы наш файл заработал для второго проекта, нам необходимо изменить только одно значение. Измените переменную &lt;code&gt;project&lt;/code&gt;, указав название второго проекта:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wsgi]
+project = secondsite
+base = /home/user
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+
+master = true
+processes = 5
+
+socket = %(base)/%(project)/%(project).sock
+chmod-socket = 664
+vacuum = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Когда закончите, сохраните и закройте файл. Ваш второй проект должен быть готов к работе.&lt;/p&gt;
+&lt;h3 id="upstart-uwsgi"&gt;Создайте скрипт &lt;code&gt;Upstart&lt;/code&gt; для uWSGI&lt;/h3&gt;
+&lt;p&gt;Теперь у нас есть файлы конфигурации, необходимые для обслуживания наших Django проектов, но мы все еще не автоматизировали процесс. Сейчас мы напишем сценарий для автоматического запуска uWSGI при загрузке.&lt;/p&gt;
+&lt;p&gt;Создадим сценарий в каталоге &lt;code&gt;/etc/init/uwsgi.conf&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo nano /etc/init/uwsgi.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Начните с добавления описания вашего uWSGI и указания уровней выполнения, на которых он должен запускаться. Мы установим уровни 2,3,4 и 5, так как они являются стандартными для многопользовательского режима.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;description &amp;quot;uWSGI application server in Emperor mode&amp;quot;
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Далее мы должны указать группу и имя пользователя, из под которого будет происходить запуск. Так как у нас есть все необходимые файлы, запускать процесс мы будем под собственным именем пользователя. В качестве группы указываем &lt;code&gt;www-data&lt;/code&gt;, под который будет работать Nginx. Наши настройки сокета из файла конфигурации uWSGI должны разрешить веб-серверу писать в сокет. Измените имя пользователя ниже, чтобы оно соответствовало вашему имени пользователя на сервере:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;description &amp;quot;uWSGI application server in Emperor mode&amp;quot;
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+setuid user
+setgid www-data
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В конце мы должны отдать команду на запуск. Нам нужно запустить uWSGI в многопользовательском режиме и указать директорию с нашими файлами конфигурации, чтобы uWSGI прочитал и обслуживал каждый из проектов.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;description &amp;quot;uWSGI application server in Emperor mode&amp;quot;
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+setuid user
+setgid www-data
+
+exec /usr/local/bin/uwsgi --emperor /etc/uwsgi/sites
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Когда закончите, сохраните и закройте файл. Мы не будем запускать uWSGI, так как до тех пор пока мы не установим Nginx, у нас отсутствует группа &lt;code&gt;www-data&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="nginx"&gt;Установка и настройка Nginx в качестве обратного прокси&lt;/h2&gt;
+&lt;p&gt;Когда uWSGI настроен и готов к работе, мы можем перейти к установке и настройки Nginx в качестве обратного прокси. Его можно скачать из стандартных репозиториев Ubuntu:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install nginx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После установки Nginx мы можем продолжить и создать файл конфигурации сервера  для каждого из наших проектов.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo nano /etc/nginx/sites-available/firstsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Внутри мы начнем описывать серверную конфигурацию с указания порта и доменного имени, на котором будет размещен наш первый проект. Предположим, у нас есть доменное имя для каждого:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;server {
+    listen 80;
+    server_name firstsite.com www.firstsite.com;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Далее, мы можем указать Nginx, чтобы его не волновало отсутствие favicon. Также мы укажем расположение нашего каталога статических файлов, где мы собрали статические элементы нашего сайта: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;server {
+    listen 80;
+    server_name firstsite.com www.firstsite.com;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/user/firstsite;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого мы можем использовать директиву &lt;code&gt;uwsgi_pass&lt;/code&gt;, чтобы передать трафик нашему сокет файлу. Сокет файл, который мы настроили и назвали &lt;code&gt;firstproject.sock&lt;/code&gt;, был расположен в корне нашего проекта. Мы будет использовать директиву &lt;code&gt;include&lt;/code&gt; для включения необходимых параметров uwsgi для обработки соединения:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;server {
+    listen 80;
+    server_name firstsite.com www.firstsite.com;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/sammy/firstsite;
+    }
+
+    location / {
+        include         uwsgi_params;
+        uwsgi_pass      unix:/run/uwsgi/firstsite.sock;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;На самом деле это вся конфигурация, когда закончите, сохраните и закройте файл.&lt;/p&gt;
+&lt;p&gt;Мы будем использовать это в качестве основы для файла конфигурации Nginx второго . Сейчас скопируйте его:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo cp /etc/nginx/sites-available/firstsite /etc/nginx/sites-available/secondsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Откройте новый файл в вашем текстовом редакторе:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo nano /etc/nginx/sites-available/secondsite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Здесь вам нужно будет изменить любую ссылку на &lt;code&gt;firstsie&lt;/code&gt; ссылкой на &lt;code&gt;secondsite.&lt;/code&gt; Вам потребуется изменить &lt;code&gt;server_name&lt;/code&gt;, чтобы ваш второй проект отвечал на запросы с другого доменного имени. Когда вы закончите, он будет выглядеть примерно так:&lt;/p&gt;
+&lt;p&gt;Когда вы закончите, закройте и сохраните файл.&lt;/p&gt;
+&lt;p&gt;Затем свяжите оба файла конфигурации с директорией &lt;code&gt;sites-enabled&lt;/code&gt; в Nginx, чтобы включить их.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo ln -s /etc/nginx/sites-available/firstsite /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/secondsite /etc/nginx/sites-enabled
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Проверьте конфигурации на синтаксические ошибки, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo service nginx configtest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Если синтаксических ошибок не обнаружено, вы можете перезапустить Nginx для загрузки новой конфигурации:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo service nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Если вы помните заметили, мы никогда не запускали uWSGI сервер. Сделайте это, набрав:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo service uwsgi start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Теперь вы можете перейти к двум своим проектов, использую соответствующие доменные имена. Как интерфейс пользователя, так и интерфейс администратора должны работать должным образом.&lt;/p&gt;
+&lt;h2 id="_7"&gt;Вывод&lt;/h2&gt;
+&lt;p&gt;В этом руководстве мы создали два Django проекта, каждый в своей собственной виртуальной среде,  настроили uWSGI для работы с каждым проектом в независимости от другого, использую настроенную для каждого виртуальную среду. Затем мы настроили Nginx в качестве обратного прокси для обработки клиентских подключений и правильного обслуживания каждого проекта в зависимости от клиентского запроса.&lt;/p&gt;
+&lt;p&gt;Django упрощает создание проектов и приложений, представляя множество общих частей, что позволяет сосредоточиться на уникальных элементах. Использую цепочку инструментов  из этой стать, вы сможете легко настроить обслуживание нескольких  приложений на одном сервере.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Sat, 23 Dec 2017 15:15:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2017-12-23:/articles/2017/12/deploy-django-applications-on-ubuntu-14-04/</guid><category>django</category><category>linux</category></item></channel></rss>

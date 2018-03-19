@@ -1,0 +1,90 @@
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="/theme/images/favicon.ico" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/theme/css/bulma.min.css">
+  <link rel="stylesheet" href="/theme/css/style.css">
+
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <title>Лучший способ смены раскладки VIM &mdash; Заметки программиста </title>
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Лучший способ смены раскладки VIM" />
+  <meta name="date" content="2018-02-14 10:26:00+03:00" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="ru" />
+  <meta property="og:published_time" content="2018-02-14 10:26:00+03:00" />
+  <meta property="og:title" content="Лучший способ смены раскладки VIM" />
+  <meta property="og:url" content="https://solaire-off.github.io/articles/2018/02/vim-keyboard-layout-switch/" />
+  <meta property="og:description" content="Первой преградой при переходе на Vim стал вопрос — как переключить раскладку, чтобы командный режим, воспринимающий хоткеи только на латинице, продолжил свою работу. Эта проблема преследует всех пользователей, чей язык не использует латинский алфавит. Способы решения разнятся от использования плагинов до вмешивания в системные утилиты переключения раскладки. Многие из решений страдают …" />
+  <meta name="description" content="Первой преградой при переходе на Vim стал вопрос — как переключить раскладку, чтобы командный режим, воспринимающий хоткеи только на латинице, продолжил свою работу. Эта проблема преследует всех пользователей, чей язык не использует латинский алфавит. Способы решения разнятся от использования плагинов до вмешивания в системные утилиты переключения раскладки. Многие из решений страдают …" />
+
+  <link href="https://solaire-off.github.io/feeds/feed.rss" type="application/atom+xml" rel="alternate" title="solaire-off.github.io RSS Feed" />
+</head>
+<body>
+
+  <section id="posts" class="section is-medium articles">
+    <div class="bordered container">
+      <div class="columns is-desktop">
+        <div class="column is-9-desktop">
+          <article>
+            <h1 class="title is-2">Лучший способ смены раскладки VIM</h1>
+            <div class="subtitle">
+              <span class="subtitle__date"> 14-02-2018</span> // <a href="/articles">Заметки</a>
+            </div>
+            <div class="content is-medium">
+              <p>Первой преградой при переходе на Vim стал вопрос &mdash; как переключить раскладку, чтобы командный режим, воспринимающий хоткеи только на латинице, продолжил свою работу.</p>
+<p>Эта проблема преследует всех пользователей, чей язык не использует латинский алфавит.</p>
+<p>Способы решения разнятся от использования плагинов до вмешивания в системные утилиты переключения раскладки. Многие из решений страдают привязкой к определённой ОС и сложностью настройки. </p>
+<p>Все они они усложняют реализацию функции, которая уже заложена в сам Vim и настраивается двумя строками в <code>vim.rc</code>.</p>
+<p>Во-первых переопределяем раскладку клавиатуры:</p>
+<pre><code>set keymap=russian-jcukenwin
+</code></pre>
+
+<p>Теперь переключение раскладки в режиме ввода доступно по стандартной комбинации <code>&lt;C-^&gt;</code>, что само по себе неудобно, но уже позволяет не терять время на переключении раскладки на латинский вариант после перехода в командный режим.</p>
+<p>Во-вторых меняем неудобное сочетание <code>&lt;C-^&gt;</code> на более комфортное <code>&lt;C-L&gt;</code>. </p>
+<pre><code>imap &lt;C-L&gt; &lt;C-^&gt;
+</code></pre>
+
+<p>В результате получается простой и кроссплатформенный способ переключения раскладки в режиме ввода, без потери функциональности в командном режиме.</p>
+            </div>
+            <div class="tags">
+                <a href="/vim/" class="button is-link">vim</a>
+            </div>
+          </article>
+      </div>
+			
+          <div class="column  is-3 aside">
+          	<div class="content is-medium">
+            <h4 class="arrow">Метки</h4>
+            <ul>
+              <li><a href="/feeds/tags/css_feed.rss"><i class="fa fa-rss-square" aria-hidden="true"></i></a> <a href="/css/">css</a></li>
+              <li><a href="/feeds/tags/django_feed.rss"><i class="fa fa-rss-square" aria-hidden="true"></i></a> <a href="/django/">django</a></li>
+              <li><a href="/feeds/tags/linux_feed.rss"><i class="fa fa-rss-square" aria-hidden="true"></i></a> <a href="/linux/">linux</a></li>
+              <li><a href="/feeds/tags/tmux_feed.rss"><i class="fa fa-rss-square" aria-hidden="true"></i></a> <a href="/tmux/">tmux</a></li>
+              <li><a href="/feeds/tags/vim_feed.rss"><i class="fa fa-rss-square" aria-hidden="true"></i></a> <a href="/vim/">vim</a></li>
+            </ul>
+        	</div>
+          </div>    </div>
+  </div>
+</section>
+
+
+  <section class="is-footer">
+      <div class="container">
+          <div class="content">
+              <p class="has-text-grey-light has-text-centered">Генератор страниц &mdash; <a href="https://blog.getpelican.com/" rel="nofollow">Pelican Static Site Generator</a> | Хостинг <a href="https://pages.github.com/" rel="nofollow">Github Pages</a> | Тема сверстана с помощью <a href="http://bulma.io/" rel="nofollow">Bulma</a> <br/> Для получения новый статей подпишитесь по  <a href="https://solaire-off.github.io/feeds/feed.rss">RSS</a>.</p>
+          </div>
+      </div>
+  </section>
+
+<link rel="stylesheet" href="/theme/css/default.css">
+<script src="/theme/js/highlight.pack.js"></script>
+<script>hljs.initHighlighting();</script>
+
+
+</body>
+</html>

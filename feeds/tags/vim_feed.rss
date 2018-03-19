@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>solaire-off.github.io - vim</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Wed, 14 Feb 2018 10:26:00 +0300</lastBuildDate><item><title>Лучший способ смены раскладки VIM</title><link>https://solaire-off.github.io/articles/2018/02/vim-keyboard-layout-switch/</link><description>&lt;p&gt;Первой преградой при переходе на Vim стал вопрос &amp;mdash; как переключить раскладку, чтобы командный режим, воспринимающий хоткеи только на латинице, продолжил свою работу.&lt;/p&gt;
+&lt;p&gt;Эта проблема преследует всех пользователей, чей язык не использует латинский алфавит.&lt;/p&gt;
+&lt;p&gt;Способы решения разнятся от использования плагинов до вмешивания в системные утилиты переключения раскладки. Многие из решений страдают привязкой к определённой ОС и сложностью настройки. &lt;/p&gt;
+&lt;p&gt;Все они они усложняют реализацию функции, которая уже заложена в сам Vim и настраивается двумя строками в &lt;code&gt;vim.rc&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Во-первых переопределяем раскладку клавиатуры:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set keymap=russian-jcukenwin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Теперь переключение раскладки в режиме ввода доступно по стандартной комбинации &lt;code&gt;&amp;lt;C-^&amp;gt;&lt;/code&gt;, что само по себе неудобно, но уже позволяет не терять время на переключении раскладки на латинский вариант после перехода в командный режим.&lt;/p&gt;
+&lt;p&gt;Во-вторых меняем неудобное сочетание &lt;code&gt;&amp;lt;C-^&amp;gt;&lt;/code&gt; на более комфортное &lt;code&gt;&amp;lt;C-L&amp;gt;&lt;/code&gt;. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;imap &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В результате получается простой и кроссплатформенный способ переключения раскладки в режиме ввода, без потери функциональности в командном режиме.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Wed, 14 Feb 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-02-14:/articles/2018/02/vim-keyboard-layout-switch/</guid><category>vim</category></item></channel></rss>

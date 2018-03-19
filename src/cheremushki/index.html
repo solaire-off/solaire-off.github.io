@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Cherry Tower</title>
+        <meta name="description" content="">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }</style>
+    </head>
+    <body>
+        <section class="section header" id="header">
+            <div class="company">
+                <img class="logo" src="img/logo.png" alt="CITYRENT logo">
+            </div>
+            <div class="phone">
+                <a href="tel:+74952874841">+7 (495) 287-48-41</a>
+            </div>
+            <div class="header-content">
+                <div class="header-title">
+                    <p class="left-line p-1">Аренда</p>
+                    <p class="p-2">Коммерческих</p>
+                    <p class="p-3 right-line">помещения</p>
+                </div>
+                <div class="header-subtitle">
+                    <p>в ЮЗАО по выгодной цене <br/>
+                    от 500р. м2/мес </p>
+                </div>
+            </div>
+            <div class="header-info">
+                <ul>
+                    <li>офис</li>
+                    <li>склад</li>
+                    <li>торговая</li>
+                    <li>ритейл</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="rental">
+            <div class="container">
+                <p class="section-title is-1">Подобрать помещение </p>
+                <div class="rental-form">
+                <form method="POST" action="mail.php" class="form">
+                    <input name="name"  class="field" type="text" placeholder="Имя">
+                    <input name="phone" class="field phone-mask" type="text" placeholder="телефон">
+                    <input name="email" class="field" type="text" placeholder="e-mail">
+                    <button class="button is-circle is-white is-sm">подобрать</button>
+                    </form>
+                </div>
+                <div class="rental">
+                    <div class="main-rental">
+                        <div class="big-rental js-favorite-one">
+                            <img class="big-rental-img" src="img/office.png" alt="Офис">
+                            <div class="big-rental-info">
+                                <p class="title is-1">Офис</p>
+                                <p class="about"> 
+                                Бизнес-центр «Loft Ville» имеет обособленную 
+                                территорию с электронной системой 
+                                пропусков, круглосуточной охраной и 
+                                видеонаблюдением. Есть свой паркинг.
+                                площадь помещения  5 000 м 
+                                </p>
+                                <p class="align-text is-left"><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+                            </div>
+                        </div>
+                        <div class="big-rental js-favorite-two">
+                            <div class="big-rental-info swap">
+                                <p class="title is-1">Офис</p>
+                                <p class="about align-text is-right">Бизнес-центр «Loft Ville» имеет обособленную 
+                                территорию с электронной системой 
+                                пропусков, круглосуточной охраной и 
+                                видеонаблюдением. Есть свой паркинг.
+                                площадь помещения  5 000 м </p>
+                                <p class="align-text is-right"><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+
+                            </div>
+                            <img class="big-rental-img" src="img/office.png" alt="Офис">
+                        </div>
+                    </div>
+                    <div class="side-rental">
+                        <div class="small-rental">
+                            <img src="img/office.png" alt="Офис">
+                        </div>
+                        <div class="small-rental">
+                            <img src="img/office.png" alt="Офис">
+                        </div>
+                        <div class="small-rental">
+                            <img src="img/office.png" alt="Офис">
+                        </div>
+                    </div>
+                </div>
+                <p class="align-text is-center"><button id="get-more-cards" class="get-more-cards button is-circle is-white is-xs">посмотреть помещения</button></p>
+                <div class="rental-form is-center filter">
+                        <select class="field js-square" id="metr">
+                            <option data-start="0"   data-end="10000">выбрать метраж</option>
+                            <option data-start="0"   data-end="100">до 100м</option>
+                            <option data-start="100" data-end="200">от 100м до 200м</option>
+                            <option data-start="200" data-end="10000">от 200м</option>
+                        </select>
+                        <select class="field js-type" id="type">
+                            <option value="all">выбрать тип</option>
+                            <option value="trade">торговые</option>
+                            <option value="sclad">складские</option>
+                            <option value="office">офисные</option>
+                        </select>
+                </div>
+                <div class="cards">
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="best">
+            <div class="container">
+                <div class="row">
+                    <div class="best-item">
+                        <img class="best-img" src="img/number/1.png" alt="1">
+                        <p class="best-info">Актуальные цены<br/> от собсвенника.</p>
+                    </div>
+                    <div class="best-item">
+                        <img class="best-img" src="img/number/2.png" alt="2">
+                        <p class="best-info">Аренда без <br/>посредников. </p>
+                    </div>
+                    <div class="best-item">
+                        <img class="best-img" src="img/number/3.png" alt="3">
+                        <p class="best-info">Охрана, <br/>видеонаблюдение </p>
+                    </div>
+                    <div class="best-item">
+                        <img class="best-img" src="img/number/4.png" alt="4">
+                        <p class="best-info">Своя парковка.</p>
+                    </div>
+                    <div class="best-item">
+                        <img class="best-img" src="img/number/5.png" alt="5">
+                        <p class="best-info">Стабильный поток <br/>
+                        покупателей и <br/>
+                        посетителeй.
+                        </p>
+                    </div>
+                    <div class="best-item">
+                        <img class="best-img" src="img/number/6.png" alt="6">
+                        <p class="best-info">Помещения с <br/>ремонтом.</p>
+                    </div>
+                    <div class="best-item">
+                        <img class="best-img" src="img/number/7.png" alt="7">
+                        <p class="best-info">2 шага от <br/>м. Новые Черемушки </p>
+                    </div>
+                    <div class="best-item">
+                        <img class="best-img" src="img/number/8.png" alt="8">
+                        <p class="best-info is-sm">	Помещения оптимального <br/>
+                        размера от торговые<br/>
+                        ритейл  от 5 м2<br/>
+                        офисы от 64 м2<br/>
+                        склад от 32м2 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <div class="row v-center">
+                    <div class="col">
+                        <p class="section-title is-2">Торгово-офисный комплекс "Cherry Tower" </p>
+                        <p>Внушительное здание высотой в 19 этажей,  входит 
+                        в число крупнейших бизнес-центров класса «B+» в ЮЗАО. 
+                        С последних этажей комплекса открывается завораживающий 
+                        вид на московскую застройку.
+                        </p>
+                        <p class="more-space"><button class="button is-lg is-parallelogram with-line">Особенности планировки центра</button></p>
+                        <p>Общая площадь комплекса составляет 120 тыс. кв. метров, 70 тыс. кв. м офисных помещений и  50 тыс. кв. м. торговых площадей, распределенных наиболее рациональным способом. У арендаторов офисной части здания есть возможность сразу попасть в Торговый Центр не выходя из здания, посещать магазины, салоны красоты, фитнес центр и кафе с ресторанами без выхода на улицу,  а у арендаторов Торгового Центра есть возможность аренды склада или офиса, что выгодно комфотрно и удобно и многие с  удовольствием пользуются такой возможностью. На территории торгово-офисного комплекса работают банк, банкоматы, авиакасса, несколько турагентств и салон красоты; гурманов ожидают кафе и рестораны на четвертом этаже. Для клиентов открыт доступ к крытому паркингу, для гостей выделена отдельная автостоянка под открытым небом; функционирует шиномонтаж и профессиональная автомойка.</p>
+                    </div>
+                    <div class="col">
+                        <img class="main-img" src="img/main-img.png" alt="Торгово-офисный комплекс 'Cherry Tower'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="in">
+                    <p class="section-title is-1">Спец предложения</p>
+                    <p class="section-subtitle is-2">помещения</p>
+                    <ul class="select-room is-3">
+                        <li class="room-class">
+                            <button data-select="trade" class="button is-link">Торговое</button>
+                        </li>
+                        <li class="room-class">
+                            <button data-select="office" class="button is-link is-active">Офис</button>
+                        </li>
+                        <li class="room-class">
+                            <button data-select="utility" class="button is-link">Склад</button>
+                        </li>
+                    </ul>
+
+                    <div class="row">
+
+                        <!-- office trade utility -->
+                        <div class="room-card trade">
+                            <img class="room-img" src="http://office-arendator.ru/freerooms/img/22415.jpg" alt="">
+                            <div class="room-info">
+                                <p class="name is-3">1 этаж 222,7 М<sup>2</sup></p>
+                                <p class="price is-4">+ Под банк!</p>
+                                <p class="price is-4"> 96 000Р.</p>
+                                <p><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+                            </div>
+                        </div>
+                        <div class="room-card trade">
+                            <img class="room-img" src="http://office-arendator.ru/freerooms/img/22415.jpg" alt="">
+                            <div class="room-info">
+                                <p class="name is-3">4 этаж 766 М<sup>2</sup></p>
+                                <p class="price is-4">+ Под автосалон!</p>
+                                <p class="price is-4"> 6 000Р.</p>
+                                <p><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+                            </div>
+                        </div>
+                        <div class="room-card trade">
+                            <img class="room-img" src="http://office-arendator.ru/freerooms/img/16611.jpg" alt="">
+                            <div class="room-info">
+                                <p class="name is-3">1 этаж 5,9 М<sup>2</sup></p>
+                                <p class="price is-4">122 033Р.</p>
+                                <p><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+                            </div>
+                        </div>
+                        <div class="room-card trade">
+                            <img class="room-img" src="http://office-arendator.ru/freerooms/img/19952.jpg" alt="">
+                            <div class="room-info">
+                                <p class="name is-3">3 этаж 27,8 М<sup>2</sup></p>
+                                <p class="price is-4">36 000Р.</p>
+                                <p><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+                            </div>
+                        </div>
+                        <div class="room-card office">
+                            <img class="room-img" src="http://office-arendator.ru/freerooms/img/13576.jpg" alt="">
+                            <div class="room-info">
+                                <p class="name is-3">Офис 220,4 М<sup>2</sup></p>
+                                <!-- <p class="price is-4">+ Прямая аренда</p> -->
+                                <p class="price is-4">+ Парковочное место <br/> на 6 месяцев бесплатно!</p>
+                                <p class="price is-4">+ Cклад 19,5кв.м в подарок!</p>
+                                <p class="price is-4"><strike>330 600Р.</strike> 220 400Р.</p>
+                                <p><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+                            </div>
+                        </div>
+                        <div class="room-card office">
+                            <img class="room-img" src="http://office-arendator.ru/freerooms/img/24140.jpg" alt="">
+                            <div class="room-info">
+                                <p class="name is-3">Офис 134,2 М<sup>2</sup></p>
+                                <p class="price is-4">+ Cклад 17,2кв.м в подарок!</p>
+                                <p class="price is-4"><strike>201 300Р.</strike> 167 750Р.</p>
+                                <p><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+                            </div>
+                        </div>
+                        <div class="room-card office">
+                            <img class="room-img" src="http://office-arendator.ru/freerooms/img/24615.jpg" alt="">
+                            <div class="room-info">
+                                <p class="name is-3">Офис 245,3 М<sup>2</sup></p>
+                                <p class="price is-4">+ Cклад 36,4кв.м в подарок!</p>
+                                <p class="price is-4"><strike>367 950Р.</strike> 245 300Р.</p>
+                                <p><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+                            </div>
+                        </div>
+                        <div class="room-card office">
+                            <img class="room-img" src="http://office-arendator.ru/upload/iblock/601/601f28615ee25049d25d285ae7740fa2.jpg" alt="">
+                            <div class="room-info">
+                                <p class="name is-3">Офис 580,2 М<sup>2</sup></p>
+                                <p class="price is-4">+ 2 парковочных места <br/> на 6 месяцев бесплатно!</p>
+                                <p class="price is-4"><strike>870 000Р.</strike> 435 000Р.</p>
+                                <p><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+                            </div>
+                        </div>
+                        <div class="room-card utility">
+                            <img class="room-img" src="http://office-arendator.ru/freerooms/img/24581.jpg" alt="">
+                            <div class="room-info">
+                                <p class="name is-3">Подвал 32,6 М<sup>2</sup></p>
+                                <p class="price is-4">+ Пряма аренда!</p>
+                                <p class="price is-4"> 12 000Р.</p>
+                                <p><button class="button is-parallelogram is-blue">оставить заявку</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section is-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="align-text is-center is-6">ВЫБЕРИТЕ УДОБНУЮ ДАТУ, ЧТОБЫ ПОСМОТРЕТЬ ПОМЕЩЕНИЕ</p>
+                        <div id="calendar"></div>
+                    </div>
+                    <div class="col">
+                        <form method="POST" action="mail.php" class="footer-contact-form is-5">
+                            <input placeholder="Тел" type="text" class="phone-mask" name="phone">
+                            <input placeholder="Email" type="text" name="email">
+                            <input placeholder="Имя" type="text" name="name">
+                            <input type="hidden" name="date" value="не указана" id="calendar-input">
+                            <p class="button-wrap align-text is-right"><button class="button is-circle is-gray">отправить</button></p>
+                            <p class="privacy">Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных  
+                            согласно политике конфиденциальности</p>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>	
+       
+
+        <div id="get-more" class="modal is-contact">
+            <p>Чтобы получить более подробную информацию, оставьте свои данные.</p>
+            <div class="contact-form">
+                <form action="mail.php" method="POST">
+                    <input required type="text" name="name" placeholder="Имя">
+                    <input required type="text" name="phone" placeholder="Телефон" class="phone-mask">
+                    <div class="button-wrap">
+                        <button class="button is-circle is-xs is-gray">отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="thanks" class="modal">
+            <p>Спасибо! Данные успешно отправлены</p>
+        </div>
+
+        <link rel="stylesheet" href="css/main.min.css">
+        <script src="js/scripts.min.js"></script>
+
+
+    </body>
+</html>

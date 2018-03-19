@@ -1,9 +1,9 @@
 article{
     padding-top: 40px;
     padding-bottom: 30px;
-    border-bottom: 2px solid #dbdbdb;
+    border-bottom: 3px solid #dbdbdb;
 }
-article:first-child,article:last-child{
+article:first-child{
     padding-top: 10px;
 }
 a{
@@ -74,15 +74,13 @@ a:hover, a:focus{
 a.link-disable{
    pointer-events:none;
 }
-.is-footer{
-  padding-bottom: 0 !important;
-  padding-top: 2.5rem;
+.is-footer a{
+    color: #b5b5b5;
 }
-.is-footer ul{
-  border-bottom: none;
-}
-.is-footer ul a:hover{
-  border-color: transparent;
+.is-footer a:hover,
+.is-footer a:focus
+{
+    text-decoration: underline 
 }
 .ya-share2 {
     display: -webkit-box;
@@ -95,16 +93,16 @@ a.link-disable{
     margin-bottom: -20px;
 }
 #posts > .container{
-  -webkit-box-shadow: 0 0 40px 0 rgba(236,236,236,.75);
-          box-shadow: 0 0 40px 0 rgba(236,236,236,.75);
-  padding: 20px 30px;
+  -webkit-box-shadow: 0 0 11px 5px rgba(236,236,236,.75);
+          box-shadow: 0 0 11px 5px rgba(236,236,236,.75);
+  /* padding: 20px 30px; */
+  padding: 45px 70px;
 }
 
 #posts > .container:before, #posts > .container:after {
   content: '';
   position: absolute;
   background-repeat: repeat;
-  z-index: -1;
 }
 
 #posts > .container:after {
@@ -113,7 +111,7 @@ a.link-disable{
   background: linear-gradient(135deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 75%, #363636 75%, #363636), linear-gradient(315deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 75%, #363636 75%, #363636), linear-gradient(225deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 75%, #363636 75%, #363636), linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 75%, #363636 75%, #363636);
   background-position: 0.5em 0.5em, 0.5em 0em, 0.5em 0, 0.5em 0.5em;
   background-size: 1em 1em;
-  left: -1em;
+  left: -0.5em;
   top: 0;
   height: 100%;
   width: 1em;
@@ -184,10 +182,33 @@ code{
 .content figure{
   padding: 10px 0;
 }
+.content figure img{
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .content figure figcaption{
   margin-top: 10px
 }
 .content .hljs {
     padding: 0 ;
     background: transparent;
+}
+@media all and (max-width: 980px){
+    #posts > .container{
+      padding: 20px 30px;
+    }
+}
+@media all and (max-width: 768px){
+    html{
+        font-size: 13px;
+    }
+}
+@media all and (max-width: 480px){
+    html{
+        font-size: 10px;
+    }
+}
+.has-text-weight-bold{
+    font-weight: bold !important
 }

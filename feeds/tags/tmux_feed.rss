@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>solaire-off.github.io - tmux</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Thu, 15 Mar 2018 10:26:00 +0300</lastBuildDate><item><title>Базовая настройка Tmux</title><link>https://solaire-off.github.io/articles/2018/03/base-tmux-settings/</link><description>&lt;p&gt;Для запуска Tmux необходимо набрать в терминале &lt;code&gt;tmux&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Команды в Tmux всегда начинаются с префикса.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;== Терминалы ==
+вертикальный сплит                 prefix + %
+горизонтальный сплит               prefix + "
+удаление терминала                 prefix + d
+
+== Навигация == 
+вверх                              prefix + &amp;#8593;
+вниз                               prefix + &amp;#8595;
+влево                              prefix + &amp;#8592;
+вправо                             prefix + &amp;#8594;
+
+== Изменнеие размеров == 
+вверх                              prefix + Shift + &amp;#8593;
+вниз                               prefix + Shift + &amp;#8595;
+влево                              prefix + Shift + &amp;#8592; 
+вправо                             prefix + Shift + &amp;#8594;
+
+
+== Окна ==
+создать окно                       prefix + c
+переименовать окно                 prefix + ,
+перейти к следующему окнку         prefix + n
+перекрлючение к окну по номеру     prefix + номер
+удаление окна                      prefix + &amp;
+
+
+== Сессии == 
+список сессей                      prefix + s
+выход из сессии                    prefix + x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Для возврата к предыдущей сессии используется команда &lt;code&gt;tmux attach&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;По умолчанию &lt;code&gt;prefix&lt;/code&gt; &amp;mdash; это сочетание клавиш &lt;code&gt;Control + B&lt;/code&gt;. Не самый удобный сочетание для частого использования, к тому уже является хоткеем для пользователей Emacs.&lt;/p&gt;
+&lt;p&gt;Для пользователей Vim советую использовать &lt;code&gt;Control + Space&lt;/code&gt;, всем остальным в качестве префикса подойдет &lt;code&gt;Control + A&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Для настройки Tmux в корневом каталоге создается и редактируется файл  &lt;code&gt;.tmux.conf&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Установка префикса. &lt;/p&gt;
+&lt;pre&gt;&lt;code class="bash"&gt;set -g prefix C-Space
+bind C-Space send-prefix
+unbind C-b
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Установка навигации по  hjkl.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="bash"&gt;bind h select-pane -L 
+bind j select-pane -D 
+bind k select-pane -U 
+bind l select-pane -R
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Настройка этих же клавиши для регулирования размера терминала.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bind -r H resize-pane -L 2
+bind -r J resize-pane -D 2
+bind -r K resize-pane -U 2
+bind -r L resize-pane -R 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Настройка количество строк истории, который Tmux будет хранить для истории.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g history-limit 20000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Разрешение на использование мыши.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;setw -g mouse on
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Нумерации окон с 1 вместо 0.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g base-index 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Отключение автоматического переименования окна при переходе по терминалам.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set-option -g allow-rename off
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Макрос на создание имени при открытие нового окна. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bind-key c command-prompt -p &amp;quot;window name:&amp;quot; &amp;quot;new-window; rename-window '%%'&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Настройка размеров и цвета статус бара.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g status-bg black
+set -g status-fg white
+set -g window-status-current-fg black
+set -g window-status-current-attr bold
+set -g status-interval 60
+set -g status-left-length 30
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Отображение имени пользователя и текущего времени в статус баре.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g status-left ' #[fg=white]#(whoami) '
+set -g status-right '#[fg=white]%H:%M#[default]'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Итоговый конфиг.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g prefix C-space
+bind C-space send-prefix
+unbind C-b
+
+bind h select-pane -L 
+bind j select-pane -D 
+bind k select-pane -U 
+bind l select-pane -R
+
+bind -r H resize-pane -L 2
+bind -r J resize-pane -D 2
+bind -r K resize-pane -U 2
+bind -r L resize-pane -R 2
+
+
+set -g history-limit 20000
+
+setw -g mouse on
+
+
+set -g base-index 1
+set-option -g allow-rename off
+
+bind-key c command-prompt -p &amp;quot;window name:&amp;quot; &amp;quot;new-window; rename-window '%%'&amp;quot;
+
+set -g status-bg black
+set -g status-fg white
+set -g window-status-current-fg black
+set -g window-status-current-attr bold
+set -g status-interval 60
+set -g status-left-length 30
+set -g status-left ' #[fg=white]#(whoami) '
+set -g status-right '#[fg=white]%H:%M#[default]'
+&lt;/code&gt;&lt;/pre&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Thu, 15 Mar 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-03-15:/articles/2018/03/base-tmux-settings/</guid><category>tmux</category></item></channel></rss>
