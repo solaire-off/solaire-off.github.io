@@ -131,7 +131,7 @@ a.link-disable{
 }
 .aside ul .fa, .subtitle .fa{
   position: relative;
-  top: 0.45rem;
+  top: 0.42rem;
 font-size: 1.3rem;
 }
 .aside ul .fa{
@@ -207,7 +207,7 @@ code{
     }
     .aside ul{
         display: flex;
-        align-items: center;
+        align-items: baseline;
         justify-content: center;
         flex-wrap: wrap;
     }
@@ -248,7 +248,7 @@ code{
         font-size: 10px;
     }
     .arrow:after, .arrow:before {
-      border-width: 12px 0 12px 12px;
+      border-width: 11px 0 12px 12px;
     }
     .arrow:before {
       border-color: #363636 transparent;
