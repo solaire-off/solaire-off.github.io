@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Druk Wide-Super-Web';
+  src: url('Druk Wide-Super-Web.eot');
+  src: url('Druk Wide-Super-Web.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DrukWideCyTT-Super';
+  src: url('DrukWideCyTT-Super.woff') format('woff'),
+       url('DrukWideCyTT-Super.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+

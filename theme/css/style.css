@@ -101,6 +101,7 @@ a.link-disable{
           box-shadow: 0 0 11px 5px rgba(236,236,236,.75);
   /* padding: 20px 30px; */
   padding: 45px 70px;
+  border-radius: 1rem;
 }
 
 #posts > .container:before, #posts > .container:after {
@@ -172,6 +173,11 @@ font-size: 1.3rem;
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+#posts.single-page .title{
+  font-weight: 600;
+}
+  
 #posts.single-page > .container::after{
   content: none;
 }
