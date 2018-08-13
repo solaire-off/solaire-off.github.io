@@ -1,0 +1,148 @@
+html {
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+body {
+  font-family: Georgia;
+  font-family: Verdana;
+  font-size: 1.6rem;
+  min-width: 320px;
+  position: relative;
+  overflow-x: hidden;
+  color: #262626;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  margin: 0;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, blockquote,
+.text-center {
+  text-align: center;
+}
+
+ul {
+  padding-left: 10px;
+  text-align: center;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.table-scroll .col-description {
+  min-width: 260px;
+}
+
+.text-muted {
+  opacity: 0.5;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+h1 + blockquote {
+  margin-top: 5px;
+}
+
+h1 + blockquote p {
+  margin-top: 0;
+  margin-bottom: 35px;
+}
+
+.container {
+  margin: 0  auto;
+  padding: 10px 45px;
+  max-width: 76.8rem;
+  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 20px;
+          border-radius: 20px;
+  background: white;
+}
+
+#my-slider {
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+tr, td, th {
+  text-align: center;
+  border: 1px solid rgba(222, 222, 222, 0.5);
+  padding: 1rem;
+}
+
+.github-corner:hover .octo-arm {
+  -webkit-animation: octocat-wave 560ms ease-in-out;
+          animation: octocat-wave 560ms ease-in-out;
+}
+
+@-webkit-keyframes octocat-wave {
+  0%, 100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  20%, 60% {
+    -webkit-transform: rotate(-25deg);
+            transform: rotate(-25deg);
+  }
+  40%, 80% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@keyframes octocat-wave {
+  0%, 100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  20%, 60% {
+    -webkit-transform: rotate(-25deg);
+            transform: rotate(-25deg);
+  }
+  40%, 80% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+.demo-page .container {
+  margin-bottom: 45px;
+}
+
+.demo-page h1 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 960px) {
+  body {
+    padding-top: 90px;
+  }
+}
+
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .github-corner .octo-arm {
+    -webkit-animation: octocat-wave 560ms ease-in-out;
+            animation: octocat-wave 560ms ease-in-out;
+  }
+}
