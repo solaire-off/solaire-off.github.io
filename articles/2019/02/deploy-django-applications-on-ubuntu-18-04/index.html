@@ -1,0 +1,60 @@
+<html lang=ru> <head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1"><link rel="shortcut icon" type=image/x-icon href=/theme/images/favicon.ico><link rel=stylesheet href=/theme/css/main.min.css><link type=text/plain rel=author href=/humans.txt><title>Как развернуть Django приложения при помощи uWSGI и Nginx на Ubuntu 18.04</title><meta name=twitter:card content=summary><meta name=twitter:title content="Как развернуть Django приложения при помощи uWSGI и Nginx на Ubuntu 18.04"><meta name=date content="2019-02-10 15:15:00+03:00"><meta property=og:type content=article><meta property=og:locale content=ru><meta property=og:published_time content="2019-02-10 15:15:00+03:00"><meta property=og:title content="Как развернуть Django приложения при помощи uWSGI и Nginx на Ubuntu 18.04"><meta content=https://solaire-off.github.io/articles/2019/02/deploy-django-applications-on-ubuntu-18-04/ property=og:url><meta property=og:description content="Источник: How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04 Типичный вид поля, сверстанного в стиле material Множество форм в стиле от Google используют Java Script для отслеживания своего состояния и реализации анимации элементов, и все бы хорошо, но иногда возникает необходимость сверстать такую форму без …"><meta name=description content="Источник: How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04 Типичный вид поля, сверстанного в стиле material Множество форм в стиле от Google используют Java Script для отслеживания своего состояния и реализации анимации элементов, и все бы хорошо, но иногда возникает необходимость сверстать такую форму без …"><link href=https://solaire-off.github.io/feeds/feed.rss type=application/atom+xml rel=alternate title="solaire-off.github.io RSS Feed"></head> <body> <div class=l-container> <div class=row> <div class=col-sm-11> <header class=c-header> <span class=c-header__brand>Виктор Ананьев</span> <div class=asda> </div> <nav class=c-header__menu> <div class=c-nav> <a href=/ class="c-nav__link ">Заметки</a> <a class="c-nav__link " href=/cv>Резюме</a> </div> <div class=c-nav> <a class=c-nav__link href=https://solaire-off.github.io/feeds/feed.rss>RSS</a> </div> </nav> </header> </div> <div class=col-sm-8> <main class=l-main> <article class=article> <h1 class=article__title>Как развернуть Django приложения при помощи uWSGI и Nginx на Ubuntu 18.04</h1> <p class=article__meta>Публикация: 10-02-2019 | Теги: <a href=/django/ >django</a> <a href=/linux/ >linux</a> </p> <div class=article__content> <h2 id=how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-1404>Источник: <a href=https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04>How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04</a></h2> <figure> <img alt="material inputs in action" src=/images/material-inputs-in-action.gif> <br> <figcaption>Типичный вид поля, сверстанного в стиле material</figcaption> </figure> <p>Множество форм в стиле от Google используют Java Script для отслеживания своего состояния и реализации анимации элементов, и все бы хорошо, но иногда возникает необходимость сверстать такую форму без использования скриптов, рассмотрим как такое реализовать, использую только CSS.</p> <p>Начнем с html разметки.</p> <pre><code>&lt;div class=&quot;form-control&quot;&gt;
+  &lt;input id=&quot;id_login&quot; class=&quot;form-control__input&quot; name=&quot;login&quot; placeholder=&quot; &quot;&gt;
+  &lt;label for=&quot;id_login&quot; class=&quot;form-control__label&quot;&gt;Entel login&lt;/label&gt;
+&lt;/div&gt;
+</code></pre> <p>Добавим стилей, где стилизуем <code>label</code> в виде <code>placeholder</code>.</p> <pre><code>.form-control
+  position: relative  
+  &amp;__label
+    position: absolute
+    left: 0
+    top: 0
+    cursor: default
+    display: block
+    color: gray
+  &amp;__input
+    padding: 0 0 2px 0
+    border: none
+    border-bottom: 2px solid rgba(gray, 0.7)
+</code></pre> <p>К реализации анимации: по фокусу на поле добавим раскрашивания границы и переместим <code>label</code> вверх, для этого воспользуемся псевдоклассом <code>focus</code>.</p> <pre><code>.form-control
+  position: relative  
+  &amp;__label
+    position: absolute
+    left: 0
+    top: 0
+    cursor: default
+    display: block
+    color: gray 
+    transition: all 0.2s
+  &amp;__input
+    padding: 0 0 2px 0
+    border: none
+    border-bottom: 2px solid rgba(gray, 0.7)
+    &amp;:focus
+      border-color: #ffdb4d    
+      + .form-control__label
+        top: -1em
+        font-size: 80%
+</code></pre> <p>Для того, чтобы сохранить положение <code>label</code>, когда пользователь закончит ввод, воспользуемся псевдоклассом <code>placeholder-shown</code>. Следует отметить, что для работы псевдокласса необходимо наличие самого <code>placeholder</code>, только в нашем случае он был пустым <code>placeholder=" "</code>.</p> <pre><code>.form-control
+  position: relative  
+  &amp;__label
+    position: absolute
+    left: 0
+    top: 0
+    cursor: default
+    display: block
+    color: gray 
+    transition: all 0.2s
+  &amp;__input
+    padding: 0 0 2px 0
+    border: none
+    border-bottom: 2px solid rgba(gray, 0.7)
+    &amp;:focus
+      border-color: #ffdb4d    
+      + .form-control__label
+        top: -1em
+        font-size: 80%
+    &amp;:not(:placeholder-shown)
+      + .form-control__label
+        top: -1em
+        font-size: 80%
+</code></pre> <p>По итогу получаем следующею форму.</p> <p>Ссылка на <a href=https://codepen.io/anon/pen/ZVBgPa>Живой пример</a>.</p> </div> </article> </main> </div> <div class=col-sm-3> <aside class=l-aside> <p class="c-block-title c-block-title--bold c-block-title--sm">Теги</p> <ul class=c-list> <li class=c-list__item><a href=/css/ >#css</a> <a href=# class="is-muted is-small">(rss)</a></li> <li class=c-list__item><a href=/django/ >#django</a> <a href=# class="is-muted is-small">(rss)</a></li> <li class=c-list__item><a href=/gnome/ >#gnome</a> <a href=# class="is-muted is-small">(rss)</a></li> <li class=c-list__item><a href=/linux/ >#linux</a> <a href=# class="is-muted is-small">(rss)</a></li> <li class=c-list__item><a href=/tmux/ >#tmux</a> <a href=# class="is-muted is-small">(rss)</a></li> <li class=c-list__item><a href=/vim/ >#vim</a> <a href=# class="is-muted is-small">(rss)</a></li> </ul> </aside> </div> </div> </div> </body> </html>

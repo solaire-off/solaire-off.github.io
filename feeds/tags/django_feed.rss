@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>solaire-off.github.io - django</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Sat, 23 Dec 2017 15:15:00 +0300</lastBuildDate><item><title>Как развернуть Django приложения при помощи uWSGI и Nginx на Ubuntu 14.04</title><link>https://solaire-off.github.io/articles/2017/12/deploy-django-applications-on-ubuntu-14-04/</link><description>&lt;p&gt;Оригинал статьи: &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04"&gt;How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04&lt;/a&gt;&lt;/p&gt;
+<rss version="2.0"><channel><title>solaire-off.github.io - django</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Sat, 23 Dec 2017 15:15:00 +0300</lastBuildDate><item><title>Как развернуть Django приложения при помощи uWSGI и Nginx на Ubuntu 14.04</title><link>https://solaire-off.github.io/articles/2017/12/deploy-django-applications-on-ubuntu-14-04/</link><description>&lt;p&gt;Источник: &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04"&gt;How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2 id="_1"&gt;Введение&lt;/h2&gt;
 &lt;p&gt;Django - мощный веб-фреймворк который может помочь вашему Python приложению или веб-сайту сдвинуться с мертвой точки. Django включает в себя упрощенный сервер для тестирования ваше кода в пределах локальной сети, но для всего остального, например для ввода в эксплуатацию, потребуется куда более безопасный и мощный веб-сервер.&lt;/p&gt;
@@ -277,7 +277,7 @@ vacuum = true
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Когда закончите, сохраните и закройте файл. Ваш второй проект должен быть готов к работе.&lt;/p&gt;
-&lt;h3 id="upstart-uwsgi"&gt;Создайте скрипт &lt;code&gt;Upstart&lt;/code&gt; для uWSGI&lt;/h3&gt;
+&lt;h3 id="uwsgi_2"&gt;Создайте скрипт запуска uWSGI&lt;/h3&gt;
 &lt;p&gt;Теперь у нас есть файлы конфигурации, необходимые для обслуживания наших Django проектов, но мы все еще не автоматизировали процесс. Сейчас мы напишем сценарий для автоматического запуска uWSGI при загрузке.&lt;/p&gt;
 &lt;p&gt;Создадим сценарий в каталоге &lt;code&gt;/etc/init/uwsgi.conf&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo nano /etc/init/uwsgi.conf

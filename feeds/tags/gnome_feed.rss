@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>solaire-off.github.io - gnome</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Sat, 15 Dec 2018 10:26:00 +0300</lastBuildDate><item><title>Vim-подобная навигация в Gnome 3</title><link>https://solaire-off.github.io/articles/2018/12/vim-navigation-into-gnome-3/</link><description>&lt;hr /&gt;
+&lt;p&gt;После установки свежей системы с Gnome 3 на борту, мне захотелось экспериментов и вместо того, чтобы накатить привычный i3wm, было принято решения вновь взглянуть на то, что же из себя представляет Gnome. &lt;/p&gt;
+&lt;p&gt;А представлял он собой все тот же красивый интерфейс, которым неудобно управлять как прокликивая все мышкой, так и использую стандартные сочетания клавиш. &lt;/p&gt;
+&lt;p&gt;Тем не менее возможность время от времени использовать систему одной лишь мышкой мне понравилась, чего нельзя сделать в том же i3wm, так что надо было решить вопрос использования множества терминалов и настроить вменяемые хоткеи для управление рабочим пространством. &lt;/p&gt;
+&lt;p&gt;Для работы с терминалами на помощь  пришел терминальный мультиплексор - &lt;a href="/tmux/"&gt;Tmux&lt;/a&gt;, который я и раньше использовался чаще, чем вызов отдельного терминала в оконном менеджере.&lt;/p&gt;
+&lt;p&gt;Вспоминая работу c рабочими столами в i3wm, а также управление в Vim с его &lt;code&gt;hjkl&lt;/code&gt;, настроил некоторые сочетания клавиш для работы в системе: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;win+j&lt;/code&gt; -- переключиться к предыдущему рабочему столу.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+k&lt;/code&gt; -- переключиться к следующему рабочему столу&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+j&lt;/code&gt; -- перенести приложение на предыдущий рабочий стол;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+k&lt;/code&gt; -- перенести приложение на следующий рабочий стол;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+f&lt;/code&gt; -- переключить приложение между полноэкранным и оконным режимом&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+1&lt;/code&gt; -- переключиться на 1 рабочий стол. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+2&lt;/code&gt; -- переключиться на 2 рабочий стол.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+n&lt;/code&gt; -- переключение на рабочий стол номер &lt;code&gt;n&lt;/code&gt;. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+n&lt;/code&gt; -- перенос приложения на рабочий стол номер &lt;code&gt;n&lt;/code&gt;. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+h&lt;/code&gt; -- закрепление приложения в левой части экрана. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+l&lt;/code&gt; -- закрепление приложения в правой части экрана. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Для быстрого  запуска приложений в Gnome по умолчанию используется клавиша &lt;code&gt;Win&lt;/code&gt;, открывающая поиск по приложениям.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Sat, 15 Dec 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-12-15:/articles/2018/12/vim-navigation-into-gnome-3/</guid><category>vim</category><category>gnome</category></item></channel></rss>
