@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>solaire-off.github.io - vim</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Sat, 15 Dec 2018 10:26:00 +0300</lastBuildDate><item><title>Лучший способ смены раскладки в Vim</title><link>https://solaire-off.github.io/articles/2018/02/vim-keyboard-layout-switch/</link><description>&lt;hr /&gt;
-&lt;p&gt;После перехода на работу  Vim встал вопрос &amp;mdash; как сменить раскладку в режиме ввода, чтобы при выходе в нормальный режим не приходилось сменять раскладку назад на латиницу, ведь горячие клавиши работают только на ней.&lt;/p&gt;
-&lt;p&gt;Эта головная боль тех пользователей, чей язык не использует латинский алфавит.&lt;/p&gt;
-&lt;p&gt;Способы решения разнятся от использования плагинов в Vim до настройки системных утилит, некоторые решения страдают привязкой к определённой ОС, другие сложностью в их исполнении. &lt;/p&gt;
-&lt;p&gt;Лучшее же решение этой проблемы заложено в базовый функционал самого Vim и настраивается парой строчек в &lt;code&gt;vim.rc&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Сначала надо указать Vim какие раскладки будут использоваться, для &lt;code&gt;ru/en&lt;/code&gt; прописываем:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;set keymap=russian-jcukenwin
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Теперь переключение раскладки &lt;strong&gt;в режиме ввода&lt;/strong&gt; доступно по стандартной комбинации &lt;code&gt;&amp;lt;C-^&amp;gt;&lt;/code&gt;, что само по себе неудобно, но уже позволяет не терять время на возвращение раскладки латинский вариант после выхода в &amp;laquo;нормальный&amp;raquo; режим.&lt;/p&gt;
-&lt;p&gt;Для себя выбрал выбрал  &lt;code&gt;&amp;lt;C-L&amp;gt;&lt;/code&gt; в качестве комфортной комбинации смены раскладки.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Для режима ввода
-imap &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
-# Для коммадного режима
-cmap &amp;lt;silent&amp;gt; &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Для переключения раскладки в &amp;laquo;нормальном&amp;raquo; режиме, например для того чтобы такие команды &lt;code&gt;f&lt;/code&gt; и &lt;code&gt;F&lt;/code&gt; искали символы на нужном языке, я использую сочетание клавиш &lt;code&gt;&amp;lt;Leader&amp;gt;L&lt;/code&gt;, так как в моем конфиге в &amp;laquo;нормальном&amp;raquo; режиме команда &lt;code&gt;&amp;lt;C-L&amp;gt;&lt;/code&gt; уже используется.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nmap &amp;lt;silent&amp;gt; &amp;lt;Leader&amp;gt;l a&amp;lt;C-^&amp;gt;&amp;lt;Esc&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Wed, 14 Feb 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-02-14:/articles/2018/02/vim-keyboard-layout-switch/</guid><category>vim</category></item><item><title>Vim-подобная навигация в Gnome 3</title><link>https://solaire-off.github.io/articles/2018/12/vim-navigation-into-gnome-3/</link><description>&lt;hr /&gt;
+<rss version="2.0"><channel><title>solaire-off.github.io - vim</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Sat, 15 Dec 2018 10:26:00 +0300</lastBuildDate><item><title>Vim-подобная навигация в Gnome 3</title><link>https://solaire-off.github.io/articles/2018/12/vim-navigation-into-gnome-3/</link><description>&lt;hr /&gt;
 &lt;p&gt;После установки свежей системы с Gnome 3 на борту, мне захотелось экспериментов и вместо того, чтобы накатить привычный i3wm, было принято решения вновь взглянуть на то, что же из себя представляет Gnome. &lt;/p&gt;
 &lt;p&gt;А представлял он собой все тот же красивый интерфейс, которым неудобно управлять как прокликивая все мышкой, так и использую стандартные сочетания клавиш. &lt;/p&gt;
 &lt;p&gt;Тем не менее возможность время от времени использовать систему одной лишь мышкой мне понравилась, чего нельзя сделать в том же i3wm, так что надо было решить вопрос использования множества терминалов и настроить вменяемые хоткеи для управление рабочим пространством. &lt;/p&gt;
@@ -37,4 +18,23 @@ cmap &amp;lt;silent&amp;gt; &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
 &lt;li&gt;&lt;code&gt;win+shift+h&lt;/code&gt; -- закрепление приложения в левой части экрана. &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;win+shift+l&lt;/code&gt; -- закрепление приложения в правой части экрана. &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Для быстрого  запуска приложений в Gnome по умолчанию используется клавиша &lt;code&gt;Win&lt;/code&gt;, открывающая поиск по приложениям.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Sat, 15 Dec 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-12-15:/articles/2018/12/vim-navigation-into-gnome-3/</guid><category>vim</category><category>gnome</category></item></channel></rss>
+&lt;p&gt;Для быстрого  запуска приложений в Gnome по умолчанию используется клавиша &lt;code&gt;Win&lt;/code&gt;, открывающая поиск по приложениям.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Sat, 15 Dec 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-12-15:/articles/2018/12/vim-navigation-into-gnome-3/</guid><category>vim</category><category>gnome</category></item><item><title>Лучший способ смены раскладки в Vim</title><link>https://solaire-off.github.io/articles/2018/02/vim-keyboard-layout-switch/</link><description>&lt;hr /&gt;
+&lt;p&gt;После перехода на работу  Vim встал вопрос &amp;mdash; как сменить раскладку в режиме ввода, чтобы при выходе в нормальный режим не приходилось сменять раскладку назад на латиницу, ведь горячие клавиши работают только на ней.&lt;/p&gt;
+&lt;p&gt;Эта головная боль тех пользователей, чей язык не использует латинский алфавит.&lt;/p&gt;
+&lt;p&gt;Способы решения разнятся от использования плагинов в Vim до настройки системных утилит, некоторые решения страдают привязкой к определённой ОС, другие сложностью в их исполнении. &lt;/p&gt;
+&lt;p&gt;Лучшее же решение этой проблемы заложено в базовый функционал самого Vim и настраивается парой строчек в &lt;code&gt;vim.rc&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Сначала надо указать Vim какие раскладки будут использоваться, для &lt;code&gt;ru/en&lt;/code&gt; прописываем:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set keymap=russian-jcukenwin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Теперь переключение раскладки &lt;strong&gt;в режиме ввода&lt;/strong&gt; доступно по стандартной комбинации &lt;code&gt;&amp;lt;C-^&amp;gt;&lt;/code&gt;, что само по себе неудобно, но уже позволяет не терять время на возвращение раскладки латинский вариант после выхода в &amp;laquo;нормальный&amp;raquo; режим.&lt;/p&gt;
+&lt;p&gt;Для себя выбрал выбрал  &lt;code&gt;&amp;lt;C-L&amp;gt;&lt;/code&gt; в качестве комфортной комбинации смены раскладки.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Для режима ввода
+imap &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
+# Для коммадного режима
+cmap &amp;lt;silent&amp;gt; &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Для переключения раскладки в &amp;laquo;нормальном&amp;raquo; режиме, например для того чтобы такие команды &lt;code&gt;f&lt;/code&gt; и &lt;code&gt;F&lt;/code&gt; искали символы на нужном языке, я использую сочетание клавиш &lt;code&gt;&amp;lt;Leader&amp;gt;L&lt;/code&gt;, так как в моем конфиге в &amp;laquo;нормальном&amp;raquo; режиме команда &lt;code&gt;&amp;lt;C-L&amp;gt;&lt;/code&gt; уже используется.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nmap &amp;lt;silent&amp;gt; &amp;lt;Leader&amp;gt;l a&amp;lt;C-^&amp;gt;&amp;lt;Esc&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Wed, 14 Feb 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-02-14:/articles/2018/02/vim-keyboard-layout-switch/</guid><category>vim</category></item></channel></rss>

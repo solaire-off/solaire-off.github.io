@@ -1,284 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>solaire-off.github.io</title><link href="https://solaire-off.github.io/" rel="alternate"></link><link href="https://solaire-off.github.io/feeds/all.atom.xml" rel="self"></link><id>https://solaire-off.github.io/</id><updated>2018-12-16T10:26:00+03:00</updated><entry><title>Забытое искусство посещенных ссылок</title><link href="https://solaire-off.github.io/articles/2017/12/the-lost-art-of-visited-links/" rel="alternate"></link><published>2017-12-03T10:26:00+03:00</published><updated>2017-12-03T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-12-03:/articles/2017/12/the-lost-art-of-visited-links/</id><summary type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;
-Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;Весьма вероятно вы посещали &lt;a href="https://www.google.com"&gt;эту&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту&lt;/a&gt; страницу,
-может были на &lt;a href="https://news.ycombinator.com/"&gt;этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
-уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Справедливости ради, я могу лишь &lt;em&gt;догадываться&lt;/em&gt;. Хотя вы точно …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;
-Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;Весьма вероятно вы посещали &lt;a href="https://www.google.com"&gt;эту&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту&lt;/a&gt; страницу,
-может были на &lt;a href="https://news.ycombinator.com/"&gt;этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
-уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Справедливости ради, я могу лишь &lt;em&gt;догадываться&lt;/em&gt;. Хотя вы точно можете сказать, на каких страницах уже были,
-даже не переходя и не наводя курсор ни на одну из этих ссылок, ведь мой сайт изменяет цвет &lt;strong&gt;посещенных&lt;/strong&gt; ссылок.&lt;/p&gt;
-&lt;h2 id="timelord"&gt;Путешествие во времени&lt;/h2&gt;
-&lt;p&gt;Навигация в интернете в основном &lt;strong&gt;двумерна&lt;/strong&gt;: вы либо &lt;em&gt;прокручиваете&lt;/em&gt;  (y-index), либо &lt;em&gt;щелкаете&lt;/em&gt; (z-index).&lt;/p&gt;
-&lt;p&gt;Цвет ссылок обеспечивает третье измерение: &lt;strong&gt;время&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Фиолетовые ссылки из &lt;strong&gt;прошлого&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Синие ссылки &amp;mdash; кандидаты в &lt;strong&gt;настоящее&lt;/strong&gt; или &lt;strong&gt;будущее&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;В зависимости от того, что вы ищете, посещенные ссылки могут вызывать
-две разные реакции:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;«О, да, это тот сайт, который я искал! Я уже был там.»&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;«Я уже был на этой странице, попробую следующею.»&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="checklist"&gt;Ссылки как чеклист&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Агрегаторы ссылок&lt;/strong&gt;, такие как &lt;a href="https://www.reddit.com/"&gt;Reddit&lt;/a&gt; или
-&lt;a href="https://news.ycombinator.com/"&gt;Hacker News&lt;/a&gt;, остаются одними из немногих
-ресурсов, которые по-прежнему разграничивают посещенные ссылки от «новых».&lt;/p&gt;
-&lt;p&gt;Как правило, поисковая выдача Google поступает также. &lt;/p&gt;
-&lt;p&gt;Фиолетовые ссылки имеют роль &lt;strong&gt;выполненных задач&lt;/strong&gt; потому что:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Вы не хотите переходить на одну и туже страницу &lt;strong&gt;дважды&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Вы хотите &lt;strong&gt;найти&lt;/strong&gt; список ссылок, которые вы посетили.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Различие в цвете дает информацию о состоянии ссылок.&lt;/p&gt;
-&lt;h2 id="yuck"&gt;Фиолетовые ссылки? Фу!&lt;/h2&gt;
-&lt;p&gt;Но почему посещенные ссылки так редко встречаются? Потому что дизайнеры
-(как я) &lt;strong&gt;ленятся&lt;/strong&gt; и &lt;strong&gt;придираются&lt;/strong&gt; к каждой мелочи.&lt;/p&gt;
-&lt;p&gt;Вы хотите, чтобы по завершению макета (утвержденного вами или вашим
-заказчиком) сверстанная страница на самом деле совпадала с макетом. Вам
-не хочется, чтобы действия пользователя &lt;strong&gt;повлияли&lt;/strong&gt; на ваш идеально
-сбалансированный дизайн, не так ли?&lt;/p&gt;
-&lt;p&gt;Если бы вы профессионально делали дизайн кнопки X, то вы бы
-проработали множество состояний (обычное, наведение, клик, фокус,
-отключение), но вряд ли бы вы вспомнили про посещенную ссылку..&lt;/p&gt;
-&lt;p&gt;Одно из первый CSS правил, которое пишет любой дизайнер:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;a{
-    color: $anythingButBlue;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Такое правило подобно сбросу цвета, повлияет на &lt;strong&gt;все&lt;/strong&gt; ссылки в любом состоянии: наведения, клика,
-фокуса и посещения. Вы устанавливаете его и
-забываете. Вы можете использовать псевдокласс &lt;code&gt;:link&lt;/code&gt;, но никто об
-этом не узнает. Кроме того вы в любом случае забыли установить &lt;code&gt;:visited&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Веб-страница - это живой документ: вы прорабатываете различные состояния
-интерфейса в зависимости от размера экрана, пользовательского окружения и
-действий пользователя.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Игнорирование цвета посещенных ссылок походит на заботу о кросс-браузерности: полагают, что опыт использования каждого пользователя должна быть строго идентичен.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id="privacy"&gt;Вопрос конфиденциальности&lt;/h2&gt;
-&lt;p&gt;Несколько лет назад кто-то провел эксперимент: создав веб-сайт, показывающий 1000 наиболее посещаемых веб-сайтов. В теории этот веб-сайт мог «украсть» вашу историю браузера, вычислив цвет каждой ссылки.&lt;/p&gt;
-&lt;p&gt;Но в настоящее время Firefox предотвратил такое поведение:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Даже если цвет посещенной ссылки был изменен, метод getComputedStyle всегда будет отдавать значение непосещенной ссылки.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Как результат, стилизация посещенных ссылок весьма ограничена:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Посещенные ссылки конфиденциальны. &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Вы можете изменить лишь цвет посещенных ссылок.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="exception"&gt;Не все ссылки одинаковы&lt;/h2&gt;
-&lt;p&gt;Большинство ссылок не требуют изменения цвета:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Ссылки &lt;strong&gt;навигации&lt;/strong&gt; (домашняя страница, учетная запись, настройки).&lt;/li&gt;
-&lt;li&gt;Интерактивные элементы &lt;strong&gt;интерфейса&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Как решить, какие ссылки должны изменять цвет при посещении?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Внешние ссылки&lt;/strong&gt;, поскольку они выполняют роль упоминаний (поэтому
-    агрегаторы меняют цвет посещенных ссылок)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Ссылки на статьи&lt;/strong&gt; или любые страницы, содержание которых не
-    изменяется с течением времени.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Чтобы стало понятно, скажем читаете вы &lt;a href="https://www.theguardian.com"&gt;The
-Guardian&lt;/a&gt;. Главная страница &lt;strong&gt;обновляется&lt;/strong&gt; каждые несколько минут. Вам как пользователю не нужно знать, бывали ли вы здесь, потому что:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Возможно вы уже находитесь на этой странице &lt;strong&gt;сейчас&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Возможно вы вернетесь сюда &lt;strong&gt;снова&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Однако, вам бы хотелось знать, какие статьи вы уже читали, потому что их
-содержание &lt;strong&gt;скорее всего&lt;/strong&gt; не изменится в следующий раз, когда вы будете здесь.&lt;/p&gt;
-&lt;p&gt;Так, прежде чем перейти к статье, вы узнаете, видели ли её, что в зависимости от &lt;strong&gt;намерения&lt;/strong&gt; определит ваше &lt;strong&gt;действие&lt;/strong&gt;:&lt;/p&gt;
-&lt;div style="overflow-x:auto;"&gt;
-&lt;table class="table"&gt;
-    &lt;thead&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Намерение&lt;/th&gt;
-        &lt;th&gt;Непосещення ссылка&lt;/th&gt;
-        &lt;th&gt;Посещенная ссылка&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Я хочу это увидеть&lt;/td&gt;
-        &lt;td&gt;&lt;i&gt;"Новая статья!"&lt;/i&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;i&gt;"Я искал эту статью"&lt;/i&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Я не хочу это видеть&lt;/td&gt;
-        &lt;td&gt;&lt;i&gt;"Это не выглядит интересно"&lt;/i&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;i&gt;"Я видел это раньше, не интересно"&lt;/i&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;В следующий раз, когда вы создаете сайт, подумайте о &lt;code&gt;:visited&lt;/code&gt;!&lt;br /&gt;
-Пользователи скажут вам спасибо.&lt;/p&gt;</content><category term="css"></category></entry><entry><title>В CSS используйте px, а не em</title><link href="https://solaire-off.github.io/articles/2017/12/in-css-use-px-not-em/" rel="alternate"></link><published>2017-12-13T12:00:00+03:00</published><updated>2017-12-13T12:00:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-12-13:/articles/2017/12/in-css-use-px-not-em/</id><summary type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
-Оригинал статьи: &lt;a href="http://jgthms.com/in-css-use-pixels-not-em.html"&gt;In CSS: use pixels, not em&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;В CSS используются различные &lt;a href="http://marksheet.io/css-size-units.html"&gt;единицы измерения&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;px&lt;/code&gt; пиксель&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;%&lt;/code&gt; процент&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;em&lt;/code&gt;  размер шрифта родительского элемента&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rem&lt;/code&gt; размер шрифта корневого элемента&lt;/li&gt;
-&lt;li&gt;безымянное значение (например для &lt;code&gt;line-height&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Наиболее естественной единицей измерения является пиксель, особенно для объявления высоты и ширины, так как это …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
-Оригинал статьи: &lt;a href="http://jgthms.com/in-css-use-pixels-not-em.html"&gt;In CSS: use pixels, not em&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;В CSS используются различные &lt;a href="http://marksheet.io/css-size-units.html"&gt;единицы измерения&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;px&lt;/code&gt; пиксель&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;%&lt;/code&gt; процент&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;em&lt;/code&gt;  размер шрифта родительского элемента&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rem&lt;/code&gt; размер шрифта корневого элемента&lt;/li&gt;
-&lt;li&gt;безымянное значение (например для &lt;code&gt;line-height&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Наиболее естественной единицей измерения является пиксель, особенно для объявления высоты и ширины, так как это &lt;strong&gt;абсолютная&lt;/strong&gt; единица измерения.&lt;/p&gt;
-&lt;p&gt;Но &lt;strong&gt;относительные&lt;/strong&gt; единицы измерения, например &lt;code&gt;em&lt;/code&gt;, имеют свои преимущества.&lt;/p&gt;
-&lt;h2 id="em"&gt;Как работает em&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;em&lt;/code&gt; эквивалент  &lt;em&gt;текущего&lt;/em&gt;  значения &lt;code&gt;font-size&lt;/code&gt;. Так, если ваш элемент имеет &lt;code&gt;font-size: 12px&lt;/code&gt;, &lt;code&gt;1em&lt;/code&gt; равен &lt;code&gt;12px&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;С помощью объявления &lt;code&gt;font-size&lt;/code&gt;, вы можете использовать &lt;code&gt;em&lt;/code&gt; для определения &lt;em&gt;относительных&lt;/em&gt; значений &lt;em&gt;различных&lt;/em&gt; свойств:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;margin&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;padding&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;height&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;width&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;и т.д.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;rem&lt;/code&gt; работает точно так же как &lt;code&gt;em&lt;/code&gt;. Единственное отличие состоит в том, что &lt;code&gt;em&lt;/code&gt; считает значение относительно &lt;code&gt;font-size&lt;/code&gt;  &lt;em&gt;родительского&lt;/em&gt; элемента, а &lt;code&gt;rem&lt;/code&gt; считает &lt;code&gt;font-size&lt;/code&gt; относительно  &lt;em&gt;корневого&lt;/em&gt; элемента, то есть &lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;C помощью изменения &lt;em&gt;единственного&lt;/em&gt; значения &lt;code&gt;font-size&lt;/code&gt;, вы можете изменять другие свойства:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;.button {
-  font-size: 16px;
-  padding: 0.75em 1em;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>solaire-off.github.io</title><link href="https://solaire-off.github.io/" rel="alternate"></link><link href="https://solaire-off.github.io/feeds/all.atom.xml" rel="self"></link><id>https://solaire-off.github.io/</id><updated>2018-12-16T10:26:00+03:00</updated><entry><title>Масштабирование веб-сайта с помощью REM</title><link href="https://solaire-off.github.io/articles/2018/12/great-scale-with-rem/" rel="alternate"></link><published>2018-12-16T10:26:00+03:00</published><updated>2018-12-16T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2018-12-16:/articles/2018/12/great-scale-with-rem/</id><summary type="html">&lt;hr /&gt;
+&lt;p&gt;Когда в мобильной версии веб-сайта необходимо уменьшить размеры компонентов, на помощь может прийти такая единицы измерения как &lt;code&gt;rem&lt;/code&gt;. При правильном использовании &lt;code&gt;rem&lt;/code&gt; станет хорошим помощником в создании адаптивного веб-сайта.&lt;/p&gt;
+&lt;p&gt;Для начала работы с &lt;code&gt;rem&lt;/code&gt; необходимо задать ему размер, &lt;code&gt;1rem&lt;/code&gt; всегда равен размеру шрифта &lt;code&gt;html&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Чтобы было удобно рассчитывать размеры элементов …&lt;/p&gt;</summary><content type="html">&lt;hr /&gt;
+&lt;p&gt;Когда в мобильной версии веб-сайта необходимо уменьшить размеры компонентов, на помощь может прийти такая единицы измерения как &lt;code&gt;rem&lt;/code&gt;. При правильном использовании &lt;code&gt;rem&lt;/code&gt; станет хорошим помощником в создании адаптивного веб-сайта.&lt;/p&gt;
+&lt;p&gt;Для начала работы с &lt;code&gt;rem&lt;/code&gt; необходимо задать ему размер, &lt;code&gt;1rem&lt;/code&gt; всегда равен размеру шрифта &lt;code&gt;html&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Чтобы было удобно рассчитывать размеры элементов, стоит прописать размер одного &lt;code&gt;rem&lt;/code&gt; в &lt;code&gt;10px&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;html{
+  font-size: 10px
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;figure&gt;
-  &lt;img alt="CSS em size button" src="/images/em-size-button.gif"&gt;
-  &lt;br&gt;
-  &lt;figcaption&gt;Пропорциональное изменение размера кнопки с помощью изменения размера шрифта&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Таким образом, вы легко можете переопределять размеры кнопки, изменив только &lt;code&gt;font-size&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;.button--small {
-  font-size: 12px;
-}
-
-.button--large {
-  font-size: 20px;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id="px-em"&gt;Почему вы должны использовать px, а не em&lt;/h2&gt;
-&lt;p&gt;Использование &lt;code&gt;em&lt;/code&gt; - весьма &lt;strong&gt;изящный&lt;/strong&gt; способ для задания размеров тексту и блокам. Это позволяет сохранять каждый элемент простым и сбалансированным.&lt;/p&gt;
-&lt;p&gt;Я пользовался этим способом раньше. Это было больно. &lt;/p&gt;
-&lt;h3 id="_1"&gt;Для отчетливости шрифтам необходима точность&lt;/h3&gt;
-&lt;p&gt;Предположим, что по умолчанию размер вашего шрифта &lt;code&gt;16px&lt;/code&gt;. У вас есть &lt;strong&gt;заголовок&lt;/strong&gt; размером &lt;code&gt;2rem&lt;/code&gt; и &lt;strong&gt;подзаголовок&lt;/strong&gt; размером &lt;code&gt;1.5rem&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Потрясающе! Ваша визуальная пропорция совпадает со смысловой. Если бы вы изменили размер текста по умолчанию на &lt;code&gt;15px&lt;/code&gt;, то сохранили бы эти пропорции.&lt;/p&gt;
-&lt;p&gt;Но &lt;strong&gt;не всякий размер текста подойдет каждому шрифту&lt;/strong&gt;... Рассмотрим на следующем примере:&lt;/p&gt;
-&lt;figure&gt;
-  &lt;img alt="CSS fuzzy text" src="/images/em-fuzzy-text.png"&gt;
-  &lt;br&gt;
-  &lt;figcaption&gt;Довольно просто выставить значение в 1.25rem, но оно не будет идеальным&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Проблема присутствует даже с большим текстом:&lt;/p&gt;
-&lt;figure&gt;
-  &lt;img alt="CSS fuzzy title" src="/images/em-fuzzy-title.png"&gt;
-  &lt;br&gt;
-  &lt;figcaption&gt;Различие в 1px имеет значение&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h3 id="_2"&gt;Каждому шрифту необходим свой собственный размер&lt;/h3&gt;
-&lt;p&gt;Другая проблема с использованием &lt;code&gt;em&lt;/code&gt; возникает, когда вы хотите сменить &lt;strong&gt;семейство шрифтов&lt;/strong&gt;, потому что каждый шрифт отрисовывает размеры по-своему:&lt;/p&gt;
-&lt;figure&gt;
-  &lt;img alt="CSS Cabin font" src="/images/em-cabin-font.png"&gt;
-  &lt;br&gt;
-  &lt;figcaption&gt;12px легче вычислить, но 13px выглядят лучше&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h3 id="_3"&gt;Изображением нужны пиксели&lt;/h3&gt;
-&lt;p&gt;Если &lt;strong&gt;размеры&lt;/strong&gt; изображения установлены в пикселях, и вы хотите точно выровнять окружающий его текст по &lt;em&gt;вертикале&lt;/em&gt; , то вы должны использовать &lt;code&gt;padding-top&lt;/code&gt; и &lt;code&gt;line-height&lt;/code&gt; в пикселях.&lt;/p&gt;
-&lt;figure&gt;
-  &lt;img alt="CSS image alignment" src="/images/em-image-alignment.png"&gt;
-  &lt;br&gt;
-  &lt;figcaption&gt;C em или rem это потребовало бы хитрых вычислений &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;(Мое лого не изображение, хоть раньше и было, но в любом случае это не важно)&lt;/p&gt;
-&lt;h3 id="_4"&gt;Для задания границ нужны пиксели&lt;/h3&gt;
-&lt;p&gt;Представим, что вы хотите, чтобы ваши кнопка и поле ввода были высотой &lt;code&gt;38px&lt;/code&gt;. Одинаковая высота позволит расположить элементы друг рядом с другом, например как в &lt;a href="http://v4-alpha.getbootstrap.com/components/input-group/"&gt;Bootstrap 4&lt;/a&gt;:&lt;/p&gt;
-&lt;figure&gt;
-  &lt;img alt="em input button" src="/images/em-input-button.png"&gt;
-  &lt;br&gt;
-  &lt;figcaption&gt;Сгруппированные и выровненные элементы&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Как сделать это с помощью &lt;code&gt;rem&lt;/code&gt;?&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;.form-control {
-    border: .0625rem solid #ccc;
-    border-radius: .25rem;
-    font-size: 1rem;
-    padding: .375rem .75rem;
+&lt;p&gt;После этого все размеры компонентов в CSS  нужно описывать в &lt;code&gt;rem&lt;/code&gt;. Например шрифт размером в &lt;code&gt;18px&lt;/code&gt; станет размером в &lt;code&gt;1.8rem&lt;/code&gt;, отступ в &lt;code&gt;5px&lt;/code&gt; превратиться &lt;code&gt;0.5rem&lt;/code&gt; и так далее. &lt;/p&gt;
+&lt;p&gt;Когда все размеры веб-сайта буду заданы в &lt;code&gt;rem&lt;/code&gt;, изменить масштаб всех элементов на сайте можно, изменяя количество пикселей в одном &lt;code&gt;rem&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Например, если при разрешении меньше 1440px нужно уменьшить элементы веб-сайта на 20%, тогда можно использовать следующий код.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@media all and (max-width: 1440px){
+  html{
+    font-size: 8px;
   }
+}
+&lt;/code&gt;&lt;/pre&gt;</content><category term="css"></category></entry><entry><title>Vim-подобная навигация в Gnome 3</title><link href="https://solaire-off.github.io/articles/2018/12/vim-navigation-into-gnome-3/" rel="alternate"></link><published>2018-12-15T10:26:00+03:00</published><updated>2018-12-15T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2018-12-15:/articles/2018/12/vim-navigation-into-gnome-3/</id><summary type="html">&lt;hr /&gt;
+&lt;p&gt;После установки свежей системы с Gnome 3 на борту, мне захотелось экспериментов и вместо того, чтобы накатить привычный i3wm, было принято решения вновь взглянуть на то, что же из себя представляет Gnome. &lt;/p&gt;
+&lt;p&gt;А представлял он собой все тот же красивый интерфейс, которым неудобно управлять как прокликивая все мышкой, так и …&lt;/p&gt;</summary><content type="html">&lt;hr /&gt;
+&lt;p&gt;После установки свежей системы с Gnome 3 на борту, мне захотелось экспериментов и вместо того, чтобы накатить привычный i3wm, было принято решения вновь взглянуть на то, что же из себя представляет Gnome. &lt;/p&gt;
+&lt;p&gt;А представлял он собой все тот же красивый интерфейс, которым неудобно управлять как прокликивая все мышкой, так и использую стандартные сочетания клавиш. &lt;/p&gt;
+&lt;p&gt;Тем не менее возможность время от времени использовать систему одной лишь мышкой мне понравилась, чего нельзя сделать в том же i3wm, так что надо было решить вопрос использования множества терминалов и настроить вменяемые хоткеи для управление рабочим пространством. &lt;/p&gt;
+&lt;p&gt;Для работы с терминалами на помощь  пришел терминальный мультиплексор - &lt;a href="/tmux/"&gt;Tmux&lt;/a&gt;, который я и раньше использовался чаще, чем вызов отдельного терминала в оконном менеджере.&lt;/p&gt;
+&lt;p&gt;Вспоминая работу c рабочими столами в i3wm, а также управление в Vim с его &lt;code&gt;hjkl&lt;/code&gt;, настроил некоторые сочетания клавиш для работы в системе: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;win+j&lt;/code&gt; -- переключиться к предыдущему рабочему столу.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+k&lt;/code&gt; -- переключиться к следующему рабочему столу&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+j&lt;/code&gt; -- перенести приложение на предыдущий рабочий стол;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+k&lt;/code&gt; -- перенести приложение на следующий рабочий стол;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+f&lt;/code&gt; -- переключить приложение между полноэкранным и оконным режимом&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+1&lt;/code&gt; -- переключиться на 1 рабочий стол. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+2&lt;/code&gt; -- переключиться на 2 рабочий стол.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+n&lt;/code&gt; -- переключение на рабочий стол номер &lt;code&gt;n&lt;/code&gt;. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+n&lt;/code&gt; -- перенос приложения на рабочий стол номер &lt;code&gt;n&lt;/code&gt;. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+h&lt;/code&gt; -- закрепление приложения в левой части экрана. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;win+shift+l&lt;/code&gt; -- закрепление приложения в правой части экрана. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Для быстрого  запуска приложений в Gnome по умолчанию используется клавиша &lt;code&gt;Win&lt;/code&gt;, открывающая поиск по приложениям.&lt;/p&gt;</content><category term="vim"></category><category term="gnome"></category></entry><entry><title>Базовая настройка Tmux</title><link href="https://solaire-off.github.io/articles/2018/03/base-tmux-settings/" rel="alternate"></link><published>2018-03-15T10:26:00+03:00</published><updated>2018-03-15T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2018-03-15:/articles/2018/03/base-tmux-settings/</id><summary type="html">&lt;hr /&gt;
+&lt;p&gt;Команды в Tmux начинаются с префикса.  По умолчанию &lt;code&gt;prefix&lt;/code&gt; &amp;mdash; это сочетание клавиш &lt;code&gt;Control + B&lt;/code&gt;. Не самый удобный сочетание для частого использования, для себя я выбрал &lt;code&gt;Control + Space&lt;/code&gt;, так как такое сочетание не используйте в моем рабочем окружении.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;== Терминалы ==
+вертикальный сплит                 prefix + %
+горизонтальный сплит               prefix + "
+удаление терминала                 prefix + d
+
+== Навигация == 
+вверх …&lt;/code&gt;&lt;/pre&gt;</summary><content type="html">&lt;hr /&gt;
+&lt;p&gt;Команды в Tmux начинаются с префикса.  По умолчанию &lt;code&gt;prefix&lt;/code&gt; &amp;mdash; это сочетание клавиш &lt;code&gt;Control + B&lt;/code&gt;. Не самый удобный сочетание для частого использования, для себя я выбрал &lt;code&gt;Control + Space&lt;/code&gt;, так как такое сочетание не используйте в моем рабочем окружении.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;== Терминалы ==
+вертикальный сплит                 prefix + %
+горизонтальный сплит               prefix + "
+удаление терминала                 prefix + d
+
+== Навигация == 
+вверх                              prefix + &amp;#8593;
+вниз                               prefix + &amp;#8595;
+влево                              prefix + &amp;#8592;
+вправо                             prefix + &amp;#8594;
+
+== Изменнеие размеров == 
+вверх                              prefix + Shift + &amp;#8593;
+вниз                               prefix + Shift + &amp;#8595;
+влево                              prefix + Shift + &amp;#8592; 
+вправо                             prefix + Shift + &amp;#8594;
+
+
+== Окна ==
+создать окно                       prefix + c
+переименовать окно                 prefix + ,
+перейти к следующему окнку         prefix + n
+перекрлючение к окну по номеру     prefix + номер
+удаление окна                      prefix + &amp;
+
+
+== Сессии == 
+список сессей                      prefix + s
+выход из сессии                    prefix + x
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Все эти вычисления основаны на размере шрифта в &lt;code&gt;16px&lt;/code&gt;. Что случиться, если мы изменим значение на &lt;code&gt;15px&lt;/code&gt;?&lt;/p&gt;
-&lt;figure&gt;
-  &lt;img alt="em input button border gone" src="/images/em-input-button-border-gone.png"&gt;
-  &lt;br&gt;
-  &lt;figcaption&gt;Где мои рамки??&lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;Если для запуска мультиплексора в терминале нужно набрать &lt;code&gt;tmux&lt;/code&gt;, то для возврата к предыдущей сессии, например если терминал был просто закрыт, используется команда &lt;code&gt;tmux attach&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Настройки Tmux можно менять в конфигурационном файле, для этого создается и редактируется файл &lt;code&gt;.tmux.conf&lt;/code&gt; в корневом каталоге пользователя. &lt;/p&gt;
+&lt;h2 id="_1"&gt;Основные настройки&lt;/h2&gt;
+&lt;p&gt;Установка префикса. &lt;/p&gt;
+&lt;pre&gt;&lt;code class="bash"&gt;set -g prefix C-Space
+bind C-Space send-prefix
+unbind C-b
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Да. Теперь размер рамки установлен в &lt;code&gt;0.9375px&lt;/code&gt;, и она просто исчезла, как ей и предусмотрено.&lt;/p&gt;
-&lt;p&gt;Вы должно быть подумали: &lt;em&gt;"Почему бы не использовать тени?"&lt;/em&gt; ? Ну, &lt;code&gt;box-shadow&lt;/code&gt; не является решением, так как:&lt;/p&gt;
+&lt;p&gt;Установка навигации по  hjkl:  &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;каждый раз, когда вы захотите добавить тень, вам нужно переопределить &lt;em&gt;все&lt;/em&gt; остальные значения;&lt;/li&gt;
-&lt;li&gt;тень не является частью размеров блока;&lt;/li&gt;
-&lt;li&gt;тень может быть только одного цвета;&lt;/li&gt;
-&lt;li&gt;необходимо 4 тени, если вы хотите получить рамки 4 разных цветов.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prifix + h&lt;/code&gt; - переместить в левое окно;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prifix + j&lt;/code&gt; - переместить в нижнее окно;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prifix + k&lt;/code&gt; - переместить в верхнее окно;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prifix + l&lt;/code&gt; - переместить в правое окно.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="_5"&gt;Векторным элементам необходимы пиксели&lt;/h3&gt;
-&lt;p&gt;Векторные элементы, например &lt;strong&gt;иконочные шрифты&lt;/strong&gt;, для правильной отрисовки требуют точных значений в пикселях.&lt;/p&gt;
-&lt;p&gt;Стандартный размер иконок в &lt;a href="http://fortawesome.github.io/Font-Awesome/"&gt;Font Awesome&lt;/a&gt;  &lt;code&gt;28px&lt;/code&gt;. Если вам нужны значки поменьше, остановитесь на &lt;code&gt;14px&lt;/code&gt;. Любые другие значение выглядят ужасно:&lt;/p&gt;
-&lt;figure&gt;
-  &lt;img alt="em Font Awesome" src="/images/em-font-awesome.png"&gt;
-  &lt;br&gt;
-  &lt;figcaption&gt;Только кратные 7&lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;pre&gt;&lt;code class="bash"&gt;bind h select-pane -L 
+bind j select-pane -D 
+bind k select-pane -U 
+bind l select-pane -R
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id="_6"&gt;Теперь браузеры масштабируют правильно&lt;/h3&gt;
-&lt;p&gt;Для увеличения размера страницы, браузеры просто &lt;strong&gt;увеличивают размер шрифта&lt;/strong&gt;, делая текст больше, но сохраняя первоначальный размер блоков в пикселях. &lt;/p&gt;
-&lt;p&gt;Чтобы пользователи не могли сломать страницу при увеличении, необходима было задать &lt;strong&gt;динамичный&lt;/strong&gt; размер блоков в &lt;code&gt;em&lt;/code&gt; или &lt;code&gt;rem&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Но в настоящее время браузеры могут пропорционально увеличивать  &lt;em&gt;любые&lt;/em&gt; блоки. В &lt;code&gt;em&lt;/code&gt; больше нет необходимости.&lt;/p&gt;
-&lt;h2 id="_7"&gt;Просо используйте пиксели&lt;/h2&gt;
-&lt;p&gt;Если вы хотите правильно отрисованный интерфейс, остановитесь на пикселях:&lt;/p&gt;
+&lt;p&gt;Настройка этих же клавиши для регулирования размера терминала.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;вы сможете избежать сложных &lt;strong&gt;вычеслений&lt;/strong&gt; вплоть до десятитысячных  &lt;/li&gt;
-&lt;li&gt;вы сможете точно определять значения свойства, просто взглянув на него, ведь элемент не будет иметь &lt;strong&gt;зависимостей&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;в любом случай &lt;strong&gt;препроцессоры&lt;/strong&gt;, например Sass, позволяют использовать переменные для задания размеров и миксины для создания различный вариантов элементов&lt;/li&gt;
-&lt;li&gt;вы сможете &lt;strong&gt;выравнивать&lt;/strong&gt; разные типы элементов, каждый из которых требует &lt;em&gt;свой&lt;/em&gt; размер шрифта&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prifix + shift + h&lt;/code&gt; - увеличить окно влево;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prifix + shift + j&lt;/code&gt; - увеличить окно вниз;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prifix + shift + k&lt;/code&gt; - увеличить окно вверх;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prifix + shift + l&lt;/code&gt; - увеличить окно вправо.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Вы все еще можете использовать &lt;code&gt;em&lt;/code&gt; для таких вещей как межсимвольный интервал, отступы, или другие свойства так или иначе связанные с размером шрифта. Но не осталось ни одной причины, которая не устарела или не стала бесполезной, чтобы использовать их &lt;em&gt;везде&lt;/em&gt;.&lt;/p&gt;</content><category term="css"></category></entry><entry><title>Как развернуть Django приложения при помощи uWSGI и Nginx на Ubuntu 14.04</title><link href="https://solaire-off.github.io/articles/2017/12/deploy-django-applications-on-ubuntu-14-04/" rel="alternate"></link><published>2017-12-23T15:15:00+03:00</published><updated>2017-12-23T15:15:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-12-23:/articles/2017/12/deploy-django-applications-on-ubuntu-14-04/</id><summary type="html">&lt;p&gt;Источник: &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04"&gt;How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bind -r H resize-pane -L 2
+bind -r J resize-pane -D 2
+bind -r K resize-pane -U 2
+bind -r L resize-pane -R 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Настройка количество строк истории, который Tmux будет хранить для истории.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g history-limit 20000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Разрешение использовать мышь для перехода между окнами и изменениях их размеров.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;setw -g mouse on
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Нумерации окон с 1 вместо 0.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g base-index 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Отключение автоматического переименования окна при переходе по терминалам.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set-option -g allow-rename off
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Макрос на запрос ввода имени при открытие нового окна. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bind-key c command-prompt -p &amp;quot;window name:&amp;quot; &amp;quot;new-window; rename-window '%%'&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Настройка размеров и цвета статус бара.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g status-bg black
+set -g status-fg white
+set -g window-status-current-fg black
+set -g window-status-current-attr bold
+set -g status-interval 60
+set -g status-left-length 30
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Отображение имени пользователя и текущего времени в статус баре.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g status-left ' #[fg=white]#(whoami) '
+set -g status-right '#[fg=white]%H:%M#[default]'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Итоговый файл.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g prefix C-space
+bind C-space send-prefix
+unbind C-b
+
+bind h select-pane -L 
+bind j select-pane -D 
+bind k select-pane -U 
+bind l select-pane -R
+
+bind -r H resize-pane -L 2
+bind -r J resize-pane -D 2
+bind -r K resize-pane -U 2
+bind -r L resize-pane -R 2
+
+
+set -g history-limit 20000
+
+setw -g mouse on
+
+
+set -g base-index 1
+set-option -g allow-rename off
+
+bind-key c command-prompt -p &amp;quot;window name:&amp;quot; &amp;quot;new-window; rename-window '%%'&amp;quot;
+
+set -g status-bg black
+set -g status-fg white
+set -g window-status-current-fg black
+set -g window-status-current-attr bold
+set -g status-interval 60
+set -g status-left-length 30
+set -g status-left ' #[fg=white]#(whoami) '
+set -g status-right '#[fg=white]%H:%M#[default]'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Это была базовая конфигурация, с которой можно начать удобно работать. Далее можно советую подключить менеджер плагинов и самому дописывать и менять конфигурацию для своего удобства.&lt;/p&gt;</content><category term="tmux"></category></entry><entry><title>Лучший способ смены раскладки в Vim</title><link href="https://solaire-off.github.io/articles/2018/02/vim-keyboard-layout-switch/" rel="alternate"></link><published>2018-02-14T10:26:00+03:00</published><updated>2018-02-14T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2018-02-14:/articles/2018/02/vim-keyboard-layout-switch/</id><summary type="html">&lt;hr /&gt;
+&lt;p&gt;После перехода на работу  Vim встал вопрос &amp;mdash; как сменить раскладку в режиме ввода, чтобы при выходе в нормальный режим не приходилось сменять раскладку назад на латиницу, ведь горячие клавиши работают только на ней.&lt;/p&gt;
+&lt;p&gt;Эта головная боль тех пользователей, чей язык не использует латинский алфавит.&lt;/p&gt;
+&lt;p&gt;Способы решения разнятся от использования плагинов …&lt;/p&gt;</summary><content type="html">&lt;hr /&gt;
+&lt;p&gt;После перехода на работу  Vim встал вопрос &amp;mdash; как сменить раскладку в режиме ввода, чтобы при выходе в нормальный режим не приходилось сменять раскладку назад на латиницу, ведь горячие клавиши работают только на ней.&lt;/p&gt;
+&lt;p&gt;Эта головная боль тех пользователей, чей язык не использует латинский алфавит.&lt;/p&gt;
+&lt;p&gt;Способы решения разнятся от использования плагинов в Vim до настройки системных утилит, некоторые решения страдают привязкой к определённой ОС, другие сложностью в их исполнении. &lt;/p&gt;
+&lt;p&gt;Лучшее же решение этой проблемы заложено в базовый функционал самого Vim и настраивается парой строчек в &lt;code&gt;vim.rc&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Сначала надо указать Vim какие раскладки будут использоваться, для &lt;code&gt;ru/en&lt;/code&gt; прописываем:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set keymap=russian-jcukenwin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Теперь переключение раскладки &lt;strong&gt;в режиме ввода&lt;/strong&gt; доступно по стандартной комбинации &lt;code&gt;&amp;lt;C-^&amp;gt;&lt;/code&gt;, что само по себе неудобно, но уже позволяет не терять время на возвращение раскладки латинский вариант после выхода в &amp;laquo;нормальный&amp;raquo; режим.&lt;/p&gt;
+&lt;p&gt;Для себя выбрал выбрал  &lt;code&gt;&amp;lt;C-L&amp;gt;&lt;/code&gt; в качестве комфортной комбинации смены раскладки.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Для режима ввода
+imap &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
+# Для коммадного режима
+cmap &amp;lt;silent&amp;gt; &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Для переключения раскладки в &amp;laquo;нормальном&amp;raquo; режиме, например для того чтобы такие команды &lt;code&gt;f&lt;/code&gt; и &lt;code&gt;F&lt;/code&gt; искали символы на нужном языке, я использую сочетание клавиш &lt;code&gt;&amp;lt;Leader&amp;gt;L&lt;/code&gt;, так как в моем конфиге в &amp;laquo;нормальном&amp;raquo; режиме команда &lt;code&gt;&amp;lt;C-L&amp;gt;&lt;/code&gt; уже используется.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nmap &amp;lt;silent&amp;gt; &amp;lt;Leader&amp;gt;l a&amp;lt;C-^&amp;gt;&amp;lt;Esc&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content><category term="vim"></category></entry><entry><title>Как развернуть Django приложения при помощи uWSGI и Nginx на Ubuntu 14.04</title><link href="https://solaire-off.github.io/articles/2017/12/deploy-django-applications-on-ubuntu-14-04/" rel="alternate"></link><published>2017-12-23T15:15:00+03:00</published><updated>2017-12-23T15:15:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-12-23:/articles/2017/12/deploy-django-applications-on-ubuntu-14-04/</id><summary type="html">&lt;p&gt;Источник: &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04"&gt;How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2 id="_1"&gt;Введение&lt;/h2&gt;
 &lt;p&gt;Django - мощный веб-фреймворк который может помочь вашему Python приложению или веб-сайту сдвинуться с мертвой точки. Django включает в себя упрощенный сервер для тестирования ваше кода в пределах локальной сети, но для всего остального, например для …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Источник: &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04"&gt;How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04&lt;/a&gt;&lt;/p&gt;
@@ -672,213 +602,283 @@ sudo ln -s /etc/nginx/sites-available/secondsite /etc/nginx/sites-enabled
 &lt;p&gt;Теперь вы можете перейти к двум своим проектов, использую соответствующие доменные имена. Как интерфейс пользователя, так и интерфейс администратора должны работать должным образом.&lt;/p&gt;
 &lt;h2 id="_7"&gt;Вывод&lt;/h2&gt;
 &lt;p&gt;В этом руководстве мы создали два Django проекта, каждый в своей собственной виртуальной среде,  настроили uWSGI для работы с каждым проектом в независимости от другого, использую настроенную для каждого виртуальную среду. Затем мы настроили Nginx в качестве обратного прокси для обработки клиентских подключений и правильного обслуживания каждого проекта в зависимости от клиентского запроса.&lt;/p&gt;
-&lt;p&gt;Django упрощает создание проектов и приложений, представляя множество общих частей, что позволяет сосредоточиться на уникальных элементах. Использую цепочку инструментов  из этой стать, вы сможете легко настроить обслуживание нескольких  приложений на одном сервере.&lt;/p&gt;</content><category term="django"></category><category term="linux"></category></entry><entry><title>Лучший способ смены раскладки в Vim</title><link href="https://solaire-off.github.io/articles/2018/02/vim-keyboard-layout-switch/" rel="alternate"></link><published>2018-02-14T10:26:00+03:00</published><updated>2018-02-14T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2018-02-14:/articles/2018/02/vim-keyboard-layout-switch/</id><summary type="html">&lt;hr /&gt;
-&lt;p&gt;После перехода на работу  Vim встал вопрос &amp;mdash; как сменить раскладку в режиме ввода, чтобы при выходе в нормальный режим не приходилось сменять раскладку назад на латиницу, ведь горячие клавиши работают только на ней.&lt;/p&gt;
-&lt;p&gt;Эта головная боль тех пользователей, чей язык не использует латинский алфавит.&lt;/p&gt;
-&lt;p&gt;Способы решения разнятся от использования плагинов …&lt;/p&gt;</summary><content type="html">&lt;hr /&gt;
-&lt;p&gt;После перехода на работу  Vim встал вопрос &amp;mdash; как сменить раскладку в режиме ввода, чтобы при выходе в нормальный режим не приходилось сменять раскладку назад на латиницу, ведь горячие клавиши работают только на ней.&lt;/p&gt;
-&lt;p&gt;Эта головная боль тех пользователей, чей язык не использует латинский алфавит.&lt;/p&gt;
-&lt;p&gt;Способы решения разнятся от использования плагинов в Vim до настройки системных утилит, некоторые решения страдают привязкой к определённой ОС, другие сложностью в их исполнении. &lt;/p&gt;
-&lt;p&gt;Лучшее же решение этой проблемы заложено в базовый функционал самого Vim и настраивается парой строчек в &lt;code&gt;vim.rc&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Сначала надо указать Vim какие раскладки будут использоваться, для &lt;code&gt;ru/en&lt;/code&gt; прописываем:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;set keymap=russian-jcukenwin
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Теперь переключение раскладки &lt;strong&gt;в режиме ввода&lt;/strong&gt; доступно по стандартной комбинации &lt;code&gt;&amp;lt;C-^&amp;gt;&lt;/code&gt;, что само по себе неудобно, но уже позволяет не терять время на возвращение раскладки латинский вариант после выхода в &amp;laquo;нормальный&amp;raquo; режим.&lt;/p&gt;
-&lt;p&gt;Для себя выбрал выбрал  &lt;code&gt;&amp;lt;C-L&amp;gt;&lt;/code&gt; в качестве комфортной комбинации смены раскладки.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Для режима ввода
-imap &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
-# Для коммадного режима
-cmap &amp;lt;silent&amp;gt; &amp;lt;C-L&amp;gt; &amp;lt;C-^&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Для переключения раскладки в &amp;laquo;нормальном&amp;raquo; режиме, например для того чтобы такие команды &lt;code&gt;f&lt;/code&gt; и &lt;code&gt;F&lt;/code&gt; искали символы на нужном языке, я использую сочетание клавиш &lt;code&gt;&amp;lt;Leader&amp;gt;L&lt;/code&gt;, так как в моем конфиге в &amp;laquo;нормальном&amp;raquo; режиме команда &lt;code&gt;&amp;lt;C-L&amp;gt;&lt;/code&gt; уже используется.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nmap &amp;lt;silent&amp;gt; &amp;lt;Leader&amp;gt;l a&amp;lt;C-^&amp;gt;&amp;lt;Esc&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</content><category term="vim"></category></entry><entry><title>Базовая настройка Tmux</title><link href="https://solaire-off.github.io/articles/2018/03/base-tmux-settings/" rel="alternate"></link><published>2018-03-15T10:26:00+03:00</published><updated>2018-03-15T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2018-03-15:/articles/2018/03/base-tmux-settings/</id><summary type="html">&lt;hr /&gt;
-&lt;p&gt;Команды в Tmux начинаются с префикса.  По умолчанию &lt;code&gt;prefix&lt;/code&gt; &amp;mdash; это сочетание клавиш &lt;code&gt;Control + B&lt;/code&gt;. Не самый удобный сочетание для частого использования, для себя я выбрал &lt;code&gt;Control + Space&lt;/code&gt;, так как такое сочетание не используйте в моем рабочем окружении.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;== Терминалы ==
-вертикальный сплит                 prefix + %
-горизонтальный сплит               prefix + "
-удаление терминала                 prefix + d
-
-== Навигация == 
-вверх …&lt;/code&gt;&lt;/pre&gt;</summary><content type="html">&lt;hr /&gt;
-&lt;p&gt;Команды в Tmux начинаются с префикса.  По умолчанию &lt;code&gt;prefix&lt;/code&gt; &amp;mdash; это сочетание клавиш &lt;code&gt;Control + B&lt;/code&gt;. Не самый удобный сочетание для частого использования, для себя я выбрал &lt;code&gt;Control + Space&lt;/code&gt;, так как такое сочетание не используйте в моем рабочем окружении.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;== Терминалы ==
-вертикальный сплит                 prefix + %
-горизонтальный сплит               prefix + "
-удаление терминала                 prefix + d
-
-== Навигация == 
-вверх                              prefix + &amp;#8593;
-вниз                               prefix + &amp;#8595;
-влево                              prefix + &amp;#8592;
-вправо                             prefix + &amp;#8594;
-
-== Изменнеие размеров == 
-вверх                              prefix + Shift + &amp;#8593;
-вниз                               prefix + Shift + &amp;#8595;
-влево                              prefix + Shift + &amp;#8592; 
-вправо                             prefix + Shift + &amp;#8594;
-
-
-== Окна ==
-создать окно                       prefix + c
-переименовать окно                 prefix + ,
-перейти к следующему окнку         prefix + n
-перекрлючение к окну по номеру     prefix + номер
-удаление окна                      prefix + &amp;
-
-
-== Сессии == 
-список сессей                      prefix + s
-выход из сессии                    prefix + x
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Если для запуска мультиплексора в терминале нужно набрать &lt;code&gt;tmux&lt;/code&gt;, то для возврата к предыдущей сессии, например если терминал был просто закрыт, используется команда &lt;code&gt;tmux attach&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Настройки Tmux можно менять в конфигурационном файле, для этого создается и редактируется файл &lt;code&gt;.tmux.conf&lt;/code&gt; в корневом каталоге пользователя. &lt;/p&gt;
-&lt;h2 id="_1"&gt;Основные настройки&lt;/h2&gt;
-&lt;p&gt;Установка префикса. &lt;/p&gt;
-&lt;pre&gt;&lt;code class="bash"&gt;set -g prefix C-Space
-bind C-Space send-prefix
-unbind C-b
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Установка навигации по  hjkl:  &lt;/p&gt;
+&lt;p&gt;Django упрощает создание проектов и приложений, представляя множество общих частей, что позволяет сосредоточиться на уникальных элементах. Использую цепочку инструментов  из этой стать, вы сможете легко настроить обслуживание нескольких  приложений на одном сервере.&lt;/p&gt;</content><category term="django"></category><category term="linux"></category></entry><entry><title>В CSS используйте px, а не em</title><link href="https://solaire-off.github.io/articles/2017/12/in-css-use-px-not-em/" rel="alternate"></link><published>2017-12-13T12:00:00+03:00</published><updated>2017-12-13T12:00:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-12-13:/articles/2017/12/in-css-use-px-not-em/</id><summary type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
+Оригинал статьи: &lt;a href="http://jgthms.com/in-css-use-pixels-not-em.html"&gt;In CSS: use pixels, not em&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;В CSS используются различные &lt;a href="http://marksheet.io/css-size-units.html"&gt;единицы измерения&lt;/a&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;prifix + h&lt;/code&gt; - переместить в левое окно;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;prifix + j&lt;/code&gt; - переместить в нижнее окно;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;prifix + k&lt;/code&gt; - переместить в верхнее окно;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;prifix + l&lt;/code&gt; - переместить в правое окно.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;px&lt;/code&gt; пиксель&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%&lt;/code&gt; процент&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;em&lt;/code&gt;  размер шрифта родительского элемента&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rem&lt;/code&gt; размер шрифта корневого элемента&lt;/li&gt;
+&lt;li&gt;безымянное значение (например для &lt;code&gt;line-height&lt;/code&gt;)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class="bash"&gt;bind h select-pane -L 
-bind j select-pane -D 
-bind k select-pane -U 
-bind l select-pane -R
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Настройка этих же клавиши для регулирования размера терминала.&lt;/p&gt;
+&lt;p&gt;Наиболее естественной единицей измерения является пиксель, особенно для объявления высоты и ширины, так как это …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
+Оригинал статьи: &lt;a href="http://jgthms.com/in-css-use-pixels-not-em.html"&gt;In CSS: use pixels, not em&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;В CSS используются различные &lt;a href="http://marksheet.io/css-size-units.html"&gt;единицы измерения&lt;/a&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;prifix + shift + h&lt;/code&gt; - увеличить окно влево;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;prifix + shift + j&lt;/code&gt; - увеличить окно вниз;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;prifix + shift + k&lt;/code&gt; - увеличить окно вверх;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;prifix + shift + l&lt;/code&gt; - увеличить окно вправо.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;px&lt;/code&gt; пиксель&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%&lt;/code&gt; процент&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;em&lt;/code&gt;  размер шрифта родительского элемента&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rem&lt;/code&gt; размер шрифта корневого элемента&lt;/li&gt;
+&lt;li&gt;безымянное значение (например для &lt;code&gt;line-height&lt;/code&gt;)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;bind -r H resize-pane -L 2
-bind -r J resize-pane -D 2
-bind -r K resize-pane -U 2
-bind -r L resize-pane -R 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Настройка количество строк истории, который Tmux будет хранить для истории.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;set -g history-limit 20000
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Разрешение использовать мышь для перехода между окнами и изменениях их размеров.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;setw -g mouse on
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Нумерации окон с 1 вместо 0.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;set -g base-index 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Отключение автоматического переименования окна при переходе по терминалам.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;set-option -g allow-rename off
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Макрос на запрос ввода имени при открытие нового окна. &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;bind-key c command-prompt -p &amp;quot;window name:&amp;quot; &amp;quot;new-window; rename-window '%%'&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Настройка размеров и цвета статус бара.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;set -g status-bg black
-set -g status-fg white
-set -g window-status-current-fg black
-set -g window-status-current-attr bold
-set -g status-interval 60
-set -g status-left-length 30
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Отображение имени пользователя и текущего времени в статус баре.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;set -g status-left ' #[fg=white]#(whoami) '
-set -g status-right '#[fg=white]%H:%M#[default]'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Итоговый файл.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;set -g prefix C-space
-bind C-space send-prefix
-unbind C-b
-
-bind h select-pane -L 
-bind j select-pane -D 
-bind k select-pane -U 
-bind l select-pane -R
-
-bind -r H resize-pane -L 2
-bind -r J resize-pane -D 2
-bind -r K resize-pane -U 2
-bind -r L resize-pane -R 2
-
-
-set -g history-limit 20000
-
-setw -g mouse on
-
-
-set -g base-index 1
-set-option -g allow-rename off
-
-bind-key c command-prompt -p &amp;quot;window name:&amp;quot; &amp;quot;new-window; rename-window '%%'&amp;quot;
-
-set -g status-bg black
-set -g status-fg white
-set -g window-status-current-fg black
-set -g window-status-current-attr bold
-set -g status-interval 60
-set -g status-left-length 30
-set -g status-left ' #[fg=white]#(whoami) '
-set -g status-right '#[fg=white]%H:%M#[default]'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Это была базовая конфигурация, с которой можно начать удобно работать. Далее можно советую подключить менеджер плагинов и самому дописывать и менять конфигурацию для своего удобства.&lt;/p&gt;</content><category term="tmux"></category></entry><entry><title>Vim-подобная навигация в Gnome 3</title><link href="https://solaire-off.github.io/articles/2018/12/vim-navigation-into-gnome-3/" rel="alternate"></link><published>2018-12-15T10:26:00+03:00</published><updated>2018-12-15T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2018-12-15:/articles/2018/12/vim-navigation-into-gnome-3/</id><summary type="html">&lt;hr /&gt;
-&lt;p&gt;После установки свежей системы с Gnome 3 на борту, мне захотелось экспериментов и вместо того, чтобы накатить привычный i3wm, было принято решения вновь взглянуть на то, что же из себя представляет Gnome. &lt;/p&gt;
-&lt;p&gt;А представлял он собой все тот же красивый интерфейс, которым неудобно управлять как прокликивая все мышкой, так и …&lt;/p&gt;</summary><content type="html">&lt;hr /&gt;
-&lt;p&gt;После установки свежей системы с Gnome 3 на борту, мне захотелось экспериментов и вместо того, чтобы накатить привычный i3wm, было принято решения вновь взглянуть на то, что же из себя представляет Gnome. &lt;/p&gt;
-&lt;p&gt;А представлял он собой все тот же красивый интерфейс, которым неудобно управлять как прокликивая все мышкой, так и использую стандартные сочетания клавиш. &lt;/p&gt;
-&lt;p&gt;Тем не менее возможность время от времени использовать систему одной лишь мышкой мне понравилась, чего нельзя сделать в том же i3wm, так что надо было решить вопрос использования множества терминалов и настроить вменяемые хоткеи для управление рабочим пространством. &lt;/p&gt;
-&lt;p&gt;Для работы с терминалами на помощь  пришел терминальный мультиплексор - &lt;a href="/tmux/"&gt;Tmux&lt;/a&gt;, который я и раньше использовался чаще, чем вызов отдельного терминала в оконном менеджере.&lt;/p&gt;
-&lt;p&gt;Вспоминая работу c рабочими столами в i3wm, а также управление в Vim с его &lt;code&gt;hjkl&lt;/code&gt;, настроил некоторые сочетания клавиш для работы в системе: &lt;/p&gt;
+&lt;p&gt;Наиболее естественной единицей измерения является пиксель, особенно для объявления высоты и ширины, так как это &lt;strong&gt;абсолютная&lt;/strong&gt; единица измерения.&lt;/p&gt;
+&lt;p&gt;Но &lt;strong&gt;относительные&lt;/strong&gt; единицы измерения, например &lt;code&gt;em&lt;/code&gt;, имеют свои преимущества.&lt;/p&gt;
+&lt;h2 id="em"&gt;Как работает em&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;em&lt;/code&gt; эквивалент  &lt;em&gt;текущего&lt;/em&gt;  значения &lt;code&gt;font-size&lt;/code&gt;. Так, если ваш элемент имеет &lt;code&gt;font-size: 12px&lt;/code&gt;, &lt;code&gt;1em&lt;/code&gt; равен &lt;code&gt;12px&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;С помощью объявления &lt;code&gt;font-size&lt;/code&gt;, вы можете использовать &lt;code&gt;em&lt;/code&gt; для определения &lt;em&gt;относительных&lt;/em&gt; значений &lt;em&gt;различных&lt;/em&gt; свойств:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;win+j&lt;/code&gt; -- переключиться к предыдущему рабочему столу.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;win+k&lt;/code&gt; -- переключиться к следующему рабочему столу&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;win+shift+j&lt;/code&gt; -- перенести приложение на предыдущий рабочий стол;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;win+shift+k&lt;/code&gt; -- перенести приложение на следующий рабочий стол;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;win+shift+f&lt;/code&gt; -- переключить приложение между полноэкранным и оконным режимом&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;win+1&lt;/code&gt; -- переключиться на 1 рабочий стол. &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;win+2&lt;/code&gt; -- переключиться на 2 рабочий стол.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;win+n&lt;/code&gt; -- переключение на рабочий стол номер &lt;code&gt;n&lt;/code&gt;. &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;win+shift+n&lt;/code&gt; -- перенос приложения на рабочий стол номер &lt;code&gt;n&lt;/code&gt;. &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;win+shift+h&lt;/code&gt; -- закрепление приложения в левой части экрана. &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;win+shift+l&lt;/code&gt; -- закрепление приложения в правой части экрана. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;margin&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;padding&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;height&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;width&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;и т.д.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Для быстрого  запуска приложений в Gnome по умолчанию используется клавиша &lt;code&gt;Win&lt;/code&gt;, открывающая поиск по приложениям.&lt;/p&gt;</content><category term="vim"></category><category term="gnome"></category></entry><entry><title>Масштабирование веб-сайта с помощью REM</title><link href="https://solaire-off.github.io/articles/2018/12/great-scale-with-rem/" rel="alternate"></link><published>2018-12-16T10:26:00+03:00</published><updated>2018-12-16T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2018-12-16:/articles/2018/12/great-scale-with-rem/</id><summary type="html">&lt;hr /&gt;
-&lt;p&gt;Когда в мобильной версии веб-сайта необходимо уменьшить размеры компонентов, на помощь может прийти такая единицы измерения как &lt;code&gt;rem&lt;/code&gt;. При правильном использовании &lt;code&gt;rem&lt;/code&gt; станет хорошим помощником в создании адаптивного веб-сайта.&lt;/p&gt;
-&lt;p&gt;Для начала работы с &lt;code&gt;rem&lt;/code&gt; необходимо задать ему размер, &lt;code&gt;1rem&lt;/code&gt; всегда равен размеру шрифта &lt;code&gt;html&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Чтобы было удобно рассчитывать размеры элементов …&lt;/p&gt;</summary><content type="html">&lt;hr /&gt;
-&lt;p&gt;Когда в мобильной версии веб-сайта необходимо уменьшить размеры компонентов, на помощь может прийти такая единицы измерения как &lt;code&gt;rem&lt;/code&gt;. При правильном использовании &lt;code&gt;rem&lt;/code&gt; станет хорошим помощником в создании адаптивного веб-сайта.&lt;/p&gt;
-&lt;p&gt;Для начала работы с &lt;code&gt;rem&lt;/code&gt; необходимо задать ему размер, &lt;code&gt;1rem&lt;/code&gt; всегда равен размеру шрифта &lt;code&gt;html&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Чтобы было удобно рассчитывать размеры элементов, стоит прописать размер одного &lt;code&gt;rem&lt;/code&gt; в &lt;code&gt;10px&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;html{
-  font-size: 10px
+&lt;p&gt;&lt;code&gt;rem&lt;/code&gt; работает точно так же как &lt;code&gt;em&lt;/code&gt;. Единственное отличие состоит в том, что &lt;code&gt;em&lt;/code&gt; считает значение относительно &lt;code&gt;font-size&lt;/code&gt;  &lt;em&gt;родительского&lt;/em&gt; элемента, а &lt;code&gt;rem&lt;/code&gt; считает &lt;code&gt;font-size&lt;/code&gt; относительно  &lt;em&gt;корневого&lt;/em&gt; элемента, то есть &lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;C помощью изменения &lt;em&gt;единственного&lt;/em&gt; значения &lt;code&gt;font-size&lt;/code&gt;, вы можете изменять другие свойства:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.button {
+  font-size: 16px;
+  padding: 0.75em 1em;
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;После этого все размеры компонентов в CSS  нужно описывать в &lt;code&gt;rem&lt;/code&gt;. Например шрифт размером в &lt;code&gt;18px&lt;/code&gt; станет размером в &lt;code&gt;1.8rem&lt;/code&gt;, отступ в &lt;code&gt;5px&lt;/code&gt; превратиться &lt;code&gt;0.5rem&lt;/code&gt; и так далее. &lt;/p&gt;
-&lt;p&gt;Когда все размеры веб-сайта буду заданы в &lt;code&gt;rem&lt;/code&gt;, изменить масштаб всех элементов на сайте можно, изменяя количество пикселей в одном &lt;code&gt;rem&lt;/code&gt;. &lt;/p&gt;
-&lt;p&gt;Например, если при разрешении меньше 1440px нужно уменьшить элементы веб-сайта на 20%, тогда можно использовать следующий код.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@media all and (max-width: 1440px){
-  html{
-    font-size: 8px;
+&lt;figure&gt;
+  &lt;img alt="CSS em size button" src="/images/em-size-button.gif"&gt;
+  &lt;br&gt;
+  &lt;figcaption&gt;Пропорциональное изменение размера кнопки с помощью изменения размера шрифта&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Таким образом, вы легко можете переопределять размеры кнопки, изменив только &lt;code&gt;font-size&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.button--small {
+  font-size: 12px;
+}
+
+.button--large {
+  font-size: 20px;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="px-em"&gt;Почему вы должны использовать px, а не em&lt;/h2&gt;
+&lt;p&gt;Использование &lt;code&gt;em&lt;/code&gt; - весьма &lt;strong&gt;изящный&lt;/strong&gt; способ для задания размеров тексту и блокам. Это позволяет сохранять каждый элемент простым и сбалансированным.&lt;/p&gt;
+&lt;p&gt;Я пользовался этим способом раньше. Это было больно. &lt;/p&gt;
+&lt;h3 id="_1"&gt;Для отчетливости шрифтам необходима точность&lt;/h3&gt;
+&lt;p&gt;Предположим, что по умолчанию размер вашего шрифта &lt;code&gt;16px&lt;/code&gt;. У вас есть &lt;strong&gt;заголовок&lt;/strong&gt; размером &lt;code&gt;2rem&lt;/code&gt; и &lt;strong&gt;подзаголовок&lt;/strong&gt; размером &lt;code&gt;1.5rem&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Потрясающе! Ваша визуальная пропорция совпадает со смысловой. Если бы вы изменили размер текста по умолчанию на &lt;code&gt;15px&lt;/code&gt;, то сохранили бы эти пропорции.&lt;/p&gt;
+&lt;p&gt;Но &lt;strong&gt;не всякий размер текста подойдет каждому шрифту&lt;/strong&gt;... Рассмотрим на следующем примере:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="CSS fuzzy text" src="/images/em-fuzzy-text.png"&gt;
+  &lt;br&gt;
+  &lt;figcaption&gt;Довольно просто выставить значение в 1.25rem, но оно не будет идеальным&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Проблема присутствует даже с большим текстом:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="CSS fuzzy title" src="/images/em-fuzzy-title.png"&gt;
+  &lt;br&gt;
+  &lt;figcaption&gt;Различие в 1px имеет значение&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id="_2"&gt;Каждому шрифту необходим свой собственный размер&lt;/h3&gt;
+&lt;p&gt;Другая проблема с использованием &lt;code&gt;em&lt;/code&gt; возникает, когда вы хотите сменить &lt;strong&gt;семейство шрифтов&lt;/strong&gt;, потому что каждый шрифт отрисовывает размеры по-своему:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="CSS Cabin font" src="/images/em-cabin-font.png"&gt;
+  &lt;br&gt;
+  &lt;figcaption&gt;12px легче вычислить, но 13px выглядят лучше&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id="_3"&gt;Изображением нужны пиксели&lt;/h3&gt;
+&lt;p&gt;Если &lt;strong&gt;размеры&lt;/strong&gt; изображения установлены в пикселях, и вы хотите точно выровнять окружающий его текст по &lt;em&gt;вертикале&lt;/em&gt; , то вы должны использовать &lt;code&gt;padding-top&lt;/code&gt; и &lt;code&gt;line-height&lt;/code&gt; в пикселях.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="CSS image alignment" src="/images/em-image-alignment.png"&gt;
+  &lt;br&gt;
+  &lt;figcaption&gt;C em или rem это потребовало бы хитрых вычислений &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;(Мое лого не изображение, хоть раньше и было, но в любом случае это не важно)&lt;/p&gt;
+&lt;h3 id="_4"&gt;Для задания границ нужны пиксели&lt;/h3&gt;
+&lt;p&gt;Представим, что вы хотите, чтобы ваши кнопка и поле ввода были высотой &lt;code&gt;38px&lt;/code&gt;. Одинаковая высота позволит расположить элементы друг рядом с другом, например как в &lt;a href="http://v4-alpha.getbootstrap.com/components/input-group/"&gt;Bootstrap 4&lt;/a&gt;:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="em input button" src="/images/em-input-button.png"&gt;
+  &lt;br&gt;
+  &lt;figcaption&gt;Сгруппированные и выровненные элементы&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Как сделать это с помощью &lt;code&gt;rem&lt;/code&gt;?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.form-control {
+    border: .0625rem solid #ccc;
+    border-radius: .25rem;
+    font-size: 1rem;
+    padding: .375rem .75rem;
   }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Все эти вычисления основаны на размере шрифта в &lt;code&gt;16px&lt;/code&gt;. Что случиться, если мы изменим значение на &lt;code&gt;15px&lt;/code&gt;?&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="em input button border gone" src="/images/em-input-button-border-gone.png"&gt;
+  &lt;br&gt;
+  &lt;figcaption&gt;Где мои рамки??&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Да. Теперь размер рамки установлен в &lt;code&gt;0.9375px&lt;/code&gt;, и она просто исчезла, как ей и предусмотрено.&lt;/p&gt;
+&lt;p&gt;Вы должно быть подумали: &lt;em&gt;"Почему бы не использовать тени?"&lt;/em&gt; ? Ну, &lt;code&gt;box-shadow&lt;/code&gt; не является решением, так как:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;каждый раз, когда вы захотите добавить тень, вам нужно переопределить &lt;em&gt;все&lt;/em&gt; остальные значения;&lt;/li&gt;
+&lt;li&gt;тень не является частью размеров блока;&lt;/li&gt;
+&lt;li&gt;тень может быть только одного цвета;&lt;/li&gt;
+&lt;li&gt;необходимо 4 тени, если вы хотите получить рамки 4 разных цветов.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_5"&gt;Векторным элементам необходимы пиксели&lt;/h3&gt;
+&lt;p&gt;Векторные элементы, например &lt;strong&gt;иконочные шрифты&lt;/strong&gt;, для правильной отрисовки требуют точных значений в пикселях.&lt;/p&gt;
+&lt;p&gt;Стандартный размер иконок в &lt;a href="http://fortawesome.github.io/Font-Awesome/"&gt;Font Awesome&lt;/a&gt;  &lt;code&gt;28px&lt;/code&gt;. Если вам нужны значки поменьше, остановитесь на &lt;code&gt;14px&lt;/code&gt;. Любые другие значение выглядят ужасно:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt="em Font Awesome" src="/images/em-font-awesome.png"&gt;
+  &lt;br&gt;
+  &lt;figcaption&gt;Только кратные 7&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id="_6"&gt;Теперь браузеры масштабируют правильно&lt;/h3&gt;
+&lt;p&gt;Для увеличения размера страницы, браузеры просто &lt;strong&gt;увеличивают размер шрифта&lt;/strong&gt;, делая текст больше, но сохраняя первоначальный размер блоков в пикселях. &lt;/p&gt;
+&lt;p&gt;Чтобы пользователи не могли сломать страницу при увеличении, необходима было задать &lt;strong&gt;динамичный&lt;/strong&gt; размер блоков в &lt;code&gt;em&lt;/code&gt; или &lt;code&gt;rem&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Но в настоящее время браузеры могут пропорционально увеличивать  &lt;em&gt;любые&lt;/em&gt; блоки. В &lt;code&gt;em&lt;/code&gt; больше нет необходимости.&lt;/p&gt;
+&lt;h2 id="_7"&gt;Просо используйте пиксели&lt;/h2&gt;
+&lt;p&gt;Если вы хотите правильно отрисованный интерфейс, остановитесь на пикселях:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;вы сможете избежать сложных &lt;strong&gt;вычеслений&lt;/strong&gt; вплоть до десятитысячных  &lt;/li&gt;
+&lt;li&gt;вы сможете точно определять значения свойства, просто взглянув на него, ведь элемент не будет иметь &lt;strong&gt;зависимостей&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;в любом случай &lt;strong&gt;препроцессоры&lt;/strong&gt;, например Sass, позволяют использовать переменные для задания размеров и миксины для создания различный вариантов элементов&lt;/li&gt;
+&lt;li&gt;вы сможете &lt;strong&gt;выравнивать&lt;/strong&gt; разные типы элементов, каждый из которых требует &lt;em&gt;свой&lt;/em&gt; размер шрифта&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Вы все еще можете использовать &lt;code&gt;em&lt;/code&gt; для таких вещей как межсимвольный интервал, отступы, или другие свойства так или иначе связанные с размером шрифта. Но не осталось ни одной причины, которая не устарела или не стала бесполезной, чтобы использовать их &lt;em&gt;везде&lt;/em&gt;.&lt;/p&gt;</content><category term="css"></category></entry><entry><title>Забытое искусство посещенных ссылок</title><link href="https://solaire-off.github.io/articles/2017/12/the-lost-art-of-visited-links/" rel="alternate"></link><published>2017-12-03T10:26:00+03:00</published><updated>2017-12-03T10:26:00+03:00</updated><author><name>Виктор Ананьев</name></author><id>tag:solaire-off.github.io,2017-12-03:/articles/2017/12/the-lost-art-of-visited-links/</id><summary type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;
+Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Весьма вероятно вы посещали &lt;a href="https://www.google.com"&gt;эту&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту&lt;/a&gt; страницу,
+может были на &lt;a href="https://news.ycombinator.com/"&gt;этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
+уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Справедливости ради, я могу лишь &lt;em&gt;догадываться&lt;/em&gt;. Хотя вы точно …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;
+Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Весьма вероятно вы посещали &lt;a href="https://www.google.com"&gt;эту&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту&lt;/a&gt; страницу,
+может были на &lt;a href="https://news.ycombinator.com/"&gt;этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
+уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Справедливости ради, я могу лишь &lt;em&gt;догадываться&lt;/em&gt;. Хотя вы точно можете сказать, на каких страницах уже были,
+даже не переходя и не наводя курсор ни на одну из этих ссылок, ведь мой сайт изменяет цвет &lt;strong&gt;посещенных&lt;/strong&gt; ссылок.&lt;/p&gt;
+&lt;h2 id="timelord"&gt;Путешествие во времени&lt;/h2&gt;
+&lt;p&gt;Навигация в интернете в основном &lt;strong&gt;двумерна&lt;/strong&gt;: вы либо &lt;em&gt;прокручиваете&lt;/em&gt;  (y-index), либо &lt;em&gt;щелкаете&lt;/em&gt; (z-index).&lt;/p&gt;
+&lt;p&gt;Цвет ссылок обеспечивает третье измерение: &lt;strong&gt;время&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Фиолетовые ссылки из &lt;strong&gt;прошлого&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Синие ссылки &amp;mdash; кандидаты в &lt;strong&gt;настоящее&lt;/strong&gt; или &lt;strong&gt;будущее&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В зависимости от того, что вы ищете, посещенные ссылки могут вызывать
+две разные реакции:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;«О, да, это тот сайт, который я искал! Я уже был там.»&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;«Я уже был на этой странице, попробую следующею.»&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="checklist"&gt;Ссылки как чеклист&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Агрегаторы ссылок&lt;/strong&gt;, такие как &lt;a href="https://www.reddit.com/"&gt;Reddit&lt;/a&gt; или
+&lt;a href="https://news.ycombinator.com/"&gt;Hacker News&lt;/a&gt;, остаются одними из немногих
+ресурсов, которые по-прежнему разграничивают посещенные ссылки от «новых».&lt;/p&gt;
+&lt;p&gt;Как правило, поисковая выдача Google поступает также. &lt;/p&gt;
+&lt;p&gt;Фиолетовые ссылки имеют роль &lt;strong&gt;выполненных задач&lt;/strong&gt; потому что:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Вы не хотите переходить на одну и туже страницу &lt;strong&gt;дважды&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Вы хотите &lt;strong&gt;найти&lt;/strong&gt; список ссылок, которые вы посетили.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Различие в цвете дает информацию о состоянии ссылок.&lt;/p&gt;
+&lt;h2 id="yuck"&gt;Фиолетовые ссылки? Фу!&lt;/h2&gt;
+&lt;p&gt;Но почему посещенные ссылки так редко встречаются? Потому что дизайнеры
+(как я) &lt;strong&gt;ленятся&lt;/strong&gt; и &lt;strong&gt;придираются&lt;/strong&gt; к каждой мелочи.&lt;/p&gt;
+&lt;p&gt;Вы хотите, чтобы по завершению макета (утвержденного вами или вашим
+заказчиком) сверстанная страница на самом деле совпадала с макетом. Вам
+не хочется, чтобы действия пользователя &lt;strong&gt;повлияли&lt;/strong&gt; на ваш идеально
+сбалансированный дизайн, не так ли?&lt;/p&gt;
+&lt;p&gt;Если бы вы профессионально делали дизайн кнопки X, то вы бы
+проработали множество состояний (обычное, наведение, клик, фокус,
+отключение), но вряд ли бы вы вспомнили про посещенную ссылку..&lt;/p&gt;
+&lt;p&gt;Одно из первый CSS правил, которое пишет любой дизайнер:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;a{
+    color: $anythingButBlue;
 }
-&lt;/code&gt;&lt;/pre&gt;</content><category term="css"></category></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Такое правило подобно сбросу цвета, повлияет на &lt;strong&gt;все&lt;/strong&gt; ссылки в любом состоянии: наведения, клика,
+фокуса и посещения. Вы устанавливаете его и
+забываете. Вы можете использовать псевдокласс &lt;code&gt;:link&lt;/code&gt;, но никто об
+этом не узнает. Кроме того вы в любом случае забыли установить &lt;code&gt;:visited&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Веб-страница - это живой документ: вы прорабатываете различные состояния
+интерфейса в зависимости от размера экрана, пользовательского окружения и
+действий пользователя.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Игнорирование цвета посещенных ссылок походит на заботу о кросс-браузерности: полагают, что опыт использования каждого пользователя должна быть строго идентичен.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="privacy"&gt;Вопрос конфиденциальности&lt;/h2&gt;
+&lt;p&gt;Несколько лет назад кто-то провел эксперимент: создав веб-сайт, показывающий 1000 наиболее посещаемых веб-сайтов. В теории этот веб-сайт мог «украсть» вашу историю браузера, вычислив цвет каждой ссылки.&lt;/p&gt;
+&lt;p&gt;Но в настоящее время Firefox предотвратил такое поведение:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Даже если цвет посещенной ссылки был изменен, метод getComputedStyle всегда будет отдавать значение непосещенной ссылки.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Как результат, стилизация посещенных ссылок весьма ограничена:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Посещенные ссылки конфиденциальны. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Вы можете изменить лишь цвет посещенных ссылок.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="exception"&gt;Не все ссылки одинаковы&lt;/h2&gt;
+&lt;p&gt;Большинство ссылок не требуют изменения цвета:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ссылки &lt;strong&gt;навигации&lt;/strong&gt; (домашняя страница, учетная запись, настройки).&lt;/li&gt;
+&lt;li&gt;Интерактивные элементы &lt;strong&gt;интерфейса&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Как решить, какие ссылки должны изменять цвет при посещении?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Внешние ссылки&lt;/strong&gt;, поскольку они выполняют роль упоминаний (поэтому
+    агрегаторы меняют цвет посещенных ссылок)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ссылки на статьи&lt;/strong&gt; или любые страницы, содержание которых не
+    изменяется с течением времени.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Чтобы стало понятно, скажем читаете вы &lt;a href="https://www.theguardian.com"&gt;The
+Guardian&lt;/a&gt;. Главная страница &lt;strong&gt;обновляется&lt;/strong&gt; каждые несколько минут. Вам как пользователю не нужно знать, бывали ли вы здесь, потому что:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Возможно вы уже находитесь на этой странице &lt;strong&gt;сейчас&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Возможно вы вернетесь сюда &lt;strong&gt;снова&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Однако, вам бы хотелось знать, какие статьи вы уже читали, потому что их
+содержание &lt;strong&gt;скорее всего&lt;/strong&gt; не изменится в следующий раз, когда вы будете здесь.&lt;/p&gt;
+&lt;p&gt;Так, прежде чем перейти к статье, вы узнаете, видели ли её, что в зависимости от &lt;strong&gt;намерения&lt;/strong&gt; определит ваше &lt;strong&gt;действие&lt;/strong&gt;:&lt;/p&gt;
+&lt;div style="overflow-x:auto;"&gt;
+&lt;table class="table"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Намерение&lt;/th&gt;
+        &lt;th&gt;Непосещення ссылка&lt;/th&gt;
+        &lt;th&gt;Посещенная ссылка&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Я хочу это увидеть&lt;/td&gt;
+        &lt;td&gt;&lt;i&gt;"Новая статья!"&lt;/i&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;i&gt;"Я искал эту статью"&lt;/i&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Я не хочу это видеть&lt;/td&gt;
+        &lt;td&gt;&lt;i&gt;"Это не выглядит интересно"&lt;/i&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;i&gt;"Я видел это раньше, не интересно"&lt;/i&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;В следующий раз, когда вы создаете сайт, подумайте о &lt;code&gt;:visited&lt;/code&gt;!&lt;br /&gt;
+Пользователи скажут вам спасибо.&lt;/p&gt;</content><category term="css"></category></entry></feed>

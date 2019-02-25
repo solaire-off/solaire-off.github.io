@@ -1,130 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>solaire-off.github.io - css</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Sun, 16 Dec 2018 10:26:00 +0300</lastBuildDate><item><title>Забытое искусство посещенных ссылок</title><link>https://solaire-off.github.io/articles/2017/12/the-lost-art-of-visited-links/</link><description>&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;
-Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;Весьма вероятно вы посещали &lt;a href="https://www.google.com"&gt;эту&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту&lt;/a&gt; страницу,
-может были на &lt;a href="https://news.ycombinator.com/"&gt;этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
-уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Справедливости ради, я могу лишь &lt;em&gt;догадываться&lt;/em&gt;. Хотя вы точно можете сказать, на каких страницах уже были,
-даже не переходя и не наводя курсор ни на одну из этих ссылок, ведь мой сайт изменяет цвет &lt;strong&gt;посещенных&lt;/strong&gt; ссылок.&lt;/p&gt;
-&lt;h2 id="timelord"&gt;Путешествие во времени&lt;/h2&gt;
-&lt;p&gt;Навигация в интернете в основном &lt;strong&gt;двумерна&lt;/strong&gt;: вы либо &lt;em&gt;прокручиваете&lt;/em&gt;  (y-index), либо &lt;em&gt;щелкаете&lt;/em&gt; (z-index).&lt;/p&gt;
-&lt;p&gt;Цвет ссылок обеспечивает третье измерение: &lt;strong&gt;время&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Фиолетовые ссылки из &lt;strong&gt;прошлого&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Синие ссылки &amp;mdash; кандидаты в &lt;strong&gt;настоящее&lt;/strong&gt; или &lt;strong&gt;будущее&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;В зависимости от того, что вы ищете, посещенные ссылки могут вызывать
-две разные реакции:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;«О, да, это тот сайт, который я искал! Я уже был там.»&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;«Я уже был на этой странице, попробую следующею.»&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="checklist"&gt;Ссылки как чеклист&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Агрегаторы ссылок&lt;/strong&gt;, такие как &lt;a href="https://www.reddit.com/"&gt;Reddit&lt;/a&gt; или
-&lt;a href="https://news.ycombinator.com/"&gt;Hacker News&lt;/a&gt;, остаются одними из немногих
-ресурсов, которые по-прежнему разграничивают посещенные ссылки от «новых».&lt;/p&gt;
-&lt;p&gt;Как правило, поисковая выдача Google поступает также. &lt;/p&gt;
-&lt;p&gt;Фиолетовые ссылки имеют роль &lt;strong&gt;выполненных задач&lt;/strong&gt; потому что:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Вы не хотите переходить на одну и туже страницу &lt;strong&gt;дважды&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Вы хотите &lt;strong&gt;найти&lt;/strong&gt; список ссылок, которые вы посетили.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Различие в цвете дает информацию о состоянии ссылок.&lt;/p&gt;
-&lt;h2 id="yuck"&gt;Фиолетовые ссылки? Фу!&lt;/h2&gt;
-&lt;p&gt;Но почему посещенные ссылки так редко встречаются? Потому что дизайнеры
-(как я) &lt;strong&gt;ленятся&lt;/strong&gt; и &lt;strong&gt;придираются&lt;/strong&gt; к каждой мелочи.&lt;/p&gt;
-&lt;p&gt;Вы хотите, чтобы по завершению макета (утвержденного вами или вашим
-заказчиком) сверстанная страница на самом деле совпадала с макетом. Вам
-не хочется, чтобы действия пользователя &lt;strong&gt;повлияли&lt;/strong&gt; на ваш идеально
-сбалансированный дизайн, не так ли?&lt;/p&gt;
-&lt;p&gt;Если бы вы профессионально делали дизайн кнопки X, то вы бы
-проработали множество состояний (обычное, наведение, клик, фокус,
-отключение), но вряд ли бы вы вспомнили про посещенную ссылку..&lt;/p&gt;
-&lt;p&gt;Одно из первый CSS правил, которое пишет любой дизайнер:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;a{
-    color: $anythingButBlue;
+<rss version="2.0"><channel><title>solaire-off.github.io - css</title><link>https://solaire-off.github.io/</link><description></description><lastBuildDate>Sun, 16 Dec 2018 10:26:00 +0300</lastBuildDate><item><title>Масштабирование веб-сайта с помощью REM</title><link>https://solaire-off.github.io/articles/2018/12/great-scale-with-rem/</link><description>&lt;hr /&gt;
+&lt;p&gt;Когда в мобильной версии веб-сайта необходимо уменьшить размеры компонентов, на помощь может прийти такая единицы измерения как &lt;code&gt;rem&lt;/code&gt;. При правильном использовании &lt;code&gt;rem&lt;/code&gt; станет хорошим помощником в создании адаптивного веб-сайта.&lt;/p&gt;
+&lt;p&gt;Для начала работы с &lt;code&gt;rem&lt;/code&gt; необходимо задать ему размер, &lt;code&gt;1rem&lt;/code&gt; всегда равен размеру шрифта &lt;code&gt;html&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Чтобы было удобно рассчитывать размеры элементов, стоит прописать размер одного &lt;code&gt;rem&lt;/code&gt; в &lt;code&gt;10px&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;html{
+  font-size: 10px
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Такое правило подобно сбросу цвета, повлияет на &lt;strong&gt;все&lt;/strong&gt; ссылки в любом состоянии: наведения, клика,
-фокуса и посещения. Вы устанавливаете его и
-забываете. Вы можете использовать псевдокласс &lt;code&gt;:link&lt;/code&gt;, но никто об
-этом не узнает. Кроме того вы в любом случае забыли установить &lt;code&gt;:visited&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Веб-страница - это живой документ: вы прорабатываете различные состояния
-интерфейса в зависимости от размера экрана, пользовательского окружения и
-действий пользователя.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Игнорирование цвета посещенных ссылок походит на заботу о кросс-браузерности: полагают, что опыт использования каждого пользователя должна быть строго идентичен.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id="privacy"&gt;Вопрос конфиденциальности&lt;/h2&gt;
-&lt;p&gt;Несколько лет назад кто-то провел эксперимент: создав веб-сайт, показывающий 1000 наиболее посещаемых веб-сайтов. В теории этот веб-сайт мог «украсть» вашу историю браузера, вычислив цвет каждой ссылки.&lt;/p&gt;
-&lt;p&gt;Но в настоящее время Firefox предотвратил такое поведение:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Даже если цвет посещенной ссылки был изменен, метод getComputedStyle всегда будет отдавать значение непосещенной ссылки.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Как результат, стилизация посещенных ссылок весьма ограничена:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Посещенные ссылки конфиденциальны. &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Вы можете изменить лишь цвет посещенных ссылок.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="exception"&gt;Не все ссылки одинаковы&lt;/h2&gt;
-&lt;p&gt;Большинство ссылок не требуют изменения цвета:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Ссылки &lt;strong&gt;навигации&lt;/strong&gt; (домашняя страница, учетная запись, настройки).&lt;/li&gt;
-&lt;li&gt;Интерактивные элементы &lt;strong&gt;интерфейса&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Как решить, какие ссылки должны изменять цвет при посещении?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Внешние ссылки&lt;/strong&gt;, поскольку они выполняют роль упоминаний (поэтому
-    агрегаторы меняют цвет посещенных ссылок)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Ссылки на статьи&lt;/strong&gt; или любые страницы, содержание которых не
-    изменяется с течением времени.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Чтобы стало понятно, скажем читаете вы &lt;a href="https://www.theguardian.com"&gt;The
-Guardian&lt;/a&gt;. Главная страница &lt;strong&gt;обновляется&lt;/strong&gt; каждые несколько минут. Вам как пользователю не нужно знать, бывали ли вы здесь, потому что:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Возможно вы уже находитесь на этой странице &lt;strong&gt;сейчас&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Возможно вы вернетесь сюда &lt;strong&gt;снова&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Однако, вам бы хотелось знать, какие статьи вы уже читали, потому что их
-содержание &lt;strong&gt;скорее всего&lt;/strong&gt; не изменится в следующий раз, когда вы будете здесь.&lt;/p&gt;
-&lt;p&gt;Так, прежде чем перейти к статье, вы узнаете, видели ли её, что в зависимости от &lt;strong&gt;намерения&lt;/strong&gt; определит ваше &lt;strong&gt;действие&lt;/strong&gt;:&lt;/p&gt;
-&lt;div style="overflow-x:auto;"&gt;
-&lt;table class="table"&gt;
-    &lt;thead&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Намерение&lt;/th&gt;
-        &lt;th&gt;Непосещення ссылка&lt;/th&gt;
-        &lt;th&gt;Посещенная ссылка&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Я хочу это увидеть&lt;/td&gt;
-        &lt;td&gt;&lt;i&gt;"Новая статья!"&lt;/i&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;i&gt;"Я искал эту статью"&lt;/i&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Я не хочу это видеть&lt;/td&gt;
-        &lt;td&gt;&lt;i&gt;"Это не выглядит интересно"&lt;/i&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;i&gt;"Я видел это раньше, не интересно"&lt;/i&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
 
-&lt;p&gt;В следующий раз, когда вы создаете сайт, подумайте о &lt;code&gt;:visited&lt;/code&gt;!&lt;br /&gt;
-Пользователи скажут вам спасибо.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Sun, 03 Dec 2017 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2017-12-03:/articles/2017/12/the-lost-art-of-visited-links/</guid><category>css</category></item><item><title>В CSS используйте px, а не em</title><link>https://solaire-off.github.io/articles/2017/12/in-css-use-px-not-em/</link><description>&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;После этого все размеры компонентов в CSS  нужно описывать в &lt;code&gt;rem&lt;/code&gt;. Например шрифт размером в &lt;code&gt;18px&lt;/code&gt; станет размером в &lt;code&gt;1.8rem&lt;/code&gt;, отступ в &lt;code&gt;5px&lt;/code&gt; превратиться &lt;code&gt;0.5rem&lt;/code&gt; и так далее. &lt;/p&gt;
+&lt;p&gt;Когда все размеры веб-сайта буду заданы в &lt;code&gt;rem&lt;/code&gt;, изменить масштаб всех элементов на сайте можно, изменяя количество пикселей в одном &lt;code&gt;rem&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Например, если при разрешении меньше 1440px нужно уменьшить элементы веб-сайта на 20%, тогда можно использовать следующий код.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@media all and (max-width: 1440px){
+  html{
+    font-size: 8px;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Sun, 16 Dec 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-12-16:/articles/2018/12/great-scale-with-rem/</guid><category>css</category></item><item><title>В CSS используйте px, а не em</title><link>https://solaire-off.github.io/articles/2017/12/in-css-use-px-not-em/</link><description>&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;&lt;br /&gt;
 Оригинал статьи: &lt;a href="http://jgthms.com/in-css-use-pixels-not-em.html"&gt;In CSS: use pixels, not em&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;В CSS используются различные &lt;a href="http://marksheet.io/css-size-units.html"&gt;единицы измерения&lt;/a&gt;:&lt;/p&gt;
@@ -261,21 +153,129 @@ Guardian&lt;/a&gt;. Главная страница &lt;strong&gt;обновля
 &lt;li&gt;в любом случай &lt;strong&gt;препроцессоры&lt;/strong&gt;, например Sass, позволяют использовать переменные для задания размеров и миксины для создания различный вариантов элементов&lt;/li&gt;
 &lt;li&gt;вы сможете &lt;strong&gt;выравнивать&lt;/strong&gt; разные типы элементов, каждый из которых требует &lt;em&gt;свой&lt;/em&gt; размер шрифта&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Вы все еще можете использовать &lt;code&gt;em&lt;/code&gt; для таких вещей как межсимвольный интервал, отступы, или другие свойства так или иначе связанные с размером шрифта. Но не осталось ни одной причины, которая не устарела или не стала бесполезной, чтобы использовать их &lt;em&gt;везде&lt;/em&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Wed, 13 Dec 2017 12:00:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2017-12-13:/articles/2017/12/in-css-use-px-not-em/</guid><category>css</category></item><item><title>Масштабирование веб-сайта с помощью REM</title><link>https://solaire-off.github.io/articles/2018/12/great-scale-with-rem/</link><description>&lt;hr /&gt;
-&lt;p&gt;Когда в мобильной версии веб-сайта необходимо уменьшить размеры компонентов, на помощь может прийти такая единицы измерения как &lt;code&gt;rem&lt;/code&gt;. При правильном использовании &lt;code&gt;rem&lt;/code&gt; станет хорошим помощником в создании адаптивного веб-сайта.&lt;/p&gt;
-&lt;p&gt;Для начала работы с &lt;code&gt;rem&lt;/code&gt; необходимо задать ему размер, &lt;code&gt;1rem&lt;/code&gt; всегда равен размеру шрифта &lt;code&gt;html&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Чтобы было удобно рассчитывать размеры элементов, стоит прописать размер одного &lt;code&gt;rem&lt;/code&gt; в &lt;code&gt;10px&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;html{
-  font-size: 10px
+&lt;p&gt;Вы все еще можете использовать &lt;code&gt;em&lt;/code&gt; для таких вещей как межсимвольный интервал, отступы, или другие свойства так или иначе связанные с размером шрифта. Но не осталось ни одной причины, которая не устарела или не стала бесполезной, чтобы использовать их &lt;em&gt;везде&lt;/em&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Wed, 13 Dec 2017 12:00:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2017-12-13:/articles/2017/12/in-css-use-px-not-em/</guid><category>css</category></item><item><title>Забытое искусство посещенных ссылок</title><link>https://solaire-off.github.io/articles/2017/12/the-lost-art-of-visited-links/</link><description>&lt;p&gt;Автор: &lt;a href="https://twitter.com/jgthms"&gt;Jeremy Thomas&lt;/a&gt;
+Оригинал статьи: &lt;a href="http://jgthms.com/the-lost-art-of-visited-links.html"&gt;The lost art of visited links&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Весьма вероятно вы посещали &lt;a href="https://www.google.com"&gt;эту&lt;/a&gt; или вот &lt;a href="https://youtube.com/"&gt;эту&lt;/a&gt; страницу,
+может были на &lt;a href="https://news.ycombinator.com/"&gt;этой&lt;/a&gt;, но наверняка не &lt;a href="https://en.wikipedia.org/wiki/Driebruggen"&gt;тут&lt;/a&gt; и 
+уж точно не &lt;a href="https://developer.mozilla.org/en/docs/Web/CSS/:visited"&gt;там&lt;/a&gt;, но я точно уверен, что вы были &lt;a href="/articles/2017/12/the-lost-art-of-visited-links/"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Справедливости ради, я могу лишь &lt;em&gt;догадываться&lt;/em&gt;. Хотя вы точно можете сказать, на каких страницах уже были,
+даже не переходя и не наводя курсор ни на одну из этих ссылок, ведь мой сайт изменяет цвет &lt;strong&gt;посещенных&lt;/strong&gt; ссылок.&lt;/p&gt;
+&lt;h2 id="timelord"&gt;Путешествие во времени&lt;/h2&gt;
+&lt;p&gt;Навигация в интернете в основном &lt;strong&gt;двумерна&lt;/strong&gt;: вы либо &lt;em&gt;прокручиваете&lt;/em&gt;  (y-index), либо &lt;em&gt;щелкаете&lt;/em&gt; (z-index).&lt;/p&gt;
+&lt;p&gt;Цвет ссылок обеспечивает третье измерение: &lt;strong&gt;время&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Фиолетовые ссылки из &lt;strong&gt;прошлого&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Синие ссылки &amp;mdash; кандидаты в &lt;strong&gt;настоящее&lt;/strong&gt; или &lt;strong&gt;будущее&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В зависимости от того, что вы ищете, посещенные ссылки могут вызывать
+две разные реакции:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;«О, да, это тот сайт, который я искал! Я уже был там.»&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;«Я уже был на этой странице, попробую следующею.»&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="checklist"&gt;Ссылки как чеклист&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Агрегаторы ссылок&lt;/strong&gt;, такие как &lt;a href="https://www.reddit.com/"&gt;Reddit&lt;/a&gt; или
+&lt;a href="https://news.ycombinator.com/"&gt;Hacker News&lt;/a&gt;, остаются одними из немногих
+ресурсов, которые по-прежнему разграничивают посещенные ссылки от «новых».&lt;/p&gt;
+&lt;p&gt;Как правило, поисковая выдача Google поступает также. &lt;/p&gt;
+&lt;p&gt;Фиолетовые ссылки имеют роль &lt;strong&gt;выполненных задач&lt;/strong&gt; потому что:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Вы не хотите переходить на одну и туже страницу &lt;strong&gt;дважды&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Вы хотите &lt;strong&gt;найти&lt;/strong&gt; список ссылок, которые вы посетили.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Различие в цвете дает информацию о состоянии ссылок.&lt;/p&gt;
+&lt;h2 id="yuck"&gt;Фиолетовые ссылки? Фу!&lt;/h2&gt;
+&lt;p&gt;Но почему посещенные ссылки так редко встречаются? Потому что дизайнеры
+(как я) &lt;strong&gt;ленятся&lt;/strong&gt; и &lt;strong&gt;придираются&lt;/strong&gt; к каждой мелочи.&lt;/p&gt;
+&lt;p&gt;Вы хотите, чтобы по завершению макета (утвержденного вами или вашим
+заказчиком) сверстанная страница на самом деле совпадала с макетом. Вам
+не хочется, чтобы действия пользователя &lt;strong&gt;повлияли&lt;/strong&gt; на ваш идеально
+сбалансированный дизайн, не так ли?&lt;/p&gt;
+&lt;p&gt;Если бы вы профессионально делали дизайн кнопки X, то вы бы
+проработали множество состояний (обычное, наведение, клик, фокус,
+отключение), но вряд ли бы вы вспомнили про посещенную ссылку..&lt;/p&gt;
+&lt;p&gt;Одно из первый CSS правил, которое пишет любой дизайнер:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;a{
+    color: $anythingButBlue;
 }
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Такое правило подобно сбросу цвета, повлияет на &lt;strong&gt;все&lt;/strong&gt; ссылки в любом состоянии: наведения, клика,
+фокуса и посещения. Вы устанавливаете его и
+забываете. Вы можете использовать псевдокласс &lt;code&gt;:link&lt;/code&gt;, но никто об
+этом не узнает. Кроме того вы в любом случае забыли установить &lt;code&gt;:visited&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Веб-страница - это живой документ: вы прорабатываете различные состояния
+интерфейса в зависимости от размера экрана, пользовательского окружения и
+действий пользователя.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Игнорирование цвета посещенных ссылок походит на заботу о кросс-браузерности: полагают, что опыт использования каждого пользователя должна быть строго идентичен.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="privacy"&gt;Вопрос конфиденциальности&lt;/h2&gt;
+&lt;p&gt;Несколько лет назад кто-то провел эксперимент: создав веб-сайт, показывающий 1000 наиболее посещаемых веб-сайтов. В теории этот веб-сайт мог «украсть» вашу историю браузера, вычислив цвет каждой ссылки.&lt;/p&gt;
+&lt;p&gt;Но в настоящее время Firefox предотвратил такое поведение:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Даже если цвет посещенной ссылки был изменен, метод getComputedStyle всегда будет отдавать значение непосещенной ссылки.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Как результат, стилизация посещенных ссылок весьма ограничена:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Посещенные ссылки конфиденциальны. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Вы можете изменить лишь цвет посещенных ссылок.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="exception"&gt;Не все ссылки одинаковы&lt;/h2&gt;
+&lt;p&gt;Большинство ссылок не требуют изменения цвета:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ссылки &lt;strong&gt;навигации&lt;/strong&gt; (домашняя страница, учетная запись, настройки).&lt;/li&gt;
+&lt;li&gt;Интерактивные элементы &lt;strong&gt;интерфейса&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Как решить, какие ссылки должны изменять цвет при посещении?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Внешние ссылки&lt;/strong&gt;, поскольку они выполняют роль упоминаний (поэтому
+    агрегаторы меняют цвет посещенных ссылок)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ссылки на статьи&lt;/strong&gt; или любые страницы, содержание которых не
+    изменяется с течением времени.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Чтобы стало понятно, скажем читаете вы &lt;a href="https://www.theguardian.com"&gt;The
+Guardian&lt;/a&gt;. Главная страница &lt;strong&gt;обновляется&lt;/strong&gt; каждые несколько минут. Вам как пользователю не нужно знать, бывали ли вы здесь, потому что:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Возможно вы уже находитесь на этой странице &lt;strong&gt;сейчас&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Возможно вы вернетесь сюда &lt;strong&gt;снова&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Однако, вам бы хотелось знать, какие статьи вы уже читали, потому что их
+содержание &lt;strong&gt;скорее всего&lt;/strong&gt; не изменится в следующий раз, когда вы будете здесь.&lt;/p&gt;
+&lt;p&gt;Так, прежде чем перейти к статье, вы узнаете, видели ли её, что в зависимости от &lt;strong&gt;намерения&lt;/strong&gt; определит ваше &lt;strong&gt;действие&lt;/strong&gt;:&lt;/p&gt;
+&lt;div style="overflow-x:auto;"&gt;
+&lt;table class="table"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Намерение&lt;/th&gt;
+        &lt;th&gt;Непосещення ссылка&lt;/th&gt;
+        &lt;th&gt;Посещенная ссылка&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Я хочу это увидеть&lt;/td&gt;
+        &lt;td&gt;&lt;i&gt;"Новая статья!"&lt;/i&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;i&gt;"Я искал эту статью"&lt;/i&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Я не хочу это видеть&lt;/td&gt;
+        &lt;td&gt;&lt;i&gt;"Это не выглядит интересно"&lt;/i&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;i&gt;"Я видел это раньше, не интересно"&lt;/i&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
 
-&lt;p&gt;После этого все размеры компонентов в CSS  нужно описывать в &lt;code&gt;rem&lt;/code&gt;. Например шрифт размером в &lt;code&gt;18px&lt;/code&gt; станет размером в &lt;code&gt;1.8rem&lt;/code&gt;, отступ в &lt;code&gt;5px&lt;/code&gt; превратиться &lt;code&gt;0.5rem&lt;/code&gt; и так далее. &lt;/p&gt;
-&lt;p&gt;Когда все размеры веб-сайта буду заданы в &lt;code&gt;rem&lt;/code&gt;, изменить масштаб всех элементов на сайте можно, изменяя количество пикселей в одном &lt;code&gt;rem&lt;/code&gt;. &lt;/p&gt;
-&lt;p&gt;Например, если при разрешении меньше 1440px нужно уменьшить элементы веб-сайта на 20%, тогда можно использовать следующий код.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@media all and (max-width: 1440px){
-  html{
-    font-size: 8px;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Sun, 16 Dec 2018 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2018-12-16:/articles/2018/12/great-scale-with-rem/</guid><category>css</category></item></channel></rss>
+&lt;p&gt;В следующий раз, когда вы создаете сайт, подумайте о &lt;code&gt;:visited&lt;/code&gt;!&lt;br /&gt;
+Пользователи скажут вам спасибо.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Виктор Ананьев</dc:creator><pubDate>Sun, 03 Dec 2017 10:26:00 +0300</pubDate><guid isPermaLink="false">tag:solaire-off.github.io,2017-12-03:/articles/2017/12/the-lost-art-of-visited-links/</guid><category>css</category></item></channel></rss>
